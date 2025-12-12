@@ -2,21 +2,15 @@
 (*                                                                            *)
 (*         Khipu Numerals: Inka Knot Records and Decimal Positional Semantics *)
 (*                                                                            *)
-(*     A foundation for khipu (quipu) numeric cords: explicit cord geometry   *)
-(*     (discrete positions), register intervals, knot-shape constraints, and  *)
-(*     a canonical Inka decimal interpretation (units via figure‑eight/long   *)
-(*     knots; higher places via clusters of overhand knots). Prove:           *)
-(*       • register disjointness ⇒ unique place assignment                    *)
-(*       • validation decidability                                            *)
-(*       • decode(encode(ds)) = ds for canonical encodings                    *)
-(*       • totality of decoding under well‑formedness                         *)
+(*     Formalizes khipu numeric cords with register-based decimal encoding.   *)
+(*     Proves unique place assignment, validation decidability, and           *)
+(*     decode/encode roundtrip correctness.                                   *)
 (*                                                                            *)
 (*     "He who seeks to count the stars before he can count the scores and    *)
-(*     knots of the quipus deserves derision."                                *)
-(*     - Inca Garcilaso de la Vega, 1609–1617                                 *)
+(*      knots of the quipus deserves derision." - Inca Garcilaso de la Vega   *)
 (*                                                                            *)
 (*     Author: Charles C. Norton                                              *)
-(*     Date: November 28, 2025                                                *)
+(*     Date: December 12, 2025                                                *)
 (*                                                                            *)
 (******************************************************************************)
 
@@ -54,67 +48,67 @@ Record Interval : Type := {
 }.
 
 (* Half-open membership: lo <= p < hi *)
-Definition in_interval (p : pos) (I : Interval) : Prop :=
-  lo I <= p < hi I.
+Definition in_interval (p : pos) (Iv : Interval) : Prop :=
+  lo Iv <= p < hi Iv.
 
-Definition in_intervalb (p : pos) (I : Interval) : bool :=
-  (lo I <=? p) && (p <? hi I).
+Definition in_intervalb (p : pos) (Iv : Interval) : bool :=
+  (lo Iv <=? p) && (p <? hi Iv).
 
-Lemma in_intervalb_spec : forall p I,
-  in_intervalb p I = true <-> in_interval p I.
+Lemma in_intervalb_spec : forall p Iv,
+  in_intervalb p Iv = true <-> in_interval p Iv.
 Proof.
-  intros p I. unfold in_intervalb, in_interval.
+  intros p Iv. unfold in_intervalb, in_interval.
   rewrite andb_true_iff.
   rewrite Nat.leb_le, Nat.ltb_lt.
   tauto.
 Qed.
 
-Lemma not_in_interval_if_ge_hi : forall I p,
-  hi I <= p -> ~ in_interval p I.
+Lemma not_in_interval_if_ge_hi : forall Iv p,
+  hi Iv <= p -> ~ in_interval p Iv.
 Proof.
-  intros I p Hge [Hlo Hlt]. lia.
+  intros Iv p Hge [Hlo Hlt]. lia.
 Qed.
 
-Lemma not_in_interval_if_lt_lo : forall I p,
-  p < lo I -> ~ in_interval p I.
+Lemma not_in_interval_if_lt_lo : forall Iv p,
+  p < lo Iv -> ~ in_interval p Iv.
 Proof.
-  intros I p Hlt [Hlo _]. lia.
+  intros Iv p Hlt [Hlo _]. lia.
 Qed.
 
-(* Ordered, non-overlapping registers are expressed as hi I <= lo J.
+(* Ordered, non-overlapping registers are expressed as hi Iv <= lo Jv.
    These two separation lemmas support both directions of exclusion. *)
 Lemma interval_after_excludes :
-  forall I J p,
-    hi I <= lo J ->
-    in_interval p J ->
-    ~ in_interval p I.
+  forall Iv Jv p,
+    hi Iv <= lo Jv ->
+    in_interval p Jv ->
+    ~ in_interval p Iv.
 Proof.
-  intros I J p Hsep [HloJ HhiJ] [HloI HhiI]. lia.
+  intros Iv Jv p Hsep [HloJ HhiJ] [HloI HhiI]. lia.
 Qed.
 
 Lemma interval_before_excludes :
-  forall I J p,
-    hi I <= lo J ->
-    in_interval p I ->
-    ~ in_interval p J.
+  forall Iv Jv p,
+    hi Iv <= lo Jv ->
+    in_interval p Iv ->
+    ~ in_interval p Jv.
 Proof.
-  intros I J p Hsep [HloI HhiI] [HloJ HhiJ]. lia.
+  intros Iv Jv p Hsep [HloI HhiI] [HloJ HhiJ]. lia.
 Qed.
 
 (* "Wide enough" interval to host 10 canonical slot positions: lo+1+0 .. lo+1+9. *)
-Definition wide_enough (I : Interval) : Prop :=
-  lo I + 11 <= hi I.
+Definition wide_enough (Iv : Interval) : Prop :=
+  lo Iv + 11 <= hi Iv.
 
-Definition slot (I : Interval) (k : nat) : pos :=
-  lo I + 1 + k.
+Definition slot (Iv : Interval) (k : nat) : pos :=
+  lo Iv + 1 + k.
 
 Lemma slot_in_interval :
-  forall I k,
+  forall Iv k,
     k < 10 ->
-    wide_enough I ->
-    in_interval (slot I k) I.
+    wide_enough Iv ->
+    in_interval (slot Iv k) Iv.
 Proof.
-  intros I k Hk Hwide.
+  intros Iv k Hk Hwide.
   unfold in_interval, slot.
   split.
   - lia.
@@ -130,10 +124,10 @@ Qed.
 (* Decimal digit: canonical 0..9 type. *)
 Definition digit : Type := Fin.t 10.
 
-Definition digit_to_nat (d : digit) : nat := Fin.to_nat d.
+Definition digit_to_nat (d : digit) : nat := proj1_sig (Fin.to_nat d).
 
 Lemma digit_to_nat_lt10 : forall d : digit, digit_to_nat d < 10.
-Proof. intro d. apply Fin.to_nat_lt. Qed.
+Proof. intro d. unfold digit_to_nat. exact (proj2_sig (Fin.to_nat d)). Defined.
 
 Lemma digit_ext : forall a b : digit,
   digit_to_nat a = digit_to_nat b -> a = b.
@@ -141,11 +135,15 @@ Proof.
   apply Fin.to_nat_inj.
 Qed.
 
-Definition digit_of_nat (n : nat) (H : n < 10) : digit :=
-  Fin.of_nat_lt H.
+Definition digit_of_nat : forall (n : nat), n < 10 -> digit :=
+  fun n H => @Fin.of_nat_lt n 10 H.
+Arguments digit_of_nat n H : clear implicits.
 
-Definition digit0 : digit := digit_of_nat 0 (ltac:(lia)).
-Definition digit1 : digit := digit_of_nat 1 (ltac:(lia)).
+Lemma lt_0_10 : 0 < 10. Proof. lia. Qed.
+Lemma lt_1_10 : 1 < 10. Proof. lia. Qed.
+
+Definition digit0 : digit := digit_of_nat 0 lt_0_10.
+Definition digit1 : digit := digit_of_nat 1 lt_1_10.
 
 Lemma digit_to_nat_of_nat_lt :
   forall n (H : n < 10),
@@ -153,14 +151,23 @@ Lemma digit_to_nat_of_nat_lt :
 Proof.
   intros n H.
   unfold digit_to_nat, digit_of_nat.
-  now apply Fin.to_nat_of_nat_lt.
+  rewrite Fin.to_nat_of_nat.
+  reflexivity.
+Qed.
+
+Lemma digit_of_nat_to_nat : forall d : digit,
+  digit_of_nat (digit_to_nat d) (digit_to_nat_lt10 d) = d.
+Proof.
+  intros d.
+  unfold digit_of_nat, digit_to_nat.
+  apply Fin.of_nat_to_nat_inv.
 Qed.
 
 (* ========================================================================== *)
 (*                                 KNOT FORMS                                 *)
 (* ========================================================================== *)
 
-Inductive Twist : Type := S | Z.
+Inductive Twist : Type := TS | TZ.
 
 (* Long-knot turn count (canonical units reading): 2..9 turns represent 2..9. *)
 Record Turns : Type := {
@@ -197,7 +204,7 @@ Definition all_overhandb (ks : list Knot) : bool :=
 Lemma all_overhandb_spec :
   forall ks,
     all_overhandb ks = true <->
-    (forall k, In k ks -> k_kind k = Overhand).
+    (forall k, List.In k ks -> k_kind k = Overhand).
 Proof.
   intro ks. unfold all_overhandb.
   rewrite forallb_forall.
@@ -214,26 +221,29 @@ Qed.
 (* ========================================================================== *)
 
 (* Ordered, disjoint, bottom-to-top register intervals. Index 0 = units. *)
-Fixpoint chain_order {n : nat} (regs : Vector.t Interval n) : Prop :=
+Definition head_interval {n : nat} (regs : Vector.t Interval (Datatypes.S n)) : Interval :=
+  Vector.hd regs.
+
+Fixpoint chain_order {n : nat} (regs : Vector.t Interval n) {struct regs} : Prop :=
   match regs with
   | [] => True
-  | I :: tl =>
-      match tl with
+  | Iv :: tl =>
+      match tl as tl0 return Prop with
       | [] => True
-      | J :: tl' => hi I <= lo J /\ chain_order (J :: tl')
+      | Jv :: _ => hi Iv <= lo Jv /\ chain_order tl
       end
   end.
 
 Fixpoint all_wide {n : nat} (regs : Vector.t Interval n) : Prop :=
   match regs with
   | [] => True
-  | I :: tl => wide_enough I /\ all_wide tl
+  | Iv :: tl => wide_enough Iv /\ all_wide tl
   end.
 
 Fixpoint all_within (len : pos) {n : nat} (regs : Vector.t Interval n) : Prop :=
   match regs with
   | [] => True
-  | I :: tl => hi I <= len /\ all_within len tl
+  | Iv :: tl => hi Iv <= len /\ all_within len tl
   end.
 
 Record NumeralSpec (n : nat) : Type := {
@@ -246,26 +256,26 @@ Record NumeralSpec (n : nat) : Type := {
 }.
 
 Lemma chain_order_tail :
-  forall n (I : Interval) (tl : Vector.t Interval n),
-    chain_order (I :: tl) -> chain_order tl.
+  forall n (Iv : Interval) (tl : Vector.t Interval n),
+    chain_order (Iv :: tl) -> chain_order tl.
 Proof.
-  intros n I tl Hord.
-  destruct tl as [|J n' tl']; simpl in *; auto.
+  intros n Iv tl Hord.
+  destruct tl as [|Jv n' tl']; simpl in *; auto.
   destruct Hord as [_ Htl]. exact Htl.
 Qed.
 
 Lemma all_wide_tail :
-  forall n (I : Interval) (tl : Vector.t Interval n),
-    all_wide (I :: tl) -> all_wide tl.
+  forall n (Iv : Interval) (tl : Vector.t Interval n),
+    all_wide (Iv :: tl) -> all_wide tl.
 Proof.
-  intros n I tl H. simpl in H. tauto.
+  intros n Iv tl H. simpl in H. tauto.
 Qed.
 
 Lemma all_within_tail :
-  forall len n (I : Interval) (tl : Vector.t Interval n),
-    all_within len (I :: tl) -> all_within len tl.
+  forall len n (Iv : Interval) (tl : Vector.t Interval n),
+    all_within len (Iv :: tl) -> all_within len tl.
 Proof.
-  intros len n I tl H. simpl in H. tauto.
+  intros len n Iv tl H. simpl in H. tauto.
 Qed.
 
 Lemma all_wide_nth :
@@ -273,10 +283,10 @@ Lemma all_wide_nth :
     all_wide regs ->
     wide_enough (Vector.nth regs i).
 Proof.
-  induction regs as [|I n tl IH]; intros i Hwide.
+  induction regs as [|Iv m tl IH]; intros i Hwide.
   - inversion i.
   - simpl in Hwide. destruct Hwide as [Hh Ht].
-    destruct i; simpl; [exact Hh|].
+    dependent destruction i; simpl; [exact Hh|].
     apply IH. exact Ht.
 Qed.
 
@@ -285,27 +295,29 @@ Lemma all_within_nth :
     all_within len regs ->
     hi (Vector.nth regs i) <= len.
 Proof.
-  induction regs as [|I n tl IH]; intros i Hwithin.
+  induction regs as [|Iv m tl IH]; intros i Hwithin.
   - inversion i.
   - simpl in Hwithin. destruct Hwithin as [Hh Ht].
-    destruct i; simpl; [exact Hh|].
+    dependent destruction i; simpl; [exact Hh|].
     apply IH. exact Ht.
 Qed.
 
 (* In a chain-ordered vector, the head interval is before every tail interval. *)
 Lemma chain_order_head_before_nth :
-  forall n (I : Interval) (tl : Vector.t Interval n) (i : Fin.t n),
-    chain_order (I :: tl) ->
-    hi I <= lo (Vector.nth tl i).
+  forall n (Iv : Interval) (tl : Vector.t Interval n) (i : Fin.t n),
+    chain_order (Iv :: tl) ->
+    hi Iv <= lo (Vector.nth tl i).
 Proof.
-  induction tl as [|J n tl IH]; intros i Hord.
+  intros n Iv tl.
+  revert Iv.
+  induction tl as [|Jv m tl IH]; intros Iv i Hord.
   - inversion i.
   - simpl in Hord. destruct Hord as [Hij Htail].
-    destruct i as [|i']; simpl.
+    dependent destruction i; simpl.
     + exact Hij.
-    + pose proof (lo_lt_hi J) as Hlt.
-      assert (hi I <= hi J) by lia.
-      pose proof (IH i' Htail) as Hj.
+    + pose proof (lo_lt_hi Jv) as Hlt.
+      assert (hi Iv <= hi Jv) by lia.
+      specialize (IH Jv i Htail).
       lia.
 Qed.
 
@@ -313,31 +325,31 @@ Qed.
 (*                              KNOT GROUPING                                 *)
 (* ========================================================================== *)
 
-Definition knots_in (I : Interval) (ks : list Knot) : list Knot :=
-  filter (fun k => in_intervalb (k_pos k) I) ks.
+Definition knots_in (Iv : Interval) (ks : list Knot) : list Knot :=
+  filter (fun k => in_intervalb (k_pos k) Iv) ks.
 
-Lemma knots_in_app : forall I xs ys,
-  knots_in I (xs ++ ys) = knots_in I xs ++ knots_in I ys.
+Lemma knots_in_app : forall Iv xs ys,
+  knots_in Iv (List.app xs ys) = List.app (knots_in Iv xs) (knots_in Iv ys).
 Proof.
-  intros I xs ys. unfold knots_in. now rewrite filter_app.
+  intros Iv xs ys. unfold knots_in. now rewrite filter_app.
 Qed.
 
-Lemma knots_in_sound : forall I ks k,
-  In k (knots_in I ks) -> in_interval (k_pos k) I.
+Lemma knots_in_sound : forall Iv ks k,
+  List.In k (knots_in Iv ks) -> in_interval (k_pos k) Iv.
 Proof.
-  intros I ks k Hin.
+  intros Iv ks k Hin.
   unfold knots_in in Hin.
   apply filter_In in Hin as [HinK Hb].
   apply (proj1 (in_intervalb_spec _ _)) in Hb.
   exact Hb.
 Qed.
 
-Lemma knots_in_complete : forall I ks k,
-  In k ks ->
-  in_interval (k_pos k) I ->
-  In k (knots_in I ks).
+Lemma knots_in_complete : forall Iv ks k,
+  List.In k ks ->
+  in_interval (k_pos k) Iv ->
+  List.In k (knots_in Iv ks).
 Proof.
-  intros I ks k HinK HinI.
+  intros Iv ks k HinK HinI.
   unfold knots_in.
   apply filter_In.
   split; [assumption|].
@@ -345,50 +357,51 @@ Proof.
   exact HinI.
 Qed.
 
-Definition outside_interval (I : Interval) (ks : list Knot) : Prop :=
-  forall k, In k ks -> ~ in_interval (k_pos k) I.
+Definition outside_interval (Iv : Interval) (ks : list Knot) : Prop :=
+  forall k, List.In k ks -> ~ in_interval (k_pos k) Iv.
 
 Lemma knots_in_self :
-  forall I ks,
-    (forall k, In k ks -> in_interval (k_pos k) I) ->
-    knots_in I ks = ks.
+  forall Iv ks,
+    (forall k, List.In k ks -> in_interval (k_pos k) Iv) ->
+    knots_in Iv ks = ks.
 Proof.
-  intros I ks Hall.
+  intros Iv ks Hall.
   unfold knots_in.
   induction ks as [|a tl IH]; simpl; auto.
-  assert (Ha : in_interval (k_pos a) I).
+  assert (Ha : in_interval (k_pos a) Iv).
   { apply Hall. now left. }
-  assert (Hb : in_intervalb (k_pos a) I = true).
+  assert (Hb : in_intervalb (k_pos a) Iv = true).
   { apply (proj2 (in_intervalb_spec _ _)). exact Ha. }
   rewrite Hb. f_equal.
   apply IH. intros k Hin. apply Hall. now right.
 Qed.
 
 Lemma knots_in_none :
-  forall I ks,
-    outside_interval I ks ->
-    knots_in I ks = [].
+  forall Iv ks,
+    outside_interval Iv ks ->
+    knots_in Iv ks = @List.nil Knot.
 Proof.
-  intros I ks Hout.
+  intros Iv ks Hout.
   unfold knots_in.
-  induction ks as [|a tl IH]; simpl; auto.
-  assert (Ha : ~ in_interval (k_pos a) I).
-  { apply Hout. now left. }
-  destruct (in_intervalb (k_pos a) I) eqn:Hb; auto.
-  exfalso.
-  apply (proj1 (in_intervalb_spec _ _)) in Hb.
-  exact (Ha Hb).
+  induction ks as [|a tl IH].
+  - reflexivity.
+  - simpl.
+    assert (Ha : ~ in_interval (k_pos a) Iv).
+    { apply Hout. now left. }
+    destruct (in_intervalb (k_pos a) Iv) eqn:Hb.
+    + exfalso. apply (proj1 (in_intervalb_spec _ _)) in Hb. exact (Ha Hb).
+    + apply IH. intros k Hink. apply Hout. now right.
 Qed.
 
 Lemma knots_in_app_left_outside_interval :
-  forall I xs ys,
-    outside_interval I xs ->
-    knots_in I (xs ++ ys) = knots_in I ys.
+  forall Iv xs ys,
+    outside_interval Iv xs ->
+    knots_in Iv (List.app xs ys) = knots_in Iv ys.
 Proof.
-  intros I xs ys Hout.
+  intros Iv xs ys Hout.
   rewrite knots_in_app.
-  rewrite (knots_in_none (I:=I) (ks:=xs)); auto.
-  simpl. reflexivity.
+  rewrite (knots_in_none (Iv:=Iv) (ks:=xs) Hout).
+  reflexivity.
 Qed.
 
 (* ========================================================================== *)
@@ -398,21 +411,21 @@ Qed.
 Fixpoint regs_covered (p : pos) {n : nat} (regs : Vector.t Interval n) : Prop :=
   match regs with
   | [] => False
-  | I :: tl => in_interval p I \/ regs_covered p tl
+  | Iv :: tl => in_interval p Iv \/ regs_covered p tl
   end.
 
 Fixpoint regs_coveredb (p : pos) {n : nat} (regs : Vector.t Interval n) : bool :=
   match regs with
   | [] => false
-  | I :: tl => in_intervalb p I || regs_coveredb p tl
+  | Iv :: tl => in_intervalb p Iv || regs_coveredb p tl
   end.
 
 Lemma regs_coveredb_spec : forall p n (regs : Vector.t Interval n),
   regs_coveredb p regs = true <-> regs_covered p regs.
 Proof.
   intros p n regs.
-  induction regs as [|I n tl IH]; simpl.
-  - tauto.
+  induction regs as [|Iv m tl IH]; simpl.
+  - split; intro H; inversion H.
   - rewrite orb_true_iff. rewrite in_intervalb_spec. rewrite IH. tauto.
 Qed.
 
@@ -421,7 +434,7 @@ Lemma regs_covered_exists_index :
     regs_covered p regs ->
     exists i : Fin.t n, in_interval p (Vector.nth regs i).
 Proof.
-  induction regs as [|I n tl IH]; intros p Hcov.
+  induction regs as [|Iv n tl IH]; intros p Hcov.
   - contradiction.
   - simpl in Hcov. destruct Hcov as [Hin|Hcov].
     + exists Fin.F1. simpl. exact Hin.
@@ -433,8 +446,8 @@ Fixpoint place_of_pos {n : nat} (p : pos) (regs : Vector.t Interval n)
   : option (Fin.t n) :=
   match regs with
   | [] => None
-  | I :: tl =>
-      if in_intervalb p I
+  | Iv :: tl =>
+      if in_intervalb p Iv
       then Some Fin.F1
       else option_map Fin.FS (place_of_pos p tl)
   end.
@@ -444,10 +457,10 @@ Lemma place_of_pos_sound :
     place_of_pos p regs = Some i ->
     in_interval p (Vector.nth regs i).
 Proof.
-  induction regs as [|I n tl IH]; intros p i H.
+  induction regs as [|Iv n tl IH]; intros p i H.
   - simpl in H. discriminate.
   - simpl in H.
-    destruct (in_intervalb p I) eqn:Hb.
+    destruct (in_intervalb p Iv) eqn:Hb.
     + inversion H. subst i.
       apply (proj1 (in_intervalb_spec _ _)). exact Hb.
     + destruct (place_of_pos p tl) eqn:Hrec; try discriminate.
@@ -461,26 +474,26 @@ Lemma place_of_pos_complete :
     in_interval p (Vector.nth regs i) ->
     place_of_pos p regs = Some i.
 Proof.
-  induction regs as [|I n tl IH]; intros p i Hord Hin.
+  induction regs as [|Iv m tl IH]; intros p i Hord Hin.
   - inversion i.
-  - destruct i as [|i'].
+  - dependent destruction i.
     + simpl.
-      assert (in_intervalb p I = true).
+      assert (in_intervalb p Iv = true).
       { apply (proj2 (in_intervalb_spec _ _)). exact Hin. }
       now rewrite H.
     + simpl.
-      assert (Hsep : hi I <= lo (Vector.nth tl i')).
-      { apply (chain_order_head_before_nth (I:=I) (tl:=tl) (i:=i')). exact Hord. }
-      assert (HnotI : ~ in_interval p I).
+      assert (Hsep : hi Iv <= lo (Vector.nth tl i)).
+      { apply chain_order_head_before_nth. exact Hord. }
+      assert (HnotI : ~ in_interval p Iv).
       { eapply interval_after_excludes; eauto. }
-      assert (in_intervalb p I = false).
-      { destruct (in_intervalb p I) eqn:Hb; auto.
+      assert (in_intervalb p Iv = false).
+      { destruct (in_intervalb p Iv) eqn:Hb; auto.
         exfalso.
         apply (proj1 (in_intervalb_spec _ _)) in Hb.
         exact (HnotI Hb).
       }
       rewrite H.
-      specialize (IH p i' (chain_order_tail (I:=I) (tl:=tl) Hord) Hin).
+      specialize (IH p i (chain_order_tail Hord) Hin).
       now rewrite IH.
 Qed.
 
@@ -524,8 +537,8 @@ Qed.
 
 Definition units_ok (ks : list Knot) : Prop :=
   match ks with
-  | [] => True
-  | [k] =>
+  | List.nil => True
+  | List.cons k List.nil =>
       match k_kind k with
       | FigureEight => True
       | Long _ => True
@@ -535,13 +548,13 @@ Definition units_ok (ks : list Knot) : Prop :=
   end.
 
 Definition higher_ok (ks : list Knot) : Prop :=
-  (forall k, In k ks -> k_kind k = Overhand) /\
+  (forall k, List.In k ks -> k_kind k = Overhand) /\
   length ks < 10.
 
 Definition units_okb (ks : list Knot) : bool :=
   match ks with
-  | [] => true
-  | [k] =>
+  | List.nil => true
+  | List.cons k List.nil =>
       match k_kind k with
       | FigureEight => true
       | Long _ => true
@@ -555,10 +568,12 @@ Definition higher_okb (ks : list Knot) : bool :=
 
 Lemma units_okb_spec : forall ks, units_okb ks = true <-> units_ok ks.
 Proof.
-  intro ks. destruct ks as [|a [|b tl]]; simpl; try tauto.
-  destruct tl; simpl.
-  - destruct (k_kind a); try tauto.
-  - tauto.
+  intro ks.
+  destruct ks as [|a ks'].
+  - simpl. tauto.
+  - destruct ks' as [|b ks''].
+    + simpl. destruct (k_kind a); (split; intro H; try reflexivity; try exact Logic.I; try discriminate; try contradiction).
+    + simpl. split; intro H; discriminate + contradiction.
 Qed.
 
 Lemma higher_okb_spec : forall ks, higher_okb ks = true <-> higher_ok ks.
@@ -587,8 +602,8 @@ Fixpoint regs_ok_at {n : nat} (is_units : bool)
   (regs : Vector.t Interval n) (ks : list Knot) : Prop :=
   match regs with
   | [] => True
-  | I :: tl =>
-      reg_ok is_units (knots_in I ks) /\
+  | Iv :: tl =>
+      reg_ok is_units (knots_in Iv ks) /\
       regs_ok_at false tl ks
   end.
 
@@ -599,8 +614,8 @@ Fixpoint regs_okb_at {n : nat} (is_units : bool)
   (regs : Vector.t Interval n) (ks : list Knot) : bool :=
   match regs with
   | [] => true
-  | I :: tl =>
-      reg_okb is_units (knots_in I ks) &&
+  | Iv :: tl =>
+      reg_okb is_units (knots_in Iv ks) &&
       regs_okb_at false tl ks
   end.
 
@@ -631,8 +646,8 @@ Qed.
 (* ========================================================================== *)
 
 Definition WellFormed {n : nat} (ns : NumeralSpec n) (ks : list Knot) : Prop :=
-  (forall k, In k ks -> k_pos k < ns_len ns) /\
-  (forall k, In k ks -> regs_covered (k_pos k) (ns_regs ns)) /\
+  (forall k, List.In k ks -> k_pos k < ns_len ns) /\
+  (forall k, List.In k ks -> regs_covered (k_pos k) (ns_regs ns)) /\
   regs_ok (ns_regs ns) ks.
 
 Definition WellFormedb {n : nat} (ns : NumeralSpec n) (ks : list Knot) : bool :=
@@ -647,7 +662,7 @@ Definition WellFormedb {n : nat} (ns : NumeralSpec n) (ks : list Knot) : bool :=
 Lemma forallb_pos_lt_spec :
   forall (len : pos) (ks : list Knot),
     forallb (fun k => k_pos k <? len) ks = true <->
-    (forall k, In k ks -> k_pos k < len).
+    (forall k, List.In k ks -> k_pos k < len).
 Proof.
   intros len ks.
   rewrite forallb_forall.
@@ -661,15 +676,15 @@ Qed.
 Lemma forallb_regs_covered_spec :
   forall n (regs : Vector.t Interval n) (ks : list Knot),
     forallb (fun k => regs_coveredb (k_pos k) regs) ks = true <->
-    (forall k, In k ks -> regs_covered (k_pos k) regs).
+    (forall k, List.In k ks -> regs_covered (k_pos k) regs).
 Proof.
   intros n regs ks.
   rewrite forallb_forall.
   split.
   - intros H k Hin. specialize (H k Hin).
-    apply (proj1 (regs_coveredb_spec (p:=k_pos k) (regs:=regs))). exact H.
+    apply (proj1 (regs_coveredb_spec (k_pos k) regs)). exact H.
   - intros H k Hin. specialize (H k Hin).
-    apply (proj2 (regs_coveredb_spec (p:=k_pos k) (regs:=regs))). exact H.
+    apply (proj2 (regs_coveredb_spec (k_pos k) regs)). exact H.
 Qed.
 
 Lemma WellFormedb_spec :
@@ -693,9 +708,9 @@ Theorem WellFormed_decidable :
 Proof.
   intros n ns ks.
   destruct (WellFormedb ns ks) eqn:Hb.
-  - left. apply (proj1 (WellFormedb_spec _ _ _)). exact Hb.
+  - left. apply (proj1 (WellFormedb_spec ns ks)). exact Hb.
   - right. intro WF.
-    apply (proj2 (WellFormedb_spec _ _ _)) in WF.
+    apply (proj2 (WellFormedb_spec ns ks)) in WF.
     congruence.
 Qed.
 
@@ -705,8 +720,8 @@ Qed.
 
 Definition decode_units (ks : list Knot) : option digit :=
   match ks with
-  | [] => Some digit0
-  | [k] =>
+  | List.nil => Some digit0
+  | List.cons k List.nil =>
       match k_kind k with
       | FigureEight => Some digit1
       | Long t => Some (digit_of_nat (tval t) (turns_lt10 t))
@@ -717,7 +732,7 @@ Definition decode_units (ks : list Knot) : option digit :=
 
 Definition decode_higher (ks : list Knot) : option digit :=
   if all_overhandb ks then
-    match Nat.lt_dec (length ks) 10 with
+    match lt_dec (length ks) 10 with
     | left Hlt => Some (digit_of_nat (length ks) Hlt)
     | right _ => None
     end
@@ -730,10 +745,11 @@ Lemma decode_units_total_if_ok : forall ks,
   units_ok ks -> exists d, decode_units ks = Some d.
 Proof.
   intros ks Hok.
-  destruct ks as [|a [|b tl]]; simpl; eauto.
-  destruct tl; simpl in *.
-  - destruct (k_kind a); try contradiction; eauto.
-  - contradiction.
+  destruct ks as [|a ks'].
+  - simpl. eauto.
+  - destruct ks' as [|b ks''].
+    + simpl. simpl in Hok. destruct (k_kind a); try contradiction; eauto.
+    + simpl in Hok. contradiction.
 Qed.
 
 Lemma decode_higher_total_if_ok : forall ks,
@@ -744,7 +760,7 @@ Proof.
   assert (all_overhandb ks = true).
   { apply (proj2 (all_overhandb_spec ks)). exact Hall. }
   rewrite H.
-  destruct (Nat.lt_dec (length ks) 10); eauto; lia.
+  destruct (lt_dec (length ks) 10); eauto; lia.
 Qed.
 
 Lemma decode_reg_total_if_ok : forall b ks,
@@ -760,8 +776,8 @@ Fixpoint decode_regs_at {n : nat} (is_units : bool)
   : option (Vector.t digit n) :=
   match regs with
   | [] => Some []
-  | I :: tl =>
-      match decode_reg is_units (knots_in I ks),
+  | Iv :: tl =>
+      match decode_reg is_units (knots_in Iv ks),
             decode_regs_at false tl ks with
       | Some d, Some ds => Some (d :: ds)
       | _, _ => None
@@ -773,39 +789,39 @@ Definition decode_regs {n : nat} (regs : Vector.t Interval n) (ks : list Knot)
   decode_regs_at true regs ks.
 
 Definition outside_all {n : nat} (regs : Vector.t Interval n) (ks : list Knot) : Prop :=
-  forall (i : Fin.t n) k, In k ks -> ~ in_interval (k_pos k) (Vector.nth regs i).
+  forall (i : Fin.t n) k, List.In k ks -> ~ in_interval (k_pos k) (Vector.nth regs i).
 
 Lemma outside_all_tail_cons :
-  forall n (I : Interval) (tl : Vector.t Interval n) ks,
-    outside_all (I :: tl) ks ->
+  forall n (Iv : Interval) (tl : Vector.t Interval n) ks,
+    outside_all (Iv :: tl) ks ->
     outside_all tl ks.
 Proof.
-  intros n I tl ks Hout i k Hin.
+  intros n Iv tl ks Hout i k Hin.
   specialize (Hout (Fin.FS i) k Hin). simpl in Hout. exact Hout.
 Qed.
 
 Lemma outside_interval_head_cons :
-  forall n (I : Interval) (tl : Vector.t Interval n) ks,
-    outside_all (I :: tl) ks ->
-    outside_interval I ks.
+  forall n (Iv : Interval) (tl : Vector.t Interval n) ks,
+    outside_all (Iv :: tl) ks ->
+    outside_interval Iv ks.
 Proof.
-  intros n I tl ks Hout k Hin.
+  intros n Iv tl ks Hout k Hin.
   specialize (Hout Fin.F1 k Hin). simpl in Hout. exact Hout.
 Qed.
 
 Lemma decode_regs_at_app_left_outside_all :
   forall n (regs : Vector.t Interval n) ks1 ks2 b,
     outside_all regs ks1 ->
-    decode_regs_at b regs (ks1 ++ ks2) = decode_regs_at b regs ks2.
+    decode_regs_at b regs (List.app ks1 ks2) = decode_regs_at b regs ks2.
 Proof.
-  induction regs as [|I n tl IH]; intros ks1 ks2 b Hout; simpl.
+  induction regs as [|Iv m tl IH]; intros ks1 ks2 b Hout; simpl.
   - reflexivity.
-  - assert (HoutI : outside_interval I ks1).
-    { apply (outside_interval_head_cons (I:=I) (tl:=tl) (ks:=ks1)). exact Hout. }
+  - assert (HoutI : outside_interval Iv ks1).
+    { eapply outside_interval_head_cons. exact Hout. }
     assert (HoutTl : outside_all tl ks1).
-    { apply (outside_all_tail_cons (I:=I) (tl:=tl) (ks:=ks1)). exact Hout. }
-    rewrite (knots_in_app_left_outside_interval I ks1 ks2 HoutI).
-    rewrite (IH ks1 ks2 false HoutTl).
+    { eapply outside_all_tail_cons. exact Hout. }
+    rewrite knots_in_app_left_outside_interval; [|exact HoutI].
+    rewrite IH; [|exact HoutTl].
     reflexivity.
 Qed.
 
@@ -814,10 +830,10 @@ Lemma decode_regs_at_total :
     regs_ok_at b regs ks ->
     exists ds, decode_regs_at b regs ks = Some ds.
 Proof.
-  induction regs as [|I n tl IH]; intros ks b Hok; simpl.
+  induction regs as [|Iv m tl IH]; intros ks b Hok; simpl.
   - exists []. reflexivity.
   - destruct Hok as [HokI HokTl].
-    destruct (decode_reg_total_if_ok b (knots_in I ks) HokI) as [d Hd].
+    destruct (decode_reg_total_if_ok HokI) as [d Hd].
     destruct (IH ks false HokTl) as [ds Hds].
     rewrite Hd, Hds.
     exists (d :: ds). reflexivity.
@@ -849,15 +865,15 @@ Fixpoint value_digits {n : nat} (ds : Vector.t digit n) : nat :=
 (* ========================================================================== *)
 
 Definition mk_overhand (p : pos) : Knot :=
-  {| k_pos := p; k_kind := Overhand; k_twist := Z |}.
+  {| k_pos := p; k_kind := Overhand; k_twist := TZ |}.
 
 Definition mk_fig8 (p : pos) : Knot :=
-  {| k_pos := p; k_kind := FigureEight; k_twist := Z |}.
+  {| k_pos := p; k_kind := FigureEight; k_twist := TZ |}.
 
 Definition mk_long (p : pos) (n : nat) (H : 2 <= n <= 9) : Knot :=
   {| k_pos := p;
      k_kind := Long {| tval := n; t_range := H |};
-     k_twist := Z |}.
+     k_twist := TZ |}.
 
 Fixpoint overhand_cluster (I : Interval) (n : nat) : list Knot :=
   match n with
@@ -873,10 +889,10 @@ Proof.
   - rewrite app_length. simpl. lia.
 Qed.
 
-Lemma overhand_cluster_all_overhand : forall I n k,
-  In k (overhand_cluster I n) -> k_kind k = Overhand.
+Lemma overhand_cluster_all_overhand : forall Iv n k,
+  List.In k (overhand_cluster Iv n) -> k_kind k = Overhand.
 Proof.
-  intros I n. induction n; simpl; intros k Hin.
+  intros Iv n. induction n; simpl; intros k Hin.
   - contradiction.
   - apply in_app_or in Hin as [Hin|Hin].
     + apply IHn; exact Hin.
@@ -884,12 +900,12 @@ Proof.
       subst k. reflexivity.
 Qed.
 
-Lemma overhand_cluster_positions_in_I :
-  forall I n k,
+Lemma overhand_cluster_positions_in_Iv :
+  forall Iv n k,
     n < 10 ->
-    wide_enough I ->
-    In k (overhand_cluster I n) ->
-    in_interval (k_pos k) I.
+    wide_enough Iv ->
+    List.In k (overhand_cluster Iv n) ->
+    in_interval (k_pos k) Iv.
 Proof.
   intros I n. induction n; simpl; intros k Hn Hwide Hin.
   - contradiction.
@@ -900,30 +916,34 @@ Proof.
       apply slot_in_interval; try lia; auto.
 Qed.
 
-Definition encode_units (I : Interval) (d : digit) : list Knot :=
-  match digit_to_nat d with
-  | 0 => []
-  | 1 => [mk_fig8 (slot I 0)]
-  | S (S m) =>
-      let n := S (S m) in
-      let H2 : 2 <= n := ltac:(lia) in
-      let H9 : n <= 9 :=
-        ltac:(pose proof (digit_to_nat_lt10 d) as Hlt; simpl in Hlt; lia) in
-      [mk_long (slot I 0) n (conj H2 H9)]
-  end.
+Definition make_turns (n : nat) (H : 2 <= n /\ n <= 9) : Turns :=
+  {| tval := n; t_range := H |}.
 
-Definition encode_higher (I : Interval) (d : digit) : list Knot :=
-  overhand_cluster I (digit_to_nat d).
+Lemma encode_units_aux2 : forall m, S (S m) < 10 -> 2 <= S (S m) <= 9.
+Proof. intros. lia. Qed.
+Arguments encode_units_aux2 m H : clear implicits.
 
-Definition encode_reg (is_units : bool) (I : Interval) (d : digit) : list Knot :=
-  if is_units then encode_units I d else encode_higher I d.
+Definition encode_units (Iv : Interval) (d : digit) : list Knot :=
+  let n := digit_to_nat d in
+  let Hlt := digit_to_nat_lt10 d in
+  match n as n' return (n' < 10 -> list Knot) with
+  | 0 => fun _ => @List.nil Knot
+  | 1 => fun _ => List.cons (mk_fig8 (slot Iv 0)) (@List.nil Knot)
+  | S (S m) => fun H => List.cons (@mk_long (slot Iv 0) (S (S m)) (encode_units_aux2 m H)) (@List.nil Knot)
+  end Hlt.
+
+Definition encode_higher (Iv : Interval) (d : digit) : list Knot :=
+  overhand_cluster Iv (digit_to_nat d).
+
+Definition encode_reg (is_units : bool) (Iv : Interval) (d : digit) : list Knot :=
+  if is_units then encode_units Iv d else encode_higher Iv d.
 
 Fixpoint encode_regs_at {n : nat} (is_units : bool)
-  (regs : Vector.t Interval n) (ds : Vector.t digit n) : list Knot :=
-  match regs, ds with
-  | [], [] => []
-  | I :: tlI, d :: tlD =>
-      encode_reg is_units I d ++ encode_regs_at false tlI tlD
+  (regs : Vector.t Interval n) : Vector.t digit n -> list Knot :=
+  match regs with
+  | [] => fun _ => @List.nil Knot
+  | Iv :: tlI => fun ds =>
+      List.app (encode_reg is_units Iv (Vector.hd ds)) (encode_regs_at false tlI (Vector.tl ds))
   end.
 
 Definition encode_regs {n : nat} (regs : Vector.t Interval n) (ds : Vector.t digit n) : list Knot :=
@@ -932,38 +952,44 @@ Definition encode_regs {n : nat} (regs : Vector.t Interval n) (ds : Vector.t dig
 Definition encode {n : nat} (ns : NumeralSpec n) (ds : Vector.t digit n) : list Knot :=
   encode_regs (ns_regs ns) ds.
 
-Lemma encode_units_ok : forall I d, units_ok (encode_units I d).
+Lemma encode_units_ok : forall Iv d, units_ok (encode_units Iv d).
 Proof.
-  intros I d. unfold encode_units.
-  destruct (digit_to_nat d) as [|[|m]]; simpl; auto.
-  destruct m; auto.
+  intros Iv d.
+  unfold encode_units.
+  generalize (digit_to_nat_lt10 d).
+  generalize (digit_to_nat d) at 1 2.
+  intros n Hlt.
+  destruct n as [|[|m]]; simpl; auto.
 Qed.
 
-Lemma encode_higher_ok : forall I d, higher_ok (encode_higher I d).
+Lemma encode_higher_ok : forall Iv d, higher_ok (encode_higher Iv d).
 Proof.
-  intros I d. unfold encode_higher, higher_ok.
+  intros Iv d. unfold encode_higher, higher_ok.
   split.
   - intros k Hin. apply overhand_cluster_all_overhand in Hin. exact Hin.
   - rewrite overhand_cluster_length.
     apply digit_to_nat_lt10.
 Qed.
 
-Lemma encode_reg_ok : forall b I d, reg_ok b (encode_reg b I d).
+Lemma encode_reg_ok : forall b Iv d, reg_ok b (encode_reg b Iv d).
 Proof.
-  intros b I d. destruct b; simpl.
+  intros b Iv d. destruct b; simpl.
   - apply encode_units_ok.
   - apply encode_higher_ok.
 Qed.
 
-Lemma encode_units_positions_in_I :
-  forall I d k,
-    wide_enough I ->
-    In k (encode_units I d) ->
-    in_interval (k_pos k) I.
+Lemma encode_units_positions_in_Iv :
+  forall Iv d k,
+    wide_enough Iv ->
+    List.In k (encode_units Iv d) ->
+    in_interval (k_pos k) Iv.
 Proof.
-  intros I d k Hwide.
+  intros Iv d k Hwide.
   unfold encode_units.
-  destruct (digit_to_nat d) as [|[|m]]; simpl; intros Hin.
+  generalize (digit_to_nat_lt10 d).
+  generalize (digit_to_nat d) at 1 2.
+  intros n Hlt.
+  destruct n as [|[|m]]; simpl; intros Hin.
   - contradiction.
   - destruct Hin as [Hin|Hin]; [|contradiction]. subst k. simpl.
     apply slot_in_interval; auto; lia.
@@ -971,85 +997,83 @@ Proof.
     apply slot_in_interval; auto; lia.
 Qed.
 
-Lemma encode_higher_positions_in_I :
-  forall I d k,
-    wide_enough I ->
-    In k (encode_higher I d) ->
-    in_interval (k_pos k) I.
+Lemma encode_higher_positions_in_Iv :
+  forall Iv d k,
+    wide_enough Iv ->
+    List.In k (encode_higher Iv d) ->
+    in_interval (k_pos k) Iv.
 Proof.
-  intros I d k Hwide Hin.
+  intros Iv d k Hwide Hin.
   unfold encode_higher in Hin.
-  eapply overhand_cluster_positions_in_I; eauto.
-  apply digit_to_nat_lt10.
+  apply (@overhand_cluster_positions_in_Iv Iv (digit_to_nat d) k (digit_to_nat_lt10 d) Hwide Hin).
 Qed.
 
-Lemma encode_reg_positions_in_I :
-  forall b I d k,
-    wide_enough I ->
-    In k (encode_reg b I d) ->
-    in_interval (k_pos k) I.
+Lemma encode_reg_positions_in_Iv :
+  forall b Iv d k,
+    wide_enough Iv ->
+    List.In k (encode_reg b Iv d) ->
+    in_interval (k_pos k) Iv.
 Proof.
-  intros b I d k Hwide Hin.
+  intros b Iv d k Hwide Hin.
   destruct b; simpl in *.
-  - eapply encode_units_positions_in_I; eauto.
-  - eapply encode_higher_positions_in_I; eauto.
+  - eapply encode_units_positions_in_Iv; eauto.
+  - eapply encode_higher_positions_in_Iv; eauto.
 Qed.
 
 Lemma encode_regs_at_member_index :
   forall n (regs : Vector.t Interval n) (ds : Vector.t digit n) b k,
     all_wide regs ->
-    In k (encode_regs_at b regs ds) ->
+    List.In k (encode_regs_at b regs ds) ->
     exists i : Fin.t n, in_interval (k_pos k) (Vector.nth regs i).
 Proof.
-  induction regs as [|I n tl IH]; intros ds b k Hwide Hin.
+  induction regs as [|Iv m tl IH]; intros ds b k Hwide Hin.
   - dependent destruction ds. simpl in Hin. contradiction.
-  - dependent destruction ds as [d dsTl].
+  - dependent destruction ds.
     simpl in Hwide. destruct Hwide as [HwideI HwideTl].
     simpl in Hin. apply in_app_or in Hin as [HinH|HinT].
     + exists Fin.F1. simpl.
-      eapply encode_reg_positions_in_I; eauto.
-    + destruct (IH dsTl false k HwideTl HinT) as [i Hi].
+      eapply encode_reg_positions_in_Iv; eauto.
+    + destruct (IH ds false k HwideTl HinT) as [i Hi].
       exists (Fin.FS i). simpl. exact Hi.
 Qed.
 
 Lemma encode_regs_at_outside_interval_head :
-  forall n (I : Interval) (tl : Vector.t Interval n) (ds : Vector.t digit n) k,
+  forall n (Iv : Interval) (tl : Vector.t Interval n) (ds : Vector.t digit n) k,
     all_wide tl ->
-    chain_order (I :: tl) ->
-    In k (encode_regs_at false tl ds) ->
-    ~ in_interval (k_pos k) I.
+    chain_order (Iv :: tl) ->
+    List.In k (encode_regs_at false tl ds) ->
+    ~ in_interval (k_pos k) Iv.
 Proof.
-  intros n I tl ds k HwideTl Hord Hin.
-  destruct (encode_regs_at_member_index (regs:=tl) (ds:=ds) (b:=false) (k:=k) HwideTl Hin)
-    as [i Hi].
-  pose proof (chain_order_head_before_nth (I:=I) (tl:=tl) (i:=i) Hord) as Hsep.
+  intros n Iv tl ds k HwideTl Hord Hin.
+  destruct (encode_regs_at_member_index HwideTl Hin) as [i Hi].
+  pose proof (chain_order_head_before_nth i Hord) as Hsep.
   eapply interval_after_excludes; eauto.
 Qed.
 
 Lemma encode_reg_outside_all_tail :
-  forall n (I : Interval) (tl : Vector.t Interval n) b d,
-    chain_order (I :: tl) ->
-    wide_enough I ->
-    outside_all tl (encode_reg b I d).
+  forall n (Iv : Interval) (tl : Vector.t Interval n) b d,
+    chain_order (Iv :: tl) ->
+    wide_enough Iv ->
+    outside_all tl (encode_reg b Iv d).
 Proof.
-  intros n I tl b d Hord Hwide i k Hin.
-  pose proof (encode_reg_positions_in_I (b:=b) (I:=I) (d:=d) (k:=k) Hwide Hin) as HinI.
-  pose proof (chain_order_head_before_nth (I:=I) (tl:=tl) (i:=i) Hord) as Hsep.
+  intros n Iv tl b d Hord Hwide i k Hin.
+  pose proof (encode_reg_positions_in_Iv Hwide Hin) as HinI.
+  pose proof (chain_order_head_before_nth i Hord) as Hsep.
   eapply interval_before_excludes; eauto.
 Qed.
 
 Lemma regs_ok_at_app_left_outside_all :
   forall n (regs : Vector.t Interval n) ks1 ks2 b,
     outside_all regs ks1 ->
-    regs_ok_at b regs (ks1 ++ ks2) <-> regs_ok_at b regs ks2.
+    regs_ok_at b regs (List.app ks1 ks2) <-> regs_ok_at b regs ks2.
 Proof.
-  induction regs as [|I n tl IH]; intros ks1 ks2 b Hout; simpl.
+  induction regs as [|Iv m tl IH]; intros ks1 ks2 b Hout; simpl.
   - tauto.
-  - assert (HoutI : outside_interval I ks1).
-    { apply (outside_interval_head_cons (I:=I) (tl:=tl) (ks:=ks1)). exact Hout. }
+  - assert (HoutI : outside_interval Iv ks1).
+    { eapply outside_interval_head_cons. exact Hout. }
     assert (HoutTl : outside_all tl ks1).
-    { apply (outside_all_tail_cons (I:=I) (tl:=tl) (ks:=ks1)). exact Hout. }
-    rewrite (knots_in_app_left_outside_interval I ks1 ks2 HoutI).
+    { eapply outside_all_tail_cons. exact Hout. }
+    rewrite (@knots_in_app_left_outside_interval Iv ks1 ks2 HoutI).
     split.
     + intros [Hhead Htail]. split; [exact Hhead|].
       apply (proj1 (IH ks1 ks2 false HoutTl)). exact Htail.
@@ -1063,45 +1087,48 @@ Lemma encode_regs_ok_at :
     chain_order regs ->
     regs_ok_at b regs (encode_regs_at b regs ds).
 Proof.
-  induction regs as [|I n tl IH]; intros ds b Hwide Hord; simpl.
-  - dependent destruction ds. simpl. exact I.
-  - dependent destruction ds as [d dsTl].
+  induction regs as [|Iv m tl IH]; intros ds b Hwide Hord; simpl.
+  - dependent destruction ds. simpl. exact Logic.I.
+  - dependent destruction ds.
     simpl in Hwide. destruct Hwide as [HwideI HwideTl].
-    set (head := encode_reg b I d).
-    set (tail := encode_regs_at false tl dsTl).
     split.
-    + (* head register dialect *)
-      assert (knots_in I (head ++ tail) = head).
-      { rewrite knots_in_app.
-        assert (knots_in I head = head).
-        { apply knots_in_self.
-          intros k Hin.
-          eapply encode_reg_positions_in_I; eauto.
-        }
-        rewrite H.
-        assert (knots_in I tail = []).
-        { apply knots_in_none.
-          intros k Hin.
-          eapply encode_regs_at_outside_interval_head; eauto.
-          apply HwideTl.
-          exact Hord.
-          exact Hin.
-        }
-        rewrite H0. simpl. reflexivity.
+    + assert (Hkh : knots_in Iv (encode_reg b Iv h) = encode_reg b Iv h).
+      { apply knots_in_self.
+        intros k Hin.
+        eapply encode_reg_positions_in_Iv; eauto.
       }
-      rewrite H. unfold head.
+      assert (Hkt : knots_in Iv (encode_regs_at false tl ds) = @List.nil Knot).
+      { apply knots_in_none.
+        intros k Hin.
+        eapply encode_regs_at_outside_interval_head.
+        - exact HwideTl.
+        - exact Hord.
+        - exact Hin.
+      }
+      simpl.
+      rewrite knots_in_app, Hkh, Hkt.
+      rewrite List.app_nil_r.
       apply encode_reg_ok.
-    + (* tail registers: head knots do not enter tail intervals *)
-      assert (outside_all tl head).
-      { subst head.
-        apply encode_reg_outside_all_tail; auto.
-      }
-      apply (proj2 (regs_ok_at_app_left_outside_all (regs:=tl) (ks1:=head) (ks2:=tail) (b:=false))).
-      * exact H.
-      * apply IH.
+    + assert (Hout : outside_all tl (encode_reg b Iv h)).
+      { apply encode_reg_outside_all_tail; auto. }
+      simpl.
+      apply (proj2 (@regs_ok_at_app_left_outside_all m tl (encode_reg b Iv h) (encode_regs_at false tl ds) false Hout)).
+      apply IH.
         -- exact HwideTl.
-        -- exact (chain_order_tail (I:=I) (tl:=tl) Hord).
+        -- exact (chain_order_tail Hord).
 Qed.
+
+Lemma in_interval_nth_implies_covered :
+  forall n (regs : Vector.t Interval n) (i : Fin.t n) p,
+    in_interval p (Vector.nth regs i) ->
+    regs_covered p regs.
+Proof.
+  induction regs as [|Iv m tl IH]; intros i p Hi.
+  - inversion i.
+  - dependent destruction i; simpl in *.
+    + left. exact Hi.
+    + right. apply (IH i p Hi).
+Defined.
 
 Theorem encode_is_WellFormed :
   forall n (ns : NumeralSpec n) ds,
@@ -1117,19 +1144,14 @@ Proof.
     intros k Hin.
     destruct (encode_regs_at_member_index (regs:=regs) (ds:=ds) (b:=true) (k:=k) (ns_wide ns) Hin)
       as [i Hi].
-    pose proof (all_within_nth (len:=len) (regs:=regs) (i:=i) (ns_within ns)) as Hhi.
+    pose proof (@all_within_nth len n regs i (ns_within ns)) as Hhi.
     destruct Hi as [_ Hlt]. lia.
   - split.
     + (* coverage *)
       intros k Hin.
       destruct (encode_regs_at_member_index (regs:=regs) (ds:=ds) (b:=true) (k:=k) (ns_wide ns) Hin)
         as [i Hi].
-      (* regs_covered is a disjunction over the vector *)
-      revert regs i Hi.
-      induction regs as [|I m tl IH]; intros i Hi; [inversion i|].
-      destruct i as [|i']; simpl in *.
-      * left. exact Hi.
-      * right. apply (IH i' Hi).
+      apply (in_interval_nth_implies_covered (regs:=regs) (i:=i) (p:=k_pos k) Hi).
     + (* per-register dialect *)
       unfold ks.
       unfold encode_regs.
@@ -1142,23 +1164,35 @@ Qed.
 (*                        DECODE(ENCODE(ds)) = ds                               *)
 (* ========================================================================== *)
 
+Lemma lt_unique : forall m n (h1 h2 : m < n), h1 = h2.
+Proof.
+  intros m n h1 h2.
+  apply Peano_dec.le_unique.
+Qed.
+
+Lemma decode_units_encode_units_aux :
+  forall I n (Hlt : n < 10),
+    decode_units
+      (match n as n' return (n' < 10 -> list Knot) with
+       | 0 => fun _ => @List.nil Knot
+       | 1 => fun _ => List.cons (mk_fig8 (slot I 0)) List.nil
+       | S (S m) => fun H => List.cons (mk_long (slot I 0) (encode_units_aux2 m H)) List.nil
+       end Hlt) = Some (digit_of_nat n Hlt).
+Proof.
+  intros I n Hlt.
+  destruct n as [|[|k]]; simpl; f_equal; apply digit_ext;
+    unfold digit0, digit1; rewrite ?digit_to_nat_of_nat_lt; reflexivity.
+Qed.
+
 Lemma decode_units_encode_units :
   forall I d,
     decode_units (encode_units I d) = Some d.
 Proof.
   intros I d.
-  unfold decode_units, encode_units.
-  destruct (digit_to_nat d) as [|[|m]] eqn:Hd; simpl.
-  - apply f_equal. apply digit_ext.
-    rewrite digit_to_nat_of_nat_lt with (n:=0) (H:=ltac:(lia)).
-    exact Hd.
-  - apply f_equal. apply digit_ext.
-    rewrite digit_to_nat_of_nat_lt with (n:=1) (H:=ltac:(lia)).
-    exact Hd.
-  - apply f_equal. apply digit_ext.
-    (* to_nat of digit_of_nat n _ is n *)
-    rewrite digit_to_nat_of_nat_lt.
-    exact Hd.
+  unfold encode_units.
+  rewrite decode_units_encode_units_aux.
+  f_equal.
+  apply digit_of_nat_to_nat.
 Qed.
 
 Lemma decode_higher_encode_higher :
@@ -1171,10 +1205,11 @@ Proof.
   { apply (proj2 (all_overhandb_spec _)).
     intros k Hin. apply overhand_cluster_all_overhand in Hin. exact Hin. }
   rewrite H.
-  destruct (Nat.lt_dec (length (overhand_cluster I (digit_to_nat d))) 10) as [Hlt|Hge].
-  - apply f_equal. apply digit_ext.
-    rewrite overhand_cluster_length. rewrite digit_to_nat_of_nat_lt.
-    rewrite overhand_cluster_length. reflexivity.
+  destruct (lt_dec (length (overhand_cluster I (digit_to_nat d))) 10) as [Hlt|Hge].
+  - f_equal.
+    apply digit_ext.
+    rewrite digit_to_nat_of_nat_lt.
+    apply overhand_cluster_length.
   - exfalso.
     rewrite overhand_cluster_length in Hge.
     pose proof (digit_to_nat_lt10 d). lia.
@@ -1197,36 +1232,24 @@ Theorem decode_encode_roundtrip_at :
 Proof.
   induction regs as [|I n tl IH]; intros ds b Hwide Hord; simpl.
   - dependent destruction ds. reflexivity.
-  - dependent destruction ds as [d dsTl].
+  - dependent destruction ds.
     simpl in Hwide. destruct Hwide as [HwideI HwideTl].
-    set (head := encode_reg b I d).
-    set (tail := encode_regs_at false tl dsTl).
-    (* head filter isolates head encoding *)
-    assert (knots_in I (head ++ tail) = head).
-    { rewrite knots_in_app.
-      assert (knots_in I head = head).
-      { apply knots_in_self.
-        intros k Hin.
-        eapply encode_reg_positions_in_I; eauto.
-      }
-      rewrite H.
-      assert (knots_in I tail = []).
-      { apply knots_in_none.
-        intros k Hin.
-        eapply encode_regs_at_outside_interval_head; eauto.
-      }
-      rewrite H0. simpl. reflexivity.
+    assert (Hkh : knots_in I (encode_reg b I h) = encode_reg b I h).
+    { apply knots_in_self.
+      intros k Hin.
+      eapply encode_reg_positions_in_Iv; eauto.
     }
-    rewrite H.
-    (* tail decoding is unaffected by head prefix *)
-    assert (outside_all tl head).
-    { subst head. apply encode_reg_outside_all_tail; auto. }
-    assert (decode_regs_at false tl (head ++ tail) = decode_regs_at false tl tail).
-    { apply decode_regs_at_app_left_outside_all. exact H0. }
-    rewrite H1.
-    (* apply IH to tail *)
-    pose proof (IH dsTl false HwideTl (chain_order_tail (I:=I) (tl:=tl) Hord)) as Htail.
-    rewrite Htail.
+    assert (Hkt : knots_in I (encode_regs_at false tl ds) = @List.nil Knot).
+    { apply knots_in_none.
+      intros k Hin.
+      eapply encode_regs_at_outside_interval_head; eauto.
+    }
+    simpl.
+    rewrite knots_in_app, Hkh, Hkt, List.app_nil_r.
+    assert (Hout : outside_all tl (encode_reg b I h)).
+    { apply encode_reg_outside_all_tail; auto. }
+    rewrite (@decode_regs_at_app_left_outside_all n tl (encode_reg b I h) (encode_regs_at false tl ds) false Hout).
+    rewrite (IH ds false HwideTl (chain_order_tail (Iv:=I) (tl:=tl) Hord)).
     rewrite decode_reg_encode_reg.
     reflexivity.
 Qed.
@@ -1275,7 +1298,7 @@ Proof.
   intros n ns ks Hwf.
   unfold decode_checked.
   assert (WellFormedb ns ks = true).
-  { apply (proj2 (WellFormedb_spec _ _ _)). exact Hwf. }
+  { apply (proj2 (WellFormedb_spec ns ks)). exact Hwf. }
   rewrite H.
   destruct (decode_total_under_WF (ns:=ns) (ks:=ks) Hwf) as [ds Hds].
   exists ds. exact Hds.
@@ -1326,23 +1349,28 @@ Definition Ledger : Type := list { n : nat & NumericPendant n }.
 
 Fixpoint ledger_values (L : Ledger) : list (option nat) :=
   match L with
-  | [] => []
-  | existT _ n p :: tl => pendant_value p :: ledger_values tl
+  | List.nil => List.nil
+  | List.cons (existT _ n p) tl => List.cons (pendant_value p) (ledger_values tl)
   end.
 
 Definition attachment_within (parent_len : pos) (a : Attachment) : Prop :=
   match a with
-  | Attach at child => at < parent_len /\ cord_len child > 0
+  | Attach p child => p < parent_len /\ cord_len child > 0
   end.
 
-Fixpoint cord_wf (c : Cord) : Prop :=
-  match c with
-  | CordNode _ L ks ch =>
-      (0 < L) /\
-      (forall k, In k ks -> k_pos k < L) /\
-      (forall a, In a ch ->
-         attachment_within L a /\
-         cord_wf (match a with Attach _ child => child end))
-  end.
+Inductive cord_wf : Cord -> Prop :=
+| cord_wf_node : forall m L ks ch,
+    0 < L ->
+    (forall k, List.In k ks -> k_pos k < L) ->
+    attachments_wf L ch ->
+    cord_wf (CordNode m L ks ch)
+with attachments_wf : pos -> list Attachment -> Prop :=
+| attachments_wf_nil : forall L, attachments_wf L List.nil
+| attachments_wf_cons : forall L p child tl,
+    p < L ->
+    cord_len child > 0 ->
+    cord_wf child ->
+    attachments_wf L tl ->
+    attachments_wf L (List.cons (Attach p child) tl).
 
 End Khipu.
