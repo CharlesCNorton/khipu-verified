@@ -1,0 +1,3669 @@
+DIGEST ba660349a6c0cf82bb83e63fde4cc57d
+Fkhipu
+R1323:1333 Coq.Arith.Arith <> <> lib
+R1337:1350 Coq.Arith.PeanoNat <> <> lib
+R1354:1362 Coq.Bool.Bool <> <> lib
+R1366:1375 Coq.Lists.List <> <> lib
+R1379:1394 Coq.Program.Equality <> <> lib
+R1398:1411 Coq.Vectors.Vector <> <> lib
+R1415:1425 Coq.Vectors.Fin <> <> lib
+R1429:1441 Coq.micromega.Lia <> <> lib
+R1452:1464 Coq.Lists.List ListNotations <> mod
+R1474:1488 Coq.Vectors.Vector VectorNotations <> mod
+mod 1582:1586 <> Khipu
+def 2208:2210 Khipu pos
+R2222:2224 Coq.Init.Datatypes <> nat ind
+rec 2235:2242 Khipu Interval
+proj 2258:2259 Khipu lo
+proj 2300:2301 Khipu hi
+proj 2342:2349 Khipu lo_lt_hi
+R2263:2265 khipu Khipu pos def
+R2305:2307 khipu Khipu pos def
+R2355:2357 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R2353:2354 khipu <> lo:2 meth
+R2358:2359 khipu <> hi:3 meth
+def 2417:2427 Khipu in_interval
+R2434:2436 khipu Khipu pos def
+binder 2430:2430 <> p:5
+R2445:2452 khipu Khipu Interval rec
+binder 2440:2441 <> Iv:6
+R2472:2475 Coq.Init.Peano <> ::nat_scope:x_'<='_x_'<'_x not
+R2477:2479 Coq.Init.Peano <> ::nat_scope:x_'<='_x_'<'_x not
+R2467:2468 khipu Khipu lo proj
+R2470:2471 khipu <> Iv:6 var
+R2476:2476 khipu <> p:5 var
+R2476:2476 khipu <> p:5 var
+R2480:2481 khipu Khipu hi proj
+R2483:2484 khipu <> Iv:6 var
+def 2499:2510 Khipu in_intervalb
+R2517:2519 khipu Khipu pos def
+binder 2513:2513 <> p:7
+R2528:2535 khipu Khipu Interval rec
+binder 2523:2524 <> Iv:8
+R2540:2543 Coq.Init.Datatypes <> bool ind
+R2550:2550 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R2562:2567 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R2578:2578 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R2556:2560 Coq.Arith.PeanoNat <> ::nat_scope:x_'<=?'_x not
+R2551:2552 khipu Khipu lo proj
+R2554:2555 khipu <> Iv:8 var
+R2561:2561 khipu <> p:7 var
+R2569:2572 Coq.Arith.PeanoNat <> ::nat_scope:x_'<?'_x not
+R2568:2568 khipu <> p:7 var
+R2573:2574 khipu Khipu hi proj
+R2576:2577 khipu <> Iv:8 var
+prf 2588:2604 Khipu in_intervalb_spec
+binder 2615:2615 <> p:9
+binder 2617:2618 <> Iv:10
+R2647:2651 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R2640:2642 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2623:2634 khipu Khipu in_intervalb def
+R2638:2639 khipu <> Iv:10 var
+R2636:2636 khipu <> p:9 var
+R2643:2646 Coq.Init.Datatypes <> true constr
+R2652:2662 khipu Khipu in_interval def
+R2666:2667 khipu <> Iv:10 var
+R2664:2664 khipu <> p:9 var
+R2699:2710 khipu Khipu in_intervalb def
+R2713:2723 khipu Khipu in_interval def
+R2736:2748 Coq.Bool.Bool <> andb_true_iff thm
+R2736:2748 Coq.Bool.Bool <> andb_true_iff thm
+R2736:2748 Coq.Bool.Bool <> andb_true_iff thm
+R2761:2770 Coq.Arith.PeanoNat Nat leb_le thm
+R2773:2782 Coq.Arith.PeanoNat Nat ltb_lt thm
+R2761:2770 Coq.Arith.PeanoNat Nat leb_le thm
+R2761:2770 Coq.Arith.PeanoNat Nat leb_le thm
+R2773:2782 Coq.Arith.PeanoNat Nat ltb_lt thm
+R2773:2782 Coq.Arith.PeanoNat Nat ltb_lt thm
+prf 2806:2829 Khipu not_in_interval_if_ge_hi
+binder 2840:2841 <> Iv:11
+binder 2843:2843 <> p:12
+R2858:2861 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2853:2856 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R2848:2849 khipu Khipu hi proj
+R2851:2852 khipu <> Iv:11 var
+R2857:2857 khipu <> p:12 var
+R2862:2863 Coq.Init.Logic <> ::type_scope:'~'_x not
+R2864:2874 khipu Khipu in_interval def
+R2878:2879 khipu <> Iv:11 var
+R2876:2876 khipu <> p:12 var
+prf 2935:2958 Khipu not_in_interval_if_lt_lo
+binder 2969:2970 <> Iv:13
+binder 2972:2972 <> p:14
+R2986:2989 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2978:2980 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R2977:2977 khipu <> p:14 var
+R2981:2982 khipu Khipu lo proj
+R2984:2985 khipu <> Iv:13 var
+R2990:2991 Coq.Init.Logic <> ::type_scope:'~'_x not
+R2992:3002 khipu Khipu in_interval def
+R3006:3007 khipu <> Iv:13 var
+R3004:3004 khipu <> p:14 var
+prf 3204:3226 Khipu interval_after_excludes
+binder 3239:3240 <> Iv:15
+binder 3242:3243 <> Jv:16
+binder 3245:3245 <> p:17
+R3266:3273 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3257:3260 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R3252:3253 khipu Khipu hi proj
+R3255:3256 khipu <> Iv:15 var
+R3261:3262 khipu Khipu lo proj
+R3264:3265 khipu <> Jv:16 var
+R3290:3297 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3274:3284 khipu Khipu in_interval def
+R3288:3289 khipu <> Jv:16 var
+R3286:3286 khipu <> p:17 var
+R3298:3299 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3300:3310 khipu Khipu in_interval def
+R3314:3315 khipu <> Iv:15 var
+R3312:3312 khipu <> p:17 var
+prf 3389:3412 Khipu interval_before_excludes
+binder 3425:3426 <> Iv:18
+binder 3428:3429 <> Jv:19
+binder 3431:3431 <> p:20
+R3452:3459 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3443:3446 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R3438:3439 khipu Khipu hi proj
+R3441:3442 khipu <> Iv:18 var
+R3447:3448 khipu Khipu lo proj
+R3450:3451 khipu <> Jv:19 var
+R3476:3483 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3460:3470 khipu Khipu in_interval def
+R3474:3475 khipu <> Iv:18 var
+R3472:3472 khipu <> p:20 var
+R3484:3485 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3486:3496 khipu Khipu in_interval def
+R3500:3501 khipu <> Jv:19 var
+R3498:3498 khipu <> p:20 var
+def 3664:3674 Khipu wide_enough
+R3682:3689 khipu Khipu Interval rec
+binder 3677:3678 <> Iv:21
+R3714:3717 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R3709:3711 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R3704:3705 khipu Khipu lo proj
+R3707:3708 khipu <> Iv:21 var
+R3718:3719 khipu Khipu hi proj
+R3721:3722 khipu <> Iv:21 var
+def 3737:3740 Khipu slot
+R3748:3755 khipu Khipu Interval rec
+binder 3743:3744 <> Iv:22
+R3763:3765 Coq.Init.Datatypes <> nat ind
+binder 3759:3759 <> k:23
+R3770:3772 khipu Khipu pos def
+R3788:3790 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R3784:3786 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R3779:3780 khipu Khipu lo proj
+R3782:3783 khipu <> Iv:22 var
+R3791:3791 khipu <> k:23 var
+prf 3801:3816 Khipu slot_in_interval
+binder 3829:3830 <> Iv:24
+binder 3832:3832 <> k:25
+R3845:3852 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3840:3842 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R3839:3839 khipu <> k:25 var
+R3867:3874 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3853:3863 khipu Khipu wide_enough def
+R3865:3866 khipu <> Iv:24 var
+R3875:3885 khipu Khipu in_interval def
+R3899:3900 khipu <> Iv:24 var
+R3888:3891 khipu Khipu slot def
+R3896:3896 khipu <> k:25 var
+R3893:3894 khipu <> Iv:24 var
+R3943:3953 khipu Khipu in_interval def
+R3956:3959 khipu Khipu slot def
+R3993:3996 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R3993:3996 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R4019:4029 khipu Khipu wide_enough def
+def 4353:4357 Khipu digit
+R4369:4373 Coq.Vectors.Fin <> t ind
+def 4391:4402 Khipu digit_to_nat
+R4409:4413 khipu Khipu digit def
+binder 4405:4405 <> d:26
+R4418:4420 Coq.Init.Datatypes <> nat ind
+R4425:4433 Coq.Init.Specif <> proj1_sig def
+R4436:4445 Coq.Vectors.Fin <> to_nat def
+R4447:4447 khipu <> d:26 var
+prf 4458:4474 Khipu digit_to_nat_lt10
+R4489:4493 khipu Khipu digit def
+binder 4485:4485 <> d:27
+R4510:4512 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R4496:4507 khipu Khipu digit_to_nat def
+R4509:4509 khipu <> d:27 var
+R4540:4551 khipu Khipu digit_to_nat def
+R4561:4569 Coq.Init.Specif <> proj2_sig def
+R4572:4581 Coq.Vectors.Fin <> to_nat def
+R4561:4569 Coq.Init.Specif <> proj2_sig def
+R4572:4581 Coq.Vectors.Fin <> to_nat def
+prf 4604:4612 Khipu digit_ext
+R4629:4633 khipu Khipu digit def
+binder 4623:4623 <> a:28
+binder 4625:4625 <> b:29
+R4669:4672 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4652:4654 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4638:4649 khipu Khipu digit_to_nat def
+R4651:4651 khipu <> a:28 var
+R4655:4666 khipu Khipu digit_to_nat def
+R4668:4668 khipu <> b:29 var
+R4674:4676 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4673:4673 khipu <> a:28 var
+R4677:4677 khipu <> b:29 var
+R4695:4708 Coq.Vectors.Fin <> to_nat_inj thm
+R4695:4708 Coq.Vectors.Fin <> to_nat_inj thm
+def 4728:4739 Khipu digit_of_nat
+R4755:4757 Coq.Init.Datatypes <> nat ind
+binder 4751:4751 <> n:30
+R4767:4770 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4762:4764 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R4761:4761 khipu <> n:30 var
+R4771:4775 khipu Khipu digit def
+binder 4786:4786 <> n:31
+binder 4788:4788 <> H:32
+R4794:4806 Coq.Vectors.Fin <> of_nat_lt def
+R4808:4808 khipu <> n:31 var
+R4813:4813 khipu <> H:32 var
+R4826:4837 khipu Khipu digit_of_nat def
+R4826:4837 khipu Khipu digit_of_nat def
+prf 4869:4875 Khipu lt_0_10
+R4880:4882 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+prf 4910:4916 Khipu lt_1_10
+R4921:4923 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+def 4957:4962 Khipu digit0
+R4966:4970 khipu Khipu digit def
+R4975:4986 khipu Khipu digit_of_nat def
+R4990:4996 khipu Khipu lt_0_10 thm
+def 5010:5015 Khipu digit1
+R5019:5023 khipu Khipu digit def
+R5028:5039 khipu Khipu digit_of_nat def
+R5043:5049 khipu Khipu lt_1_10 thm
+prf 5059:5080 Khipu digit_to_nat_of_nat_lt
+binder 5093:5093 <> n:33
+R5101:5103 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R5100:5100 khipu <> n:33 var
+binder 5096:5096 <> H:34
+R5144:5146 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5113:5124 khipu Khipu digit_to_nat def
+R5127:5138 khipu Khipu digit_of_nat def
+R5142:5142 khipu <> H:34 var
+R5140:5140 khipu <> n:33 var
+R5147:5147 khipu <> n:33 var
+R5180:5191 khipu Khipu digit_to_nat def
+R5194:5205 khipu Khipu digit_of_nat def
+R5218:5234 Coq.Vectors.Fin <> to_nat_of_nat thm
+R5218:5234 Coq.Vectors.Fin <> to_nat_of_nat thm
+R5218:5234 Coq.Vectors.Fin <> to_nat_of_nat thm
+prf 5264:5282 Khipu digit_of_nat_to_nat
+R5297:5301 khipu Khipu digit def
+binder 5293:5293 <> d:35
+R5357:5359 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5306:5317 khipu Khipu digit_of_nat def
+R5337:5353 khipu Khipu digit_to_nat_lt10 thm
+R5355:5355 khipu <> d:35 var
+R5320:5331 khipu Khipu digit_to_nat def
+R5333:5333 khipu <> d:35 var
+R5360:5360 khipu <> d:35 var
+R5391:5402 khipu Khipu digit_of_nat def
+R5405:5416 khipu Khipu digit_to_nat def
+R5427:5447 Coq.Vectors.Fin <> of_nat_to_nat_inv thm
+R5427:5447 Coq.Vectors.Fin <> of_nat_to_nat_inv thm
+ind 6047:6051 Khipu Twist
+constr 6063:6064 Khipu TS
+constr 6068:6069 Khipu TZ
+scheme 6047:6051 Khipu Twist_rect
+scheme 6047:6051 Khipu Twist_ind
+scheme 6047:6051 Khipu Twist_rec
+scheme 6047:6051 Khipu Twist_sind
+rec 6339:6343 Khipu Turns
+proj 6359:6362 Khipu tval
+proj 6373:6379 Khipu t_range
+R6366:6368 Coq.Init.Datatypes <> nat ind
+R6384:6387 Coq.Init.Peano <> ::nat_scope:x_'<='_x_'<='_x not
+R6392:6395 Coq.Init.Peano <> ::nat_scope:x_'<='_x_'<='_x not
+R6388:6391 khipu <> tval:39 meth
+R6388:6391 khipu <> tval:39 meth
+prf 6408:6417 Khipu turns_lt10
+R6432:6436 khipu Khipu Turns rec
+binder 6428:6428 <> t:41
+R6445:6447 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R6439:6442 khipu Khipu tval proj
+R6444:6444 khipu <> t:41 var
+ind 6788:6795 Khipu KnotKind
+constr 6809:6816 Khipu Overhand
+constr 6820:6823 Khipu Long
+constr 6839:6849 Khipu FigureEight
+R6830:6834 khipu Khipu Turns rec
+binder 6826:6826 <> t:44
+scheme 6788:6795 Khipu KnotKind_rect
+scheme 6788:6795 Khipu KnotKind_ind
+scheme 6788:6795 Khipu KnotKind_rec
+scheme 6788:6795 Khipu KnotKind_sind
+rec 6860:6863 Khipu Knot
+proj 6879:6883 Khipu k_pos
+proj 6896:6901 Khipu k_kind
+proj 6918:6924 Khipu k_twist
+R6889:6891 khipu Khipu pos def
+R6906:6913 khipu Khipu KnotKind ind
+R6928:6932 khipu Khipu Twist ind
+def 6949:6960 Khipu is_overhandb
+R6967:6970 khipu Khipu Knot rec
+binder 6963:6963 <> k:49
+R6975:6978 Coq.Init.Datatypes <> bool ind
+R6991:6996 khipu Khipu k_kind proj
+R6998:6998 khipu <> k:49 var
+R7009:7016 khipu Khipu Overhand constr
+R7021:7024 Coq.Init.Datatypes <> true constr
+R7035:7039 Coq.Init.Datatypes <> false constr
+def 7060:7072 Khipu all_overhandb
+R7080:7083 Coq.Init.Datatypes <> list ind
+R7085:7088 khipu Khipu Knot rec
+binder 7075:7076 <> ks:50
+R7093:7096 Coq.Init.Datatypes <> bool ind
+R7103:7109 Coq.Lists.List <> forallb def
+R7124:7125 khipu <> ks:50 var
+R7111:7122 khipu Khipu is_overhandb def
+prf 7135:7152 Khipu all_overhandb_spec
+binder 7165:7166 <> ks:51
+R7196:7205 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R7251:7251 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R7189:7191 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7173:7185 khipu Khipu all_overhandb def
+R7187:7188 khipu <> ks:51 var
+R7192:7195 Coq.Init.Datatypes <> true constr
+binder 7213:7213 <> k:52
+R7228:7231 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7216:7222 Coq.Lists.List <> In def
+R7226:7227 khipu <> ks:51 var
+R7224:7224 khipu <> k:52 var
+R7240:7242 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7232:7237 khipu Khipu k_kind proj
+R7239:7239 khipu <> k:52 var
+R7243:7250 khipu Khipu Overhand constr
+R7280:7292 khipu Khipu all_overhandb def
+R7305:7318 Coq.Lists.List <> forallb_forall thm
+R7305:7318 Coq.Lists.List <> forallb_forall thm
+R7305:7318 Coq.Lists.List <> forallb_forall thm
+R7383:7394 khipu Khipu is_overhandb def
+R7416:7421 khipu Khipu k_kind proj
+R7416:7421 khipu Khipu k_kind proj
+R7511:7522 khipu Khipu is_overhandb def
+def 7878:7890 Khipu head_interval
+R7897:7899 Coq.Init.Datatypes <> nat ind
+binder 7893:7893 <> n:53
+R7910:7917 Coq.Vectors.Vector <> t ind
+R7919:7926 khipu Khipu Interval rec
+R7929:7939 Coq.Init.Datatypes <> S constr
+R7941:7941 khipu <> n:53 var
+binder 7903:7906 <> regs:54
+R7947:7954 khipu Khipu Interval rec
+R7961:7969 Coq.Vectors.Vector <> hd def
+R7971:7974 khipu <> regs:54 var
+def 7987:7997 Khipu chain_order
+R8004:8006 Coq.Init.Datatypes <> nat ind
+binder 8000:8000 <> n:55
+R8017:8024 Coq.Vectors.Vector <> t ind
+R8026:8033 khipu Khipu Interval rec
+R8035:8035 khipu <> n:55 var
+binder 8010:8013 <> regs:56
+R8070:8073 khipu <> regs:56 var
+R8084:8085 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_']' not
+R8090:8093 Coq.Init.Logic <> True ind
+R8101:8104 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R8158:8159 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_']' not
+R8164:8167 Coq.Init.Logic <> True ind
+R8179:8182 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R8202:8205 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8193:8196 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R8188:8189 khipu Khipu hi proj
+R8197:8198 khipu Khipu lo proj
+R8206:8216 khipu <> chain_order:57 def
+def 8248:8255 Khipu all_wide
+R8262:8264 Coq.Init.Datatypes <> nat ind
+binder 8258:8258 <> n:60
+R8275:8282 Coq.Vectors.Vector <> t ind
+R8284:8291 khipu Khipu Interval rec
+R8293:8293 khipu <> n:60 var
+binder 8268:8271 <> regs:61
+R8314:8317 khipu <> regs:61 var
+R8328:8329 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_']' not
+R8334:8337 Coq.Init.Logic <> True ind
+R8345:8348 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R8369:8372 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8355:8365 khipu Khipu wide_enough def
+R8373:8380 khipu <> all_wide:62 def
+def 8402:8411 Khipu all_within
+R8420:8422 khipu Khipu pos def
+binder 8414:8416 <> len:64
+R8430:8432 Coq.Init.Datatypes <> nat ind
+binder 8426:8426 <> n:65
+R8443:8450 Coq.Vectors.Vector <> t ind
+R8452:8459 khipu Khipu Interval rec
+R8461:8461 khipu <> n:65 var
+binder 8436:8439 <> regs:66
+R8482:8485 khipu <> regs:66 var
+R8496:8497 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_']' not
+R8502:8505 Coq.Init.Logic <> True ind
+R8513:8516 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R8535:8538 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8528:8531 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R8523:8524 khipu Khipu hi proj
+R8532:8534 khipu <> len:64 var
+R8539:8548 khipu <> all_within:67 def
+R8550:8552 khipu <> len:64 var
+rec 8572:8582 Khipu NumeralSpec
+proj 8608:8613 Khipu ns_len
+proj 8629:8638 Khipu ns_len_pos
+proj 8657:8663 Khipu ns_regs
+proj 8694:8701 Khipu ns_order
+proj 8731:8737 Khipu ns_wide
+proj 8765:8773 Khipu ns_within
+R8589:8591 Coq.Init.Datatypes <> nat ind
+binder 8585:8585 <> n:69
+R8622:8624 khipu Khipu pos def
+R8644:8646 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R8647:8652 khipu <> ns_len:71 meth
+R8671:8678 Coq.Vectors.Vector <> t ind
+R8680:8687 khipu Khipu Interval rec
+R8689:8689 khipu <> n:69 var
+R8708:8718 khipu Khipu chain_order def
+R8720:8726 khipu <> ns_regs:73 meth
+R8745:8752 khipu Khipu all_wide def
+R8754:8760 khipu <> ns_regs:73 meth
+R8779:8788 khipu Khipu all_within def
+R8797:8803 khipu <> ns_regs:73 meth
+R8790:8795 khipu <> ns_len:71 meth
+prf 8815:8830 Khipu chain_order_tail
+binder 8843:8843 <> n:77
+R8851:8858 khipu Khipu Interval rec
+binder 8846:8847 <> Iv:78
+R8867:8874 Coq.Vectors.Vector <> t ind
+R8876:8883 khipu Khipu Interval rec
+R8885:8885 khipu <> n:77 var
+binder 8862:8863 <> tl:79
+R8915:8918 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8893:8903 khipu Khipu chain_order def
+R8908:8911 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R8906:8907 khipu <> Iv:78 var
+R8912:8913 khipu <> tl:79 var
+R8919:8929 khipu Khipu chain_order def
+R8931:8932 khipu <> tl:79 var
+prf 9065:9077 Khipu all_wide_tail
+binder 9090:9090 <> n:80
+R9098:9105 khipu Khipu Interval rec
+binder 9093:9094 <> Iv:81
+R9114:9121 Coq.Vectors.Vector <> t ind
+R9123:9130 khipu Khipu Interval rec
+R9132:9132 khipu <> n:80 var
+binder 9109:9110 <> tl:82
+R9159:9162 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9140:9147 khipu Khipu all_wide def
+R9152:9155 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R9150:9151 khipu <> Iv:81 var
+R9156:9157 khipu <> tl:82 var
+R9163:9170 khipu Khipu all_wide def
+R9172:9173 khipu <> tl:82 var
+prf 9234:9248 Khipu all_within_tail
+binder 9261:9263 <> len:83
+binder 9265:9265 <> n:84
+R9273:9280 khipu Khipu Interval rec
+binder 9268:9269 <> Iv:85
+R9289:9296 Coq.Vectors.Vector <> t ind
+R9298:9305 khipu Khipu Interval rec
+R9307:9307 khipu <> n:84 var
+binder 9284:9285 <> tl:86
+R9340:9343 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9315:9324 khipu Khipu all_within def
+R9333:9336 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R9331:9332 khipu <> Iv:85 var
+R9337:9338 khipu <> tl:86 var
+R9326:9328 khipu <> len:83 var
+R9344:9353 khipu Khipu all_within def
+R9359:9360 khipu <> tl:86 var
+R9355:9357 khipu <> len:83 var
+prf 9425:9436 Khipu all_wide_nth
+binder 9449:9449 <> n:87
+R9459:9466 Coq.Vectors.Vector <> t ind
+R9468:9475 khipu Khipu Interval rec
+R9477:9477 khipu <> n:87 var
+binder 9452:9455 <> regs:88
+R9485:9489 Coq.Vectors.Fin <> t ind
+R9491:9491 khipu <> n:87 var
+binder 9481:9481 <> i:89
+R9512:9519 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9499:9506 khipu Khipu all_wide def
+R9508:9511 khipu <> regs:88 var
+R9520:9530 khipu Khipu wide_enough def
+R9533:9542 Coq.Vectors.Vector <> nth def
+R9549:9549 khipu <> i:89 var
+R9544:9547 khipu <> regs:88 var
+prf 9760:9773 Khipu all_within_nth
+binder 9786:9788 <> len:90
+binder 9790:9790 <> n:91
+R9800:9807 Coq.Vectors.Vector <> t ind
+R9809:9816 khipu Khipu Interval rec
+R9818:9818 khipu <> n:91 var
+binder 9793:9796 <> regs:92
+R9826:9830 Coq.Vectors.Fin <> t ind
+R9832:9832 khipu <> n:91 var
+binder 9822:9822 <> i:93
+R9859:9866 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9840:9849 khipu Khipu all_within def
+R9855:9858 khipu <> regs:92 var
+R9851:9853 khipu <> len:90 var
+R9889:9892 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R9867:9868 khipu Khipu hi proj
+R9871:9880 Coq.Vectors.Vector <> nth def
+R9887:9887 khipu <> i:93 var
+R9882:9885 khipu <> regs:92 var
+R9893:9895 khipu <> len:90 var
+prf 10193:10219 Khipu chain_order_head_before_nth
+binder 10232:10232 <> n:94
+R10240:10247 khipu Khipu Interval rec
+binder 10235:10236 <> Iv:95
+R10256:10263 Coq.Vectors.Vector <> t ind
+R10265:10272 khipu Khipu Interval rec
+R10274:10274 khipu <> n:94 var
+binder 10251:10252 <> tl:96
+R10282:10286 Coq.Vectors.Fin <> t ind
+R10288:10288 khipu <> n:94 var
+binder 10278:10278 <> i:97
+R10318:10325 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R10296:10306 khipu Khipu chain_order def
+R10311:10314 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R10309:10310 khipu <> Iv:95 var
+R10315:10316 khipu <> tl:96 var
+R10331:10334 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R10326:10327 khipu Khipu hi proj
+R10329:10330 khipu <> Iv:95 var
+R10335:10336 khipu Khipu lo proj
+R10339:10348 Coq.Vectors.Vector <> nth def
+R10353:10353 khipu <> i:97 var
+R10350:10351 khipu <> tl:96 var
+R10583:10590 khipu Khipu lo_lt_hi proj
+R10583:10590 khipu Khipu lo_lt_hi proj
+R10623:10626 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R10618:10619 khipu Khipu hi proj
+R10627:10628 khipu Khipu hi proj
+R10623:10626 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R10618:10619 khipu Khipu hi proj
+R10627:10628 khipu Khipu hi proj
+def 10948:10955 Khipu knots_in
+R10963:10970 khipu Khipu Interval rec
+binder 10958:10959 <> Iv:98
+R10979:10982 Coq.Init.Datatypes <> list ind
+R10984:10987 khipu Khipu Knot rec
+binder 10974:10975 <> ks:99
+R10992:10995 Coq.Init.Datatypes <> list ind
+R10997:11000 khipu Khipu Knot rec
+R11007:11012 Coq.Lists.List <> filter def
+R11051:11052 khipu <> ks:99 var
+binder 11019:11019 <> k:100
+R11024:11035 khipu Khipu in_intervalb def
+R11047:11048 khipu <> Iv:98 var
+R11038:11042 khipu Khipu k_pos proj
+R11044:11044 khipu <> k:100 var
+prf 11062:11073 Khipu knots_in_app
+binder 11084:11085 <> Iv:101
+binder 11087:11088 <> xs:102
+binder 11090:11091 <> ys:103
+R11124:11126 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R11096:11103 khipu Khipu knots_in def
+R11109:11116 Coq.Lists.List <> app abbrev
+R11121:11122 khipu <> ys:103 var
+R11118:11119 khipu <> xs:102 var
+R11105:11106 khipu <> Iv:101 var
+R11127:11134 Coq.Lists.List <> app abbrev
+R11154:11161 khipu Khipu knots_in def
+R11166:11167 khipu <> ys:103 var
+R11163:11164 khipu <> Iv:101 var
+R11137:11144 khipu Khipu knots_in def
+R11149:11150 khipu <> xs:102 var
+R11146:11147 khipu <> Iv:101 var
+R11204:11211 khipu Khipu knots_in def
+R11226:11235 Coq.Lists.List <> filter_app thm
+R11226:11235 Coq.Lists.List <> filter_app thm
+R11226:11235 Coq.Lists.List <> filter_app thm
+prf 11250:11263 Khipu knots_in_sound
+binder 11274:11275 <> Iv:104
+binder 11277:11278 <> ks:105
+binder 11280:11280 <> k:106
+R11311:11314 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11285:11291 Coq.Lists.List <> In def
+R11296:11303 khipu Khipu knots_in def
+R11308:11309 khipu <> ks:105 var
+R11305:11306 khipu <> Iv:104 var
+R11293:11293 khipu <> k:106 var
+R11315:11325 khipu Khipu in_interval def
+R11337:11338 khipu <> Iv:104 var
+R11328:11332 khipu Khipu k_pos proj
+R11334:11334 khipu <> k:106 var
+R11379:11386 khipu Khipu knots_in def
+R11404:11412 Coq.Lists.List <> filter_In thm
+R11404:11412 Coq.Lists.List <> filter_In thm
+R11444:11448 Coq.Init.Logic <> proj1 thm
+R11451:11467 khipu Khipu in_intervalb_spec thm
+R11444:11448 Coq.Init.Logic <> proj1 thm
+R11451:11467 khipu Khipu in_intervalb_spec thm
+prf 11506:11522 Khipu knots_in_complete
+binder 11533:11534 <> Iv:107
+binder 11536:11537 <> ks:108
+binder 11539:11539 <> k:109
+R11556:11561 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11544:11550 Coq.Lists.List <> In def
+R11554:11555 khipu <> ks:108 var
+R11552:11552 khipu <> k:109 var
+R11586:11591 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11562:11572 khipu Khipu in_interval def
+R11584:11585 khipu <> Iv:107 var
+R11575:11579 khipu Khipu k_pos proj
+R11581:11581 khipu <> k:109 var
+R11592:11598 Coq.Lists.List <> In def
+R11603:11610 khipu Khipu knots_in def
+R11615:11616 khipu <> ks:108 var
+R11612:11613 khipu <> Iv:107 var
+R11600:11600 khipu <> k:109 var
+R11664:11671 khipu Khipu knots_in def
+R11682:11690 Coq.Lists.List <> filter_In thm
+R11682:11690 Coq.Lists.List <> filter_In thm
+R11726:11730 Coq.Init.Logic <> proj2 thm
+R11733:11749 khipu Khipu in_intervalb_spec thm
+R11726:11730 Coq.Init.Logic <> proj2 thm
+R11733:11749 khipu Khipu in_intervalb_spec thm
+def 11789:11804 Khipu outside_interval
+R11812:11819 khipu Khipu Interval rec
+binder 11807:11808 <> Iv:110
+R11828:11831 Coq.Init.Datatypes <> list ind
+R11833:11836 khipu Khipu Knot rec
+binder 11823:11824 <> ks:111
+binder 11858:11858 <> k:112
+R11873:11876 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11861:11867 Coq.Lists.List <> In def
+R11871:11872 khipu <> ks:111 var
+R11869:11869 khipu <> k:112 var
+R11877:11878 Coq.Init.Logic <> ::type_scope:'~'_x not
+R11879:11889 khipu Khipu in_interval def
+R11901:11902 khipu <> Iv:110 var
+R11892:11896 khipu Khipu k_pos proj
+R11898:11898 khipu <> k:112 var
+prf 11912:11924 Khipu knots_in_self
+binder 11937:11938 <> Iv:113
+binder 11940:11941 <> ks:114
+R11948:11948 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11999:12007 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 11956:11956 <> k:115
+R11971:11974 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11959:11965 Coq.Lists.List <> In def
+R11969:11970 khipu <> ks:114 var
+R11967:11967 khipu <> k:115 var
+R11975:11985 khipu Khipu in_interval def
+R11997:11998 khipu <> Iv:113 var
+R11988:11992 khipu Khipu k_pos proj
+R11994:11994 khipu <> k:115 var
+R12022:12024 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12008:12015 khipu Khipu knots_in def
+R12020:12021 khipu <> ks:114 var
+R12017:12018 khipu <> Iv:113 var
+R12025:12026 khipu <> ks:114 var
+R12066:12073 khipu Khipu knots_in def
+R12134:12144 khipu Khipu in_interval def
+R12147:12151 khipu Khipu k_pos proj
+R12134:12144 khipu Khipu in_interval def
+R12147:12151 khipu Khipu k_pos proj
+R12229:12231 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12204:12215 khipu Khipu in_intervalb def
+R12218:12222 khipu Khipu k_pos proj
+R12232:12235 Coq.Init.Datatypes <> true constr
+R12229:12231 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12204:12215 khipu Khipu in_intervalb def
+R12218:12222 khipu Khipu k_pos proj
+R12232:12235 Coq.Init.Datatypes <> true constr
+R12250:12254 Coq.Init.Logic <> proj2 thm
+R12257:12273 khipu Khipu in_intervalb_spec thm
+R12250:12254 Coq.Init.Logic <> proj2 thm
+R12257:12273 khipu Khipu in_intervalb_spec thm
+prf 12378:12390 Khipu knots_in_none
+binder 12403:12404 <> Iv:116
+binder 12406:12407 <> ks:117
+R12436:12443 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R12414:12429 khipu Khipu outside_interval def
+R12434:12435 khipu <> ks:117 var
+R12431:12432 khipu <> Iv:116 var
+R12458:12460 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12444:12451 khipu Khipu knots_in def
+R12456:12457 khipu <> ks:117 var
+R12453:12454 khipu <> Iv:116 var
+R12462:12469 Coq.Lists.List <> nil abbrev
+R12471:12474 khipu Khipu Knot rec
+R12514:12521 khipu Khipu knots_in def
+R12599:12600 Coq.Init.Logic <> ::type_scope:'~'_x not
+R12601:12611 khipu Khipu in_interval def
+R12614:12618 khipu Khipu k_pos proj
+R12599:12600 Coq.Init.Logic <> ::type_scope:'~'_x not
+R12601:12611 khipu Khipu in_interval def
+R12614:12618 khipu Khipu k_pos proj
+R12672:12683 khipu Khipu in_intervalb def
+R12686:12690 khipu Khipu k_pos proj
+R12672:12683 khipu Khipu in_intervalb def
+R12686:12690 khipu Khipu k_pos proj
+R12729:12733 Coq.Init.Logic <> proj1 thm
+R12736:12752 khipu Khipu in_intervalb_spec thm
+R12729:12733 Coq.Init.Logic <> proj1 thm
+R12736:12752 khipu Khipu in_intervalb_spec thm
+prf 12848:12881 Khipu knots_in_app_left_outside_interval
+binder 12894:12895 <> Iv:118
+binder 12897:12898 <> xs:119
+binder 12900:12901 <> ys:120
+R12930:12937 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R12908:12923 khipu Khipu outside_interval def
+R12928:12929 khipu <> xs:119 var
+R12925:12926 khipu <> Iv:118 var
+R12966:12968 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12938:12945 khipu Khipu knots_in def
+R12951:12958 Coq.Lists.List <> app abbrev
+R12963:12964 khipu <> ys:120 var
+R12960:12961 khipu <> xs:119 var
+R12947:12948 khipu <> Iv:118 var
+R12969:12976 khipu Khipu knots_in def
+R12981:12982 khipu <> ys:120 var
+R12978:12979 khipu <> Iv:118 var
+R13026:13037 khipu Khipu knots_in_app thm
+R13026:13037 khipu Khipu knots_in_app thm
+R13026:13037 khipu Khipu knots_in_app thm
+R13051:13063 khipu Khipu knots_in_none thm
+R13051:13063 khipu Khipu knots_in_none thm
+R13051:13063 khipu Khipu knots_in_none thm
+def 13365:13376 Khipu regs_covered
+R13383:13385 khipu Khipu pos def
+binder 13379:13379 <> p:121
+R13393:13395 Coq.Init.Datatypes <> nat ind
+binder 13389:13389 <> n:122
+R13406:13413 Coq.Vectors.Vector <> t ind
+R13415:13422 khipu Khipu Interval rec
+R13424:13424 khipu <> n:122 var
+binder 13399:13402 <> regs:123
+R13445:13448 khipu <> regs:123 var
+R13459:13460 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_']' not
+R13465:13469 Coq.Init.Logic <> False ind
+R13477:13480 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R13503:13506 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R13487:13497 khipu Khipu in_interval def
+R13499:13499 khipu <> p:121 var
+R13507:13518 khipu <> regs_covered:124 def
+R13520:13520 khipu <> p:121 var
+def 13542:13554 Khipu regs_coveredb
+R13561:13563 khipu Khipu pos def
+binder 13557:13557 <> p:126
+R13571:13573 Coq.Init.Datatypes <> nat ind
+binder 13567:13567 <> n:127
+R13584:13591 Coq.Vectors.Vector <> t ind
+R13593:13600 khipu Khipu Interval rec
+R13602:13602 khipu <> n:127 var
+binder 13577:13580 <> regs:128
+R13607:13610 Coq.Init.Datatypes <> bool ind
+R13623:13626 khipu <> regs:128 var
+R13637:13638 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_']' not
+R13643:13647 Coq.Init.Datatypes <> false constr
+R13655:13658 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R13682:13685 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R13665:13676 khipu Khipu in_intervalb def
+R13678:13678 khipu <> p:126 var
+R13686:13698 khipu <> regs_coveredb:129 def
+R13700:13700 khipu <> p:126 var
+prf 13719:13736 Khipu regs_coveredb_spec
+binder 13747:13747 <> p:131
+binder 13749:13749 <> n:132
+R13759:13766 Coq.Vectors.Vector <> t ind
+R13768:13775 khipu Khipu Interval rec
+R13777:13777 khipu <> n:132 var
+binder 13752:13755 <> regs:133
+R13810:13814 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R13803:13805 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R13783:13795 khipu Khipu regs_coveredb def
+R13799:13802 khipu <> regs:133 var
+R13797:13797 khipu <> p:131 var
+R13806:13809 Coq.Init.Datatypes <> true constr
+R13815:13826 khipu Khipu regs_covered def
+R13830:13833 khipu <> regs:133 var
+R13828:13828 khipu <> p:131 var
+R13949:13960 Coq.Bool.Bool <> orb_true_iff thm
+R13949:13960 Coq.Bool.Bool <> orb_true_iff thm
+R13949:13960 Coq.Bool.Bool <> orb_true_iff thm
+R13971:13987 khipu Khipu in_intervalb_spec thm
+R13971:13987 khipu Khipu in_intervalb_spec thm
+R13971:13987 khipu Khipu in_intervalb_spec thm
+prf 14021:14045 Khipu regs_covered_exists_index
+binder 14058:14058 <> n:134
+R14068:14075 Coq.Vectors.Vector <> t ind
+R14077:14084 khipu Khipu Interval rec
+R14086:14086 khipu <> n:134 var
+binder 14061:14064 <> regs:135
+binder 14089:14089 <> p:136
+R14115:14122 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R14096:14107 khipu Khipu regs_covered def
+R14111:14114 khipu <> regs:135 var
+R14109:14109 khipu <> p:136 var
+R14123:14129 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R14141:14142 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R14134:14138 Coq.Vectors.Fin <> t ind
+R14140:14140 khipu <> n:134 var
+binder 14130:14130 <> i:137
+R14143:14153 khipu Khipu in_interval def
+R14158:14167 Coq.Vectors.Vector <> nth def
+R14174:14174 khipu <> i:137 var
+R14169:14172 khipu <> regs:135 var
+R14155:14155 khipu <> p:136 var
+R14315:14320 Coq.Vectors.Fin <> F1 constr
+R14315:14320 Coq.Vectors.Fin <> F1 constr
+R14393:14398 Coq.Vectors.Fin <> FS constr
+R14393:14398 Coq.Vectors.Fin <> FS constr
+def 14436:14447 Khipu place_of_pos
+R14454:14456 Coq.Init.Datatypes <> nat ind
+binder 14450:14450 <> n:138
+R14464:14466 khipu Khipu pos def
+binder 14460:14460 <> p:139
+R14477:14484 Coq.Vectors.Vector <> t ind
+R14486:14493 khipu Khipu Interval rec
+R14495:14495 khipu <> n:138 var
+binder 14470:14473 <> regs:140
+R14502:14507 Coq.Init.Datatypes <> option ind
+R14510:14514 Coq.Vectors.Fin <> t ind
+R14516:14516 khipu <> n:138 var
+R14530:14533 khipu <> regs:140 var
+R14544:14545 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_']' not
+R14550:14553 Coq.Init.Datatypes <> None constr
+R14561:14564 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R14580:14591 khipu Khipu in_intervalb def
+R14593:14593 khipu <> p:139 var
+R14632:14641 Coq.Init.Datatypes <> option_map def
+R14651:14662 khipu <> place_of_pos:141 def
+R14664:14664 khipu <> p:139 var
+R14643:14648 Coq.Vectors.Fin <> FS constr
+R14609:14612 Coq.Init.Datatypes <> Some constr
+R14614:14619 Coq.Vectors.Fin <> F1 constr
+prf 14684:14701 Khipu place_of_pos_sound
+binder 14714:14714 <> n:143
+R14724:14731 Coq.Vectors.Vector <> t ind
+R14733:14740 khipu Khipu Interval rec
+R14742:14742 khipu <> n:143 var
+binder 14717:14720 <> regs:144
+binder 14745:14745 <> p:145
+binder 14747:14747 <> i:146
+R14782:14789 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R14773:14775 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R14754:14765 khipu Khipu place_of_pos def
+R14769:14772 khipu <> regs:144 var
+R14767:14767 khipu <> p:145 var
+R14776:14779 Coq.Init.Datatypes <> Some constr
+R14781:14781 khipu <> i:146 var
+R14790:14800 khipu Khipu in_interval def
+R14805:14814 Coq.Vectors.Vector <> nth def
+R14821:14821 khipu <> i:146 var
+R14816:14819 khipu <> regs:144 var
+R14802:14802 khipu <> p:145 var
+R14941:14952 khipu Khipu in_intervalb def
+R14941:14952 khipu Khipu in_intervalb def
+R15009:15013 Coq.Init.Logic <> proj1 thm
+R15016:15032 khipu Khipu in_intervalb_spec thm
+R15009:15013 Coq.Init.Logic <> proj1 thm
+R15016:15032 khipu Khipu in_intervalb_spec thm
+R15067:15078 khipu Khipu place_of_pos def
+R15067:15078 khipu Khipu place_of_pos def
+prf 15189:15209 Khipu place_of_pos_complete
+binder 15222:15222 <> n:147
+R15232:15239 Coq.Vectors.Vector <> t ind
+R15241:15248 khipu Khipu Interval rec
+R15250:15250 khipu <> n:147 var
+binder 15225:15228 <> regs:148
+binder 15253:15253 <> p:149
+binder 15255:15255 <> i:150
+R15278:15285 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R15262:15272 khipu Khipu chain_order def
+R15274:15277 khipu <> regs:148 var
+R15319:15326 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R15286:15296 khipu Khipu in_interval def
+R15301:15310 Coq.Vectors.Vector <> nth def
+R15317:15317 khipu <> i:150 var
+R15312:15315 khipu <> regs:148 var
+R15298:15298 khipu <> p:149 var
+R15346:15348 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15327:15338 khipu Khipu place_of_pos def
+R15342:15345 khipu <> regs:148 var
+R15340:15340 khipu <> p:149 var
+R15349:15352 Coq.Init.Datatypes <> Some constr
+R15354:15354 khipu <> i:150 var
+R15510:15512 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15493:15504 khipu Khipu in_intervalb def
+R15513:15516 Coq.Init.Datatypes <> true constr
+R15510:15512 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15493:15504 khipu Khipu in_intervalb def
+R15513:15516 Coq.Init.Datatypes <> true constr
+R15535:15539 Coq.Init.Logic <> proj2 thm
+R15542:15558 khipu Khipu in_intervalb_spec thm
+R15535:15539 Coq.Init.Logic <> proj2 thm
+R15542:15558 khipu Khipu in_intervalb_spec thm
+R15640:15643 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R15635:15636 khipu Khipu hi proj
+R15644:15645 khipu Khipu lo proj
+R15648:15657 Coq.Vectors.Vector <> nth def
+R15640:15643 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R15635:15636 khipu Khipu hi proj
+R15644:15645 khipu Khipu lo proj
+R15648:15657 Coq.Vectors.Vector <> nth def
+R15681:15707 khipu Khipu chain_order_head_before_nth thm
+R15681:15707 khipu Khipu chain_order_head_before_nth thm
+R15746:15747 Coq.Init.Logic <> ::type_scope:'~'_x not
+R15748:15758 khipu Khipu in_interval def
+R15746:15747 Coq.Init.Logic <> ::type_scope:'~'_x not
+R15748:15758 khipu Khipu in_interval def
+R15782:15804 khipu Khipu interval_after_excludes thm
+R15782:15804 khipu Khipu interval_after_excludes thm
+R15847:15849 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15830:15841 khipu Khipu in_intervalb def
+R15850:15854 Coq.Init.Datatypes <> false constr
+R15847:15849 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15830:15841 khipu Khipu in_intervalb def
+R15850:15854 Coq.Init.Datatypes <> false constr
+R15876:15887 khipu Khipu in_intervalb def
+R15876:15887 khipu Khipu in_intervalb def
+R15941:15945 Coq.Init.Logic <> proj1 thm
+R15948:15964 khipu Khipu in_intervalb_spec thm
+R15941:15945 Coq.Init.Logic <> proj1 thm
+R15948:15964 khipu Khipu in_intervalb_spec thm
+R16056:16071 khipu Khipu chain_order_tail thm
+R16056:16071 khipu Khipu chain_order_tail thm
+prf 16121:16143 Khipu unique_place_assignment
+binder 16156:16156 <> n:151
+R16166:16173 Coq.Vectors.Vector <> t ind
+R16175:16182 khipu Khipu Interval rec
+R16184:16184 khipu <> n:151 var
+binder 16159:16162 <> regs:152
+binder 16187:16187 <> p:153
+binder 16189:16189 <> i:154
+binder 16191:16191 <> j:155
+R16214:16221 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16198:16208 khipu Khipu chain_order def
+R16210:16213 khipu <> regs:152 var
+R16255:16262 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16222:16232 khipu Khipu in_interval def
+R16237:16246 Coq.Vectors.Vector <> nth def
+R16253:16253 khipu <> i:154 var
+R16248:16251 khipu <> regs:152 var
+R16234:16234 khipu <> p:153 var
+R16296:16303 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16263:16273 khipu Khipu in_interval def
+R16278:16287 Coq.Vectors.Vector <> nth def
+R16294:16294 khipu <> j:155 var
+R16289:16292 khipu <> regs:152 var
+R16275:16275 khipu <> p:153 var
+R16305:16307 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16304:16304 khipu <> i:154 var
+R16308:16308 khipu <> j:155 var
+R16366:16386 khipu Khipu place_of_pos_complete thm
+R16366:16386 khipu Khipu place_of_pos_complete thm
+R16446:16466 khipu Khipu place_of_pos_complete thm
+R16446:16466 khipu Khipu place_of_pos_complete thm
+prf 16576:16600 Khipu regs_covered_unique_place
+binder 16613:16613 <> n:156
+R16623:16630 Coq.Vectors.Vector <> t ind
+R16632:16639 khipu Khipu Interval rec
+R16641:16641 khipu <> n:156 var
+binder 16616:16619 <> regs:157
+binder 16644:16644 <> p:158
+R16667:16674 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16651:16661 khipu Khipu chain_order def
+R16663:16666 khipu <> regs:157 var
+R16694:16701 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16675:16686 khipu Khipu regs_covered def
+R16690:16693 khipu <> regs:157 var
+R16688:16688 khipu <> p:158 var
+R16702:16709 Coq.Init.Logic <> ::type_scope:'exists'_'!'_x_'..'_x_','_x not
+R16721:16722 Coq.Init.Logic <> ::type_scope:'exists'_'!'_x_'..'_x_','_x not
+R16714:16718 Coq.Vectors.Fin <> t ind
+R16720:16720 khipu <> n:156 var
+binder 16710:16710 <> i:159
+R16723:16733 khipu Khipu in_interval def
+R16738:16747 Coq.Vectors.Vector <> nth def
+R16754:16754 khipu <> i:159 var
+R16749:16752 khipu <> regs:157 var
+R16735:16735 khipu <> p:158 var
+R16806:16830 khipu Khipu regs_covered_exists_index thm
+R16806:16830 khipu Khipu regs_covered_exists_index thm
+R16940:16962 khipu Khipu unique_place_assignment thm
+R16940:16962 khipu Khipu unique_place_assignment thm
+def 18091:18098 Khipu units_ok
+R18106:18109 Coq.Init.Datatypes <> list ind
+R18111:18114 khipu Khipu Knot rec
+binder 18101:18102 <> ks:160
+R18135:18136 khipu <> ks:160 var
+R18147:18154 Coq.Lists.List <> nil abbrev
+R18159:18162 Coq.Init.Logic <> True ind
+R18168:18176 Coq.Lists.List <> cons abbrev
+R18180:18187 Coq.Lists.List <> nil abbrev
+R18204:18209 khipu Khipu k_kind proj
+R18226:18236 khipu Khipu FigureEight constr
+R18241:18244 Coq.Init.Logic <> True ind
+R18254:18257 khipu Khipu Long constr
+R18264:18267 Coq.Init.Logic <> True ind
+R18282:18286 Coq.Init.Logic <> False ind
+R18307:18311 Coq.Init.Logic <> False ind
+def 18332:18340 Khipu higher_ok
+R18348:18351 Coq.Init.Datatypes <> list ind
+R18353:18356 khipu Khipu Knot rec
+binder 18343:18344 <> ks:162
+R18371:18371 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R18417:18423 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+binder 18379:18379 <> k:163
+R18394:18397 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R18382:18388 Coq.Lists.List <> In def
+R18392:18393 khipu <> ks:162 var
+R18390:18390 khipu <> k:163 var
+R18406:18408 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R18398:18403 khipu Khipu k_kind proj
+R18405:18405 khipu <> k:163 var
+R18409:18416 khipu Khipu Overhand constr
+R18433:18435 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R18424:18429 Coq.Init.Datatypes <> length def
+R18431:18432 khipu <> ks:162 var
+def 18452:18460 Khipu units_okb
+R18468:18471 Coq.Init.Datatypes <> list ind
+R18473:18476 khipu Khipu Knot rec
+binder 18463:18464 <> ks:164
+R18481:18484 Coq.Init.Datatypes <> bool ind
+R18497:18498 khipu <> ks:164 var
+R18509:18516 Coq.Lists.List <> nil abbrev
+R18521:18524 Coq.Init.Datatypes <> true constr
+R18530:18538 Coq.Lists.List <> cons abbrev
+R18542:18549 Coq.Lists.List <> nil abbrev
+R18566:18571 khipu Khipu k_kind proj
+R18588:18598 khipu Khipu FigureEight constr
+R18603:18606 Coq.Init.Datatypes <> true constr
+R18616:18619 khipu Khipu Long constr
+R18626:18629 Coq.Init.Datatypes <> true constr
+R18644:18648 Coq.Init.Datatypes <> false constr
+R18669:18673 Coq.Init.Datatypes <> false constr
+def 18694:18703 Khipu higher_okb
+R18711:18714 Coq.Init.Datatypes <> list ind
+R18716:18719 khipu Khipu Knot rec
+binder 18706:18707 <> ks:166
+R18724:18727 Coq.Init.Datatypes <> bool ind
+R18750:18754 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R18770:18770 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R18734:18746 khipu Khipu all_overhandb def
+R18748:18749 khipu <> ks:166 var
+R18764:18767 Coq.Arith.PeanoNat <> ::nat_scope:x_'<?'_x not
+R18755:18760 Coq.Init.Datatypes <> length def
+R18762:18763 khipu <> ks:166 var
+prf 18780:18793 Khipu units_okb_spec
+binder 18804:18805 <> ks:167
+R18827:18831 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R18820:18822 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R18808:18816 khipu Khipu units_okb def
+R18818:18819 khipu <> ks:167 var
+R18823:18826 Coq.Init.Datatypes <> true constr
+R18832:18839 khipu Khipu units_ok def
+R18841:18842 khipu <> ks:167 var
+R18963:18968 khipu Khipu k_kind proj
+R19018:19024 Coq.Init.Logic <> I constr
+R18963:18968 khipu Khipu k_kind proj
+R19018:19024 Coq.Init.Logic <> I constr
+R19018:19024 Coq.Init.Logic <> I constr
+prf 19136:19150 Khipu higher_okb_spec
+binder 19161:19162 <> ks:168
+R19185:19189 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R19178:19180 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19165:19174 khipu Khipu higher_okb def
+R19176:19177 khipu <> ks:168 var
+R19181:19184 Coq.Init.Datatypes <> true constr
+R19190:19198 khipu Khipu higher_ok def
+R19200:19201 khipu <> ks:168 var
+R19230:19239 khipu Khipu higher_okb def
+R19242:19250 khipu Khipu higher_ok def
+R19263:19275 Coq.Bool.Bool <> andb_true_iff thm
+R19263:19275 Coq.Bool.Bool <> andb_true_iff thm
+R19263:19275 Coq.Bool.Bool <> andb_true_iff thm
+R19288:19305 khipu Khipu all_overhandb_spec thm
+R19288:19305 khipu Khipu all_overhandb_spec thm
+R19288:19305 khipu Khipu all_overhandb_spec thm
+R19318:19327 Coq.Arith.PeanoNat Nat ltb_lt thm
+R19318:19327 Coq.Arith.PeanoNat Nat ltb_lt thm
+R19318:19327 Coq.Arith.PeanoNat Nat ltb_lt thm
+def 19356:19361 Khipu reg_ok
+R19375:19378 Coq.Init.Datatypes <> bool ind
+binder 19364:19371 <> is_units:169
+R19387:19390 Coq.Init.Datatypes <> list ind
+R19392:19395 khipu Khipu Knot rec
+binder 19382:19383 <> ks:170
+R19413:19420 khipu <> is_units:169 var
+R19444:19452 khipu Khipu higher_ok def
+R19454:19455 khipu <> ks:170 var
+R19427:19434 khipu Khipu units_ok def
+R19436:19437 khipu <> ks:170 var
+def 19470:19476 Khipu reg_okb
+R19490:19493 Coq.Init.Datatypes <> bool ind
+binder 19479:19486 <> is_units:171
+R19502:19505 Coq.Init.Datatypes <> list ind
+R19507:19510 khipu Khipu Knot rec
+binder 19497:19498 <> ks:172
+R19515:19518 Coq.Init.Datatypes <> bool ind
+R19528:19535 khipu <> is_units:171 var
+R19560:19569 khipu Khipu higher_okb def
+R19571:19572 khipu <> ks:172 var
+R19542:19550 khipu Khipu units_okb def
+R19552:19553 khipu <> ks:172 var
+prf 19582:19593 Khipu reg_okb_spec
+binder 19604:19604 <> b:173
+binder 19606:19607 <> ks:174
+R19631:19635 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R19624:19626 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19612:19618 khipu Khipu reg_okb def
+R19622:19623 khipu <> ks:174 var
+R19620:19620 khipu <> b:173 var
+R19627:19630 Coq.Init.Datatypes <> true constr
+R19636:19641 khipu Khipu reg_ok def
+R19645:19646 khipu <> ks:174 var
+R19643:19643 khipu <> b:173 var
+R19697:19710 khipu Khipu units_okb_spec thm
+R19718:19732 khipu Khipu higher_okb_spec thm
+R19697:19710 khipu Khipu units_okb_spec thm
+R19718:19732 khipu Khipu higher_okb_spec thm
+def 19837:19846 Khipu regs_ok_at
+R19853:19855 Coq.Init.Datatypes <> nat ind
+binder 19849:19849 <> n:175
+R19870:19873 Coq.Init.Datatypes <> bool ind
+binder 19859:19866 <> is_units:176
+R19886:19893 Coq.Vectors.Vector <> t ind
+R19895:19902 khipu Khipu Interval rec
+R19904:19904 khipu <> n:175 var
+binder 19879:19882 <> regs:177
+R19913:19916 Coq.Init.Datatypes <> list ind
+R19918:19921 khipu Khipu Knot rec
+binder 19908:19909 <> ks:178
+R19942:19945 khipu <> regs:177 var
+R19956:19957 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_']' not
+R19962:19965 Coq.Init.Logic <> True ind
+R19973:19976 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R20021:20030 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R19989:19994 khipu Khipu reg_ok def
+R20006:20013 khipu Khipu knots_in def
+R20018:20019 khipu <> ks:178 var
+R19996:20003 khipu <> is_units:176 var
+R20031:20040 khipu <> regs_ok_at:179 def
+R20051:20052 khipu <> ks:178 var
+R20042:20046 Coq.Init.Datatypes <> false constr
+def 20073:20079 Khipu regs_ok
+R20086:20088 Coq.Init.Datatypes <> nat ind
+binder 20082:20082 <> n:181
+R20099:20106 Coq.Vectors.Vector <> t ind
+R20108:20115 khipu Khipu Interval rec
+R20117:20117 khipu <> n:181 var
+binder 20092:20095 <> regs:182
+R20126:20129 Coq.Init.Datatypes <> list ind
+R20131:20134 khipu Khipu Knot rec
+binder 20121:20122 <> ks:183
+R20149:20158 khipu Khipu regs_ok_at def
+R20170:20171 khipu <> ks:183 var
+R20165:20168 khipu <> regs:182 var
+R20160:20163 Coq.Init.Datatypes <> true constr
+def 20184:20194 Khipu regs_okb_at
+R20201:20203 Coq.Init.Datatypes <> nat ind
+binder 20197:20197 <> n:184
+R20218:20221 Coq.Init.Datatypes <> bool ind
+binder 20207:20214 <> is_units:185
+R20234:20241 Coq.Vectors.Vector <> t ind
+R20243:20250 khipu Khipu Interval rec
+R20252:20252 khipu <> n:184 var
+binder 20227:20230 <> regs:186
+R20261:20264 Coq.Init.Datatypes <> list ind
+R20266:20269 khipu Khipu Knot rec
+binder 20256:20257 <> ks:187
+R20274:20277 Coq.Init.Datatypes <> bool ind
+R20290:20293 khipu <> regs:186 var
+R20304:20305 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_']' not
+R20310:20313 Coq.Init.Datatypes <> true constr
+R20321:20324 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R20370:20379 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R20337:20343 khipu Khipu reg_okb def
+R20355:20362 khipu Khipu knots_in def
+R20367:20368 khipu <> ks:187 var
+R20345:20352 khipu <> is_units:185 var
+R20380:20390 khipu <> regs_okb_at:188 def
+R20401:20402 khipu <> ks:187 var
+R20392:20396 Coq.Init.Datatypes <> false constr
+def 20423:20430 Khipu regs_okb
+R20437:20439 Coq.Init.Datatypes <> nat ind
+binder 20433:20433 <> n:190
+R20450:20457 Coq.Vectors.Vector <> t ind
+R20459:20466 khipu Khipu Interval rec
+R20468:20468 khipu <> n:190 var
+binder 20443:20446 <> regs:191
+R20477:20480 Coq.Init.Datatypes <> list ind
+R20482:20485 khipu Khipu Knot rec
+binder 20472:20473 <> ks:192
+R20490:20493 Coq.Init.Datatypes <> bool ind
+R20500:20510 khipu Khipu regs_okb_at def
+R20522:20523 khipu <> ks:192 var
+R20517:20520 khipu <> regs:191 var
+R20512:20515 Coq.Init.Datatypes <> true constr
+prf 20533:20548 Khipu regs_okb_at_spec
+binder 20561:20561 <> n:193
+R20571:20578 Coq.Vectors.Vector <> t ind
+R20580:20587 khipu Khipu Interval rec
+R20589:20589 khipu <> n:193 var
+binder 20564:20567 <> regs:194
+binder 20592:20593 <> ks:195
+binder 20595:20595 <> b:196
+R20630:20634 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R20623:20625 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R20602:20612 khipu Khipu regs_okb_at def
+R20621:20622 khipu <> ks:195 var
+R20616:20619 khipu <> regs:194 var
+R20614:20614 khipu <> b:196 var
+R20626:20629 Coq.Init.Datatypes <> true constr
+R20635:20644 khipu Khipu regs_ok_at def
+R20653:20654 khipu <> ks:195 var
+R20648:20651 khipu <> regs:194 var
+R20646:20646 khipu <> b:196 var
+R20741:20753 Coq.Bool.Bool <> andb_true_iff thm
+R20741:20753 Coq.Bool.Bool <> andb_true_iff thm
+R20741:20753 Coq.Bool.Bool <> andb_true_iff thm
+R20768:20779 khipu Khipu reg_okb_spec thm
+R20768:20779 khipu Khipu reg_okb_spec thm
+R20768:20779 khipu Khipu reg_okb_spec thm
+prf 20821:20833 Khipu regs_okb_spec
+binder 20846:20846 <> n:197
+R20856:20863 Coq.Vectors.Vector <> t ind
+R20865:20872 khipu Khipu Interval rec
+R20874:20874 khipu <> n:197 var
+binder 20849:20852 <> regs:198
+binder 20877:20878 <> ks:199
+R20908:20912 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R20901:20903 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R20885:20892 khipu Khipu regs_okb def
+R20899:20900 khipu <> ks:199 var
+R20894:20897 khipu <> regs:198 var
+R20904:20907 Coq.Init.Datatypes <> true constr
+R20913:20919 khipu Khipu regs_ok def
+R20926:20927 khipu <> ks:199 var
+R20921:20924 khipu <> regs:198 var
+R20964:20971 khipu Khipu regs_okb def
+R20974:20980 khipu Khipu regs_ok def
+R20989:21004 khipu Khipu regs_okb_at_spec thm
+R20989:21004 khipu Khipu regs_okb_at_spec thm
+def 21268:21277 Khipu WellFormed
+R21284:21286 Coq.Init.Datatypes <> nat ind
+binder 21280:21280 <> n:200
+R21295:21305 khipu Khipu NumeralSpec rec
+R21307:21307 khipu <> n:200 var
+binder 21290:21291 <> ns:201
+R21316:21319 Coq.Init.Datatypes <> list ind
+R21321:21324 khipu Khipu Knot rec
+binder 21311:21312 <> ks:202
+R21339:21339 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R21385:21391 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+binder 21347:21347 <> k:203
+R21362:21365 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R21350:21356 Coq.Lists.List <> In def
+R21360:21361 khipu <> ks:202 var
+R21358:21358 khipu <> k:203 var
+R21373:21375 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R21366:21370 khipu Khipu k_pos proj
+R21372:21372 khipu <> k:203 var
+R21376:21381 khipu Khipu ns_len proj
+R21383:21384 khipu <> ns:201 var
+R21392:21392 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R21454:21460 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+binder 21400:21400 <> k:204
+R21415:21418 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R21403:21409 Coq.Lists.List <> In def
+R21413:21414 khipu <> ks:202 var
+R21411:21411 khipu <> k:204 var
+R21419:21430 khipu Khipu regs_covered def
+R21443:21449 khipu Khipu ns_regs proj
+R21451:21452 khipu <> ns:201 var
+R21433:21437 khipu Khipu k_pos proj
+R21439:21439 khipu <> k:204 var
+R21461:21467 khipu Khipu regs_ok def
+R21482:21483 khipu <> ks:202 var
+R21470:21476 khipu Khipu ns_regs proj
+R21478:21479 khipu <> ns:201 var
+def 21498:21508 Khipu WellFormedb
+R21515:21517 Coq.Init.Datatypes <> nat ind
+binder 21511:21511 <> n:205
+R21526:21536 khipu Khipu NumeralSpec rec
+R21538:21538 khipu <> n:205 var
+binder 21521:21522 <> ns:206
+R21547:21550 Coq.Init.Datatypes <> list ind
+R21552:21555 khipu Khipu Knot rec
+binder 21542:21543 <> ks:207
+R21560:21563 Coq.Init.Datatypes <> bool ind
+R21581:21586 khipu Khipu ns_len proj
+R21588:21589 khipu <> ns:206 var
+binder 21574:21576 <> len:208
+R21608:21614 khipu Khipu ns_regs proj
+R21616:21617 khipu <> ns:206 var
+binder 21600:21603 <> regs:209
+R21646:21652 Coq.Lists.List <> forallb def
+R21680:21681 khipu <> ks:207 var
+binder 21659:21659 <> k:210
+R21671:21674 Coq.Arith.PeanoNat <> ::nat_scope:x_'<?'_x not
+R21664:21668 khipu Khipu k_pos proj
+R21670:21670 khipu <> k:210 var
+R21675:21677 khipu <> len:208 var
+binder 21628:21637 <> in_boundsb:211
+R21708:21714 Coq.Lists.List <> forallb def
+R21756:21757 khipu <> ks:207 var
+binder 21721:21721 <> k:212
+R21726:21738 khipu Khipu regs_coveredb def
+R21750:21753 khipu <> regs:209 var
+R21741:21745 khipu Khipu k_pos proj
+R21747:21747 khipu <> k:212 var
+binder 21692:21699 <> coveredb:213
+R21786:21789 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R21774:21777 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R21764:21773 khipu <> in_boundsb:211 var
+R21778:21785 khipu <> coveredb:213 var
+R21790:21797 khipu Khipu regs_okb def
+R21804:21805 khipu <> ks:207 var
+R21799:21802 khipu <> regs:209 var
+prf 21815:21833 Khipu forallb_pos_lt_spec
+R21853:21855 khipu Khipu pos def
+binder 21847:21849 <> len:214
+R21864:21867 Coq.Init.Datatypes <> list ind
+R21869:21872 khipu Khipu Knot rec
+binder 21859:21860 <> ks:215
+R21923:21932 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R21972:21972 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R21916:21918 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R21880:21886 Coq.Lists.List <> forallb def
+R21914:21915 khipu <> ks:215 var
+binder 21893:21893 <> k:216
+R21905:21908 Coq.Arith.PeanoNat <> ::nat_scope:x_'<?'_x not
+R21898:21902 khipu Khipu k_pos proj
+R21904:21904 khipu <> k:216 var
+R21909:21911 khipu <> len:214 var
+R21919:21922 Coq.Init.Datatypes <> true constr
+binder 21940:21940 <> k:217
+R21955:21958 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R21943:21949 Coq.Lists.List <> In def
+R21953:21954 khipu <> ks:215 var
+R21951:21951 khipu <> k:217 var
+R21966:21968 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R21959:21963 khipu Khipu k_pos proj
+R21965:21965 khipu <> k:217 var
+R21969:21971 khipu <> len:214 var
+R22009:22022 Coq.Lists.List <> forallb_forall thm
+R22009:22022 Coq.Lists.List <> forallb_forall thm
+R22009:22022 Coq.Lists.List <> forallb_forall thm
+R22090:22099 Coq.Arith.PeanoNat Nat ltb_lt thm
+R22090:22099 Coq.Arith.PeanoNat Nat ltb_lt thm
+R22158:22167 Coq.Arith.PeanoNat Nat ltb_lt thm
+R22158:22167 Coq.Arith.PeanoNat Nat ltb_lt thm
+prf 22182:22206 Khipu forallb_regs_covered_spec
+binder 22219:22219 <> n:218
+R22229:22236 Coq.Vectors.Vector <> t ind
+R22238:22245 khipu Khipu Interval rec
+R22247:22247 khipu <> n:218 var
+binder 22222:22225 <> regs:219
+R22256:22259 Coq.Init.Datatypes <> list ind
+R22261:22264 khipu Khipu Knot rec
+binder 22251:22252 <> ks:220
+R22329:22338 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R22392:22392 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R22322:22324 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22272:22278 Coq.Lists.List <> forallb def
+R22320:22321 khipu <> ks:220 var
+binder 22285:22285 <> k:221
+R22290:22302 khipu Khipu regs_coveredb def
+R22314:22317 khipu <> regs:219 var
+R22305:22309 khipu Khipu k_pos proj
+R22311:22311 khipu <> k:221 var
+R22325:22328 Coq.Init.Datatypes <> true constr
+binder 22346:22346 <> k:222
+R22361:22364 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22349:22355 Coq.Lists.List <> In def
+R22359:22360 khipu <> ks:220 var
+R22357:22357 khipu <> k:222 var
+R22365:22376 khipu Khipu regs_covered def
+R22388:22391 khipu <> regs:219 var
+R22379:22383 khipu Khipu k_pos proj
+R22385:22385 khipu <> k:222 var
+R22432:22445 Coq.Lists.List <> forallb_forall thm
+R22432:22445 Coq.Lists.List <> forallb_forall thm
+R22432:22445 Coq.Lists.List <> forallb_forall thm
+R22510:22514 Coq.Init.Logic <> proj1 thm
+R22517:22534 khipu Khipu regs_coveredb_spec thm
+R22537:22541 khipu Khipu k_pos proj
+R22510:22514 Coq.Init.Logic <> proj1 thm
+R22517:22534 khipu Khipu regs_coveredb_spec thm
+R22537:22541 khipu Khipu k_pos proj
+R22616:22620 Coq.Init.Logic <> proj2 thm
+R22623:22640 khipu Khipu regs_coveredb_spec thm
+R22643:22647 khipu Khipu k_pos proj
+R22616:22620 Coq.Init.Logic <> proj2 thm
+R22623:22640 khipu Khipu regs_coveredb_spec thm
+R22643:22647 khipu Khipu k_pos proj
+prf 22681:22696 Khipu WellFormedb_spec
+binder 22709:22709 <> n:223
+R22717:22727 khipu Khipu NumeralSpec rec
+R22729:22729 khipu <> n:223 var
+binder 22712:22713 <> ns:224
+binder 22732:22733 <> ks:225
+R22764:22768 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R22757:22759 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22740:22750 khipu Khipu WellFormedb def
+R22755:22756 khipu <> ks:225 var
+R22752:22753 khipu <> ns:224 var
+R22760:22763 Coq.Init.Datatypes <> true constr
+R22769:22778 khipu Khipu WellFormed def
+R22783:22784 khipu <> ks:225 var
+R22780:22781 khipu <> ns:224 var
+R22821:22831 khipu Khipu WellFormedb def
+R22834:22843 khipu Khipu WellFormed def
+R22860:22865 khipu Khipu ns_len proj
+R22860:22865 khipu Khipu ns_len proj
+R22887:22893 khipu Khipu ns_regs proj
+R22887:22893 khipu Khipu ns_regs proj
+R22917:22929 Coq.Bool.Bool <> andb_true_iff thm
+R22917:22929 Coq.Bool.Bool <> andb_true_iff thm
+R22917:22929 Coq.Bool.Bool <> andb_true_iff thm
+R22917:22929 Coq.Bool.Bool <> andb_true_iff thm
+R22917:22929 Coq.Bool.Bool <> andb_true_iff thm
+R22917:22929 Coq.Bool.Bool <> andb_true_iff thm
+R22942:22960 khipu Khipu forallb_pos_lt_spec thm
+R22942:22960 khipu Khipu forallb_pos_lt_spec thm
+R22942:22960 khipu Khipu forallb_pos_lt_spec thm
+R22973:22997 khipu Khipu forallb_regs_covered_spec thm
+R22973:22997 khipu Khipu forallb_regs_covered_spec thm
+R22973:22997 khipu Khipu forallb_regs_covered_spec thm
+R23010:23022 khipu Khipu regs_okb_spec thm
+R23010:23022 khipu Khipu regs_okb_spec thm
+R23010:23022 khipu Khipu regs_okb_spec thm
+prf 23048:23067 Khipu WellFormed_decidable
+binder 23080:23080 <> n:226
+R23088:23098 khipu Khipu NumeralSpec rec
+R23100:23100 khipu <> n:226 var
+binder 23083:23084 <> ns:227
+binder 23103:23104 <> ks:228
+R23111:23111 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R23128:23132 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R23151:23151 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R23112:23121 khipu Khipu WellFormed def
+R23126:23127 khipu <> ks:228 var
+R23123:23124 khipu <> ns:227 var
+R23133:23134 Coq.Init.Logic <> ::type_scope:'~'_x not
+R23135:23144 khipu Khipu WellFormed def
+R23149:23150 khipu <> ks:228 var
+R23146:23147 khipu <> ns:227 var
+R23191:23201 khipu Khipu WellFormedb def
+R23191:23201 khipu Khipu WellFormedb def
+R23235:23239 Coq.Init.Logic <> proj1 thm
+R23242:23257 khipu Khipu WellFormedb_spec thm
+R23235:23239 Coq.Init.Logic <> proj1 thm
+R23242:23257 khipu Khipu WellFormedb_spec thm
+R23310:23314 Coq.Init.Logic <> proj2 thm
+R23317:23332 khipu Khipu WellFormedb_spec thm
+R23310:23314 Coq.Init.Logic <> proj2 thm
+R23317:23332 khipu Khipu WellFormedb_spec thm
+def 23627:23638 Khipu decode_units
+R23646:23649 Coq.Init.Datatypes <> list ind
+R23651:23654 khipu Khipu Knot rec
+binder 23641:23642 <> ks:229
+R23659:23664 Coq.Init.Datatypes <> option ind
+R23666:23670 khipu Khipu digit def
+R23683:23684 khipu <> ks:229 var
+R23695:23702 Coq.Lists.List <> nil abbrev
+R23707:23710 Coq.Init.Datatypes <> Some constr
+R23712:23717 khipu Khipu digit0 def
+R23723:23731 Coq.Lists.List <> cons abbrev
+R23735:23742 Coq.Lists.List <> nil abbrev
+R23759:23764 khipu Khipu k_kind proj
+R23781:23791 khipu Khipu FigureEight constr
+R23796:23799 Coq.Init.Datatypes <> Some constr
+R23801:23806 khipu Khipu digit1 def
+R23816:23819 khipu Khipu Long constr
+R23826:23829 Coq.Init.Datatypes <> Some constr
+R23832:23843 khipu Khipu digit_of_nat def
+R23855:23864 khipu Khipu turns_lt10 thm
+R23846:23849 khipu Khipu tval proj
+R23883:23886 Coq.Init.Datatypes <> None constr
+R23907:23910 Coq.Init.Datatypes <> None constr
+def 23931:23943 Khipu decode_higher
+R23951:23954 Coq.Init.Datatypes <> list ind
+R23956:23959 khipu Khipu Knot rec
+binder 23946:23947 <> ks:231
+R23964:23969 Coq.Init.Datatypes <> option ind
+R23971:23975 khipu Khipu digit def
+R23985:23997 khipu Khipu all_overhandb def
+R23999:24000 khipu <> ks:231 var
+R24135:24138 Coq.Init.Datatypes <> None constr
+R24017:24022 Coq.Arith.Compare_dec <> lt_dec thm
+R24025:24030 Coq.Init.Datatypes <> length def
+R24032:24033 khipu <> ks:231 var
+R24050:24053 Coq.Init.Specif <> left constr
+R24062:24065 Coq.Init.Datatypes <> Some constr
+R24068:24079 khipu Khipu digit_of_nat def
+R24082:24087 Coq.Init.Datatypes <> length def
+R24089:24090 khipu <> ks:231 var
+R24104:24108 Coq.Init.Specif <> right constr
+R24115:24118 Coq.Init.Datatypes <> None constr
+def 24153:24162 Khipu decode_reg
+R24176:24179 Coq.Init.Datatypes <> bool ind
+binder 24165:24172 <> is_units:232
+R24188:24191 Coq.Init.Datatypes <> list ind
+R24193:24196 khipu Khipu Knot rec
+binder 24183:24184 <> ks:233
+R24201:24206 Coq.Init.Datatypes <> option ind
+R24208:24212 khipu Khipu digit def
+R24222:24229 khipu <> is_units:232 var
+R24257:24269 khipu Khipu decode_higher def
+R24271:24272 khipu <> ks:233 var
+R24236:24247 khipu Khipu decode_units def
+R24249:24250 khipu <> ks:233 var
+prf 24282:24305 Khipu decode_units_total_if_ok
+binder 24316:24317 <> ks:234
+R24333:24336 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24322:24329 khipu Khipu units_ok def
+R24331:24332 khipu <> ks:234 var
+R24337:24343 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R24345:24346 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 24344:24344 <> d:235
+R24362:24364 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24347:24358 khipu Khipu decode_units def
+R24360:24361 khipu <> ks:234 var
+R24365:24368 Coq.Init.Datatypes <> Some constr
+R24370:24370 khipu <> d:235 var
+R24510:24515 khipu Khipu k_kind proj
+R24510:24515 khipu Khipu k_kind proj
+prf 24594:24618 Khipu decode_higher_total_if_ok
+binder 24629:24630 <> ks:236
+R24647:24650 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24635:24643 khipu Khipu higher_ok def
+R24645:24646 khipu <> ks:236 var
+R24651:24657 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R24659:24660 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 24658:24658 <> d:237
+R24677:24679 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24661:24673 khipu Khipu decode_higher def
+R24675:24676 khipu <> ks:236 var
+R24680:24683 Coq.Init.Datatypes <> Some constr
+R24685:24685 khipu <> d:237 var
+R24729:24741 khipu Khipu decode_higher def
+R24770:24772 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24754:24766 khipu Khipu all_overhandb def
+R24773:24776 Coq.Init.Datatypes <> true constr
+R24770:24772 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24754:24766 khipu Khipu all_overhandb def
+R24773:24776 Coq.Init.Datatypes <> true constr
+R24791:24795 Coq.Init.Logic <> proj2 thm
+R24798:24815 khipu Khipu all_overhandb_spec thm
+R24791:24795 Coq.Init.Logic <> proj2 thm
+R24798:24815 khipu Khipu all_overhandb_spec thm
+R24862:24867 Coq.Arith.Compare_dec <> lt_dec thm
+R24870:24875 Coq.Init.Datatypes <> length def
+R24862:24867 Coq.Arith.Compare_dec <> lt_dec thm
+R24870:24875 Coq.Init.Datatypes <> length def
+prf 24910:24931 Khipu decode_reg_total_if_ok
+binder 24942:24942 <> b:238
+binder 24944:24945 <> ks:239
+R24961:24964 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24950:24955 khipu Khipu reg_ok def
+R24959:24960 khipu <> ks:239 var
+R24957:24957 khipu <> b:238 var
+R24965:24971 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R24973:24974 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 24972:24972 <> d:240
+R24990:24992 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24975:24984 khipu Khipu decode_reg def
+R24988:24989 khipu <> ks:239 var
+R24986:24986 khipu <> b:238 var
+R24993:24996 Coq.Init.Datatypes <> Some constr
+R24998:24998 khipu <> d:240 var
+R25061:25084 khipu Khipu decode_units_total_if_ok thm
+R25061:25084 khipu Khipu decode_units_total_if_ok thm
+R25108:25132 khipu Khipu decode_higher_total_if_ok thm
+R25108:25132 khipu Khipu decode_higher_total_if_ok thm
+def 25161:25174 Khipu decode_regs_at
+R25181:25183 Coq.Init.Datatypes <> nat ind
+binder 25177:25177 <> n:241
+R25198:25201 Coq.Init.Datatypes <> bool ind
+binder 25187:25194 <> is_units:242
+R25214:25221 Coq.Vectors.Vector <> t ind
+R25223:25230 khipu Khipu Interval rec
+R25232:25232 khipu <> n:241 var
+binder 25207:25210 <> regs:243
+R25241:25244 Coq.Init.Datatypes <> list ind
+R25246:25249 khipu Khipu Knot rec
+binder 25236:25237 <> ks:244
+R25256:25261 Coq.Init.Datatypes <> option ind
+R25264:25271 Coq.Vectors.Vector <> t ind
+R25273:25277 khipu Khipu digit def
+R25279:25279 khipu <> n:241 var
+R25293:25296 khipu <> regs:243 var
+R25307:25308 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_']' not
+R25313:25316 Coq.Init.Datatypes <> Some constr
+R25318:25319 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_']' not
+R25327:25330 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R25399:25412 khipu <> decode_regs_at:245 def
+R25423:25424 khipu <> ks:244 var
+R25414:25418 Coq.Init.Datatypes <> false constr
+R25349:25358 khipu Khipu decode_reg def
+R25370:25377 khipu Khipu knots_in def
+R25382:25383 khipu <> ks:244 var
+R25360:25367 khipu <> is_units:242 var
+R25439:25442 Coq.Init.Datatypes <> Some constr
+R25447:25450 Coq.Init.Datatypes <> Some constr
+R25458:25461 Coq.Init.Datatypes <> Some constr
+R25465:25468 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R25489:25492 Coq.Init.Datatypes <> None constr
+def 25523:25533 Khipu decode_regs
+R25540:25542 Coq.Init.Datatypes <> nat ind
+binder 25536:25536 <> n:247
+R25553:25560 Coq.Vectors.Vector <> t ind
+R25562:25569 khipu Khipu Interval rec
+R25571:25571 khipu <> n:247 var
+binder 25546:25549 <> regs:248
+R25580:25583 Coq.Init.Datatypes <> list ind
+R25585:25588 khipu Khipu Knot rec
+binder 25575:25576 <> ks:249
+R25595:25600 Coq.Init.Datatypes <> option ind
+R25603:25610 Coq.Vectors.Vector <> t ind
+R25612:25616 khipu Khipu digit def
+R25618:25618 khipu <> n:247 var
+R25626:25639 khipu Khipu decode_regs_at def
+R25651:25652 khipu <> ks:249 var
+R25646:25649 khipu <> regs:248 var
+R25641:25644 Coq.Init.Datatypes <> true constr
+def 25667:25677 Khipu outside_all
+R25684:25686 Coq.Init.Datatypes <> nat ind
+binder 25680:25680 <> n:250
+R25697:25704 Coq.Vectors.Vector <> t ind
+R25706:25713 khipu Khipu Interval rec
+R25715:25715 khipu <> n:250 var
+binder 25690:25693 <> regs:251
+R25724:25727 Coq.Init.Datatypes <> list ind
+R25729:25732 khipu Khipu Knot rec
+binder 25719:25720 <> ks:252
+R25759:25763 Coq.Vectors.Fin <> t ind
+R25765:25765 khipu <> n:250 var
+binder 25755:25755 <> i:253
+binder 25768:25768 <> k:254
+R25783:25786 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R25771:25777 Coq.Lists.List <> In def
+R25781:25782 khipu <> ks:252 var
+R25779:25779 khipu <> k:254 var
+R25787:25788 Coq.Init.Logic <> ::type_scope:'~'_x not
+R25789:25799 khipu Khipu in_interval def
+R25812:25821 Coq.Vectors.Vector <> nth def
+R25828:25828 khipu <> i:253 var
+R25823:25826 khipu <> regs:251 var
+R25802:25806 khipu Khipu k_pos proj
+R25808:25808 khipu <> k:254 var
+prf 25839:25859 Khipu outside_all_tail_cons
+binder 25872:25872 <> n:255
+R25880:25887 khipu Khipu Interval rec
+binder 25875:25876 <> Iv:256
+R25896:25903 Coq.Vectors.Vector <> t ind
+R25905:25912 khipu Khipu Interval rec
+R25914:25914 khipu <> n:255 var
+binder 25891:25892 <> tl:257
+binder 25917:25918 <> ks:258
+R25950:25957 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R25925:25935 khipu Khipu outside_all def
+R25948:25949 khipu <> ks:258 var
+R25940:25943 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R25938:25939 khipu <> Iv:256 var
+R25944:25945 khipu <> tl:257 var
+R25958:25968 khipu Khipu outside_all def
+R25973:25974 khipu <> ks:258 var
+R25970:25971 khipu <> tl:257 var
+R26038:26043 Coq.Vectors.Fin <> FS constr
+R26038:26043 Coq.Vectors.Fin <> FS constr
+prf 26095:26120 Khipu outside_interval_head_cons
+binder 26133:26133 <> n:259
+R26141:26148 khipu Khipu Interval rec
+binder 26136:26137 <> Iv:260
+R26157:26164 Coq.Vectors.Vector <> t ind
+R26166:26173 khipu Khipu Interval rec
+R26175:26175 khipu <> n:259 var
+binder 26152:26153 <> tl:261
+binder 26178:26179 <> ks:262
+R26211:26218 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R26186:26196 khipu Khipu outside_all def
+R26209:26210 khipu <> ks:262 var
+R26201:26204 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R26199:26200 khipu <> Iv:260 var
+R26205:26206 khipu <> tl:261 var
+R26219:26234 khipu Khipu outside_interval def
+R26239:26240 khipu <> ks:262 var
+R26236:26237 khipu <> Iv:260 var
+R26301:26306 Coq.Vectors.Fin <> F1 constr
+R26301:26306 Coq.Vectors.Fin <> F1 constr
+prf 26355:26389 Khipu decode_regs_at_app_left_outside_all
+binder 26402:26402 <> n:263
+R26412:26419 Coq.Vectors.Vector <> t ind
+R26421:26428 khipu Khipu Interval rec
+R26430:26430 khipu <> n:263 var
+binder 26405:26408 <> regs:264
+binder 26433:26435 <> ks1:265
+binder 26437:26439 <> ks2:266
+binder 26441:26441 <> b:267
+R26468:26475 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R26448:26458 khipu Khipu outside_all def
+R26465:26467 khipu <> ks1:265 var
+R26460:26463 khipu <> regs:264 var
+R26516:26518 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R26476:26489 khipu Khipu decode_regs_at def
+R26499:26506 Coq.Lists.List <> app abbrev
+R26512:26514 khipu <> ks2:266 var
+R26508:26510 khipu <> ks1:265 var
+R26493:26496 khipu <> regs:264 var
+R26491:26491 khipu <> b:267 var
+R26519:26532 khipu Khipu decode_regs_at def
+R26541:26543 khipu <> ks2:266 var
+R26536:26539 khipu <> regs:264 var
+R26534:26534 khipu <> b:267 var
+R26655:26670 khipu Khipu outside_interval def
+R26655:26670 khipu Khipu outside_interval def
+R26694:26719 khipu Khipu outside_interval_head_cons thm
+R26694:26719 khipu Khipu outside_interval_head_cons thm
+R26757:26767 khipu Khipu outside_all def
+R26757:26767 khipu Khipu outside_all def
+R26791:26811 khipu Khipu outside_all_tail_cons thm
+R26791:26811 khipu Khipu outside_all_tail_cons thm
+R26840:26873 khipu Khipu knots_in_app_left_outside_interval thm
+R26840:26873 khipu Khipu knots_in_app_left_outside_interval thm
+R26840:26873 khipu Khipu knots_in_app_left_outside_interval thm
+R26840:26873 khipu Khipu knots_in_app_left_outside_interval thm
+prf 26954:26973 Khipu decode_regs_at_total
+binder 26986:26986 <> n:268
+R26996:27003 Coq.Vectors.Vector <> t ind
+R27005:27012 khipu Khipu Interval rec
+R27014:27014 khipu <> n:268 var
+binder 26989:26992 <> regs:269
+binder 27017:27018 <> ks:270
+binder 27020:27020 <> b:271
+R27047:27054 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R27027:27036 khipu Khipu regs_ok_at def
+R27045:27046 khipu <> ks:270 var
+R27040:27043 khipu <> regs:269 var
+R27038:27038 khipu <> b:271 var
+R27055:27061 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R27064:27065 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 27062:27063 <> ds:272
+R27090:27092 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R27066:27079 khipu Khipu decode_regs_at def
+R27088:27089 khipu <> ks:270 var
+R27083:27086 khipu <> regs:269 var
+R27081:27081 khipu <> b:271 var
+R27093:27096 Coq.Init.Datatypes <> Some constr
+R27098:27099 khipu <> ds:272 var
+R27179:27180 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_']' not
+R27179:27180 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_']' not
+R27244:27265 khipu Khipu decode_reg_total_if_ok thm
+R27244:27265 khipu Khipu decode_reg_total_if_ok thm
+R27304:27308 Coq.Init.Datatypes <> false constr
+R27304:27308 Coq.Init.Datatypes <> false constr
+R27364:27367 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R27364:27367 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+prf 27400:27420 Khipu decode_total_under_WF
+binder 27433:27433 <> n:273
+R27441:27451 khipu Khipu NumeralSpec rec
+R27453:27453 khipu <> n:273 var
+binder 27436:27437 <> ns:274
+binder 27456:27457 <> ks:275
+R27480:27487 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R27464:27473 khipu Khipu WellFormed def
+R27478:27479 khipu <> ks:275 var
+R27475:27476 khipu <> ns:274 var
+R27488:27494 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R27497:27498 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 27495:27496 <> ds:276
+R27526:27528 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R27499:27509 khipu Khipu decode_regs def
+R27524:27525 khipu <> ks:275 var
+R27512:27518 khipu Khipu ns_regs proj
+R27520:27521 khipu <> ns:274 var
+R27529:27532 Coq.Init.Datatypes <> Some constr
+R27534:27535 khipu <> ds:276 var
+R27584:27594 khipu Khipu decode_regs def
+R27606:27625 khipu Khipu decode_regs_at_total thm
+R27659:27662 Coq.Init.Datatypes <> true constr
+R27634:27640 khipu Khipu ns_regs proj
+R27606:27625 khipu Khipu decode_regs_at_total thm
+R27659:27662 Coq.Init.Datatypes <> true constr
+R27634:27640 khipu Khipu ns_regs proj
+def 27940:27951 Khipu value_digits
+R27958:27960 Coq.Init.Datatypes <> nat ind
+binder 27954:27954 <> n:277
+R27969:27976 Coq.Vectors.Vector <> t ind
+R27978:27982 khipu Khipu digit def
+R27984:27984 khipu <> n:277 var
+binder 27964:27965 <> ds:278
+R27989:27991 Coq.Init.Datatypes <> nat ind
+R28004:28005 khipu <> ds:278 var
+R28016:28017 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_']' not
+R28029:28032 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R28053:28055 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R28039:28050 khipu Khipu digit_to_nat def
+R28058:28060 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R28061:28072 khipu <> value_digits:279 def
+def 28341:28351 Khipu mk_overhand
+R28358:28360 khipu Khipu pos def
+binder 28354:28354 <> p:281
+R28365:28368 khipu Khipu Knot rec
+R28378:28382 khipu Khipu k_pos proj
+R28378:28382 khipu Khipu k_pos proj
+R28378:28382 khipu Khipu k_pos proj
+R28390:28395 khipu Khipu k_kind proj
+R28390:28395 khipu Khipu k_kind proj
+R28410:28416 khipu Khipu k_twist proj
+R28410:28416 khipu Khipu k_twist proj
+R28387:28387 khipu <> p:281 var
+R28400:28407 khipu Khipu Overhand constr
+R28421:28422 khipu Khipu TZ constr
+def 28440:28446 Khipu mk_fig8
+R28453:28455 khipu Khipu pos def
+binder 28449:28449 <> p:282
+R28460:28463 khipu Khipu Knot rec
+R28473:28477 khipu Khipu k_pos proj
+R28473:28477 khipu Khipu k_pos proj
+R28473:28477 khipu Khipu k_pos proj
+R28485:28490 khipu Khipu k_kind proj
+R28485:28490 khipu Khipu k_kind proj
+R28508:28514 khipu Khipu k_twist proj
+R28508:28514 khipu Khipu k_twist proj
+R28482:28482 khipu <> p:282 var
+R28495:28505 khipu Khipu FigureEight constr
+R28519:28520 khipu Khipu TZ constr
+def 28538:28544 Khipu mk_long
+R28551:28553 khipu Khipu pos def
+binder 28547:28547 <> p:283
+R28561:28563 Coq.Init.Datatypes <> nat ind
+binder 28557:28557 <> n:284
+R28572:28575 Coq.Init.Peano <> ::nat_scope:x_'<='_x_'<='_x not
+R28577:28580 Coq.Init.Peano <> ::nat_scope:x_'<='_x_'<='_x not
+R28576:28576 khipu <> n:284 var
+R28576:28576 khipu <> n:284 var
+binder 28567:28567 <> H:285
+R28586:28589 khipu Khipu Knot rec
+R28599:28603 khipu Khipu k_pos proj
+R28599:28603 khipu Khipu k_pos proj
+R28599:28603 khipu Khipu k_pos proj
+R28616:28621 khipu Khipu k_kind proj
+R28616:28621 khipu Khipu k_kind proj
+R28667:28673 khipu Khipu k_twist proj
+R28667:28673 khipu Khipu k_twist proj
+R28608:28608 khipu <> p:283 var
+R28626:28629 khipu Khipu Long constr
+R28634:28637 khipu Khipu tval proj
+R28634:28637 khipu Khipu tval proj
+R28634:28637 khipu Khipu tval proj
+R28645:28651 khipu Khipu t_range proj
+R28645:28651 khipu Khipu t_range proj
+R28642:28642 khipu <> n:284 var
+R28656:28656 khipu <> H:285 var
+R28678:28679 khipu Khipu TZ constr
+def 28695:28710 Khipu overhand_cluster
+R28717:28724 khipu Khipu Interval rec
+binder 28713:28713 <> I:286
+R28732:28734 Coq.Init.Datatypes <> nat ind
+binder 28728:28728 <> n:287
+R28739:28742 Coq.Init.Datatypes <> list ind
+R28744:28747 khipu Khipu Knot rec
+R28760:28760 khipu <> n:287 var
+R28776:28777 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R28783:28783 Coq.Init.Datatypes <> S constr
+R28810:28813 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R28790:28805 khipu <> overhand_cluster:288 def
+R28807:28807 khipu <> I:286 var
+R28814:28814 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R28837:28837 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R28815:28825 khipu Khipu mk_overhand def
+R28828:28831 khipu Khipu slot def
+R28833:28833 khipu <> I:286 var
+prf 28853:28875 Khipu overhand_cluster_length
+binder 28886:28886 <> I:290
+binder 28888:28888 <> n:291
+R28922:28924 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28893:28898 Coq.Init.Datatypes <> length def
+R28901:28916 khipu Khipu overhand_cluster def
+R28920:28920 khipu <> n:291 var
+R28918:28918 khipu <> I:290 var
+R28925:28925 khipu <> n:291 var
+R28998:29007 Coq.Lists.List <> app_length thm
+R28998:29007 Coq.Lists.List <> app_length thm
+R28998:29007 Coq.Lists.List <> app_length thm
+prf 29034:29062 Khipu overhand_cluster_all_overhand
+binder 29073:29074 <> Iv:292
+binder 29076:29076 <> n:293
+binder 29078:29078 <> k:294
+R29116:29119 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29083:29089 Coq.Lists.List <> In def
+R29094:29109 khipu Khipu overhand_cluster def
+R29114:29114 khipu <> n:293 var
+R29111:29112 khipu <> Iv:292 var
+R29091:29091 khipu <> k:294 var
+R29128:29130 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R29120:29125 khipu Khipu k_kind proj
+R29127:29127 khipu <> k:294 var
+R29131:29138 khipu Khipu Overhand constr
+R29226:29234 Coq.Lists.List <> in_app_or thm
+R29226:29234 Coq.Lists.List <> in_app_or thm
+prf 29390:29421 Khipu overhand_cluster_positions_in_Iv
+binder 29434:29435 <> Iv:295
+binder 29437:29437 <> n:296
+binder 29439:29439 <> k:297
+R29452:29459 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29447:29449 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R29446:29446 khipu <> n:296 var
+R29474:29481 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29460:29470 khipu Khipu wide_enough def
+R29472:29473 khipu <> Iv:295 var
+R29515:29522 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29482:29488 Coq.Lists.List <> In def
+R29493:29508 khipu Khipu overhand_cluster def
+R29513:29513 khipu <> n:296 var
+R29510:29511 khipu <> Iv:295 var
+R29490:29490 khipu <> k:297 var
+R29523:29533 khipu Khipu in_interval def
+R29545:29546 khipu <> Iv:295 var
+R29536:29540 khipu Khipu k_pos proj
+R29542:29542 khipu <> k:297 var
+R29642:29650 Coq.Lists.List <> in_app_or thm
+R29642:29650 Coq.Lists.List <> in_app_or thm
+R29804:29819 khipu Khipu slot_in_interval thm
+R29804:29819 khipu Khipu slot_in_interval thm
+def 29854:29863 Khipu make_turns
+R29870:29872 Coq.Init.Datatypes <> nat ind
+binder 29866:29866 <> n:298
+R29886:29889 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R29881:29884 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R29885:29885 khipu <> n:298 var
+R29891:29894 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R29890:29890 khipu <> n:298 var
+binder 29876:29876 <> H:299
+R29900:29904 khipu Khipu Turns rec
+R29914:29917 khipu Khipu tval proj
+R29914:29917 khipu Khipu tval proj
+R29914:29917 khipu Khipu tval proj
+R29925:29931 khipu Khipu t_range proj
+R29925:29931 khipu Khipu t_range proj
+R29922:29922 khipu <> n:298 var
+R29936:29936 khipu <> H:299 var
+prf 29949:29965 Khipu encode_units_aux2
+binder 29976:29976 <> m:300
+R29991:29994 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29986:29988 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R29979:29979 Coq.Init.Datatypes <> S constr
+R29982:29982 Coq.Init.Datatypes <> S constr
+R29984:29984 khipu <> m:300 var
+R29996:29999 Coq.Init.Peano <> ::nat_scope:x_'<='_x_'<='_x not
+R30007:30010 Coq.Init.Peano <> ::nat_scope:x_'<='_x_'<='_x not
+R30000:30000 Coq.Init.Datatypes <> S constr
+R30003:30003 Coq.Init.Datatypes <> S constr
+R30005:30005 khipu <> m:300 var
+R30000:30000 Coq.Init.Datatypes <> S constr
+R30003:30003 Coq.Init.Datatypes <> S constr
+R30005:30005 khipu <> m:300 var
+R30049:30065 khipu Khipu encode_units_aux2 thm
+R30049:30065 khipu Khipu encode_units_aux2 thm
+def 30102:30113 Khipu encode_units
+R30121:30128 khipu Khipu Interval rec
+binder 30116:30117 <> Iv:301
+R30136:30140 khipu Khipu digit def
+binder 30132:30132 <> d:302
+R30145:30148 Coq.Init.Datatypes <> list ind
+R30150:30153 khipu Khipu Knot rec
+R30169:30180 khipu Khipu digit_to_nat def
+R30182:30182 khipu <> d:302 var
+binder 30164:30164 <> n:303
+R30200:30216 khipu Khipu digit_to_nat_lt10 thm
+R30218:30218 khipu <> d:302 var
+binder 30193:30195 <> Hlt:304
+R30231:30231 khipu <> n:303 var
+R30254:30257 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R30249:30251 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R30247:30248 khipu <> n':305 var
+R30258:30261 Coq.Init.Datatypes <> list ind
+R30263:30266 khipu Khipu Knot rec
+R30293:30300 Coq.Lists.List <> nil abbrev
+R30302:30305 khipu Khipu Knot rec
+R30325:30333 Coq.Lists.List <> cons abbrev
+R30359:30366 Coq.Lists.List <> nil abbrev
+R30368:30371 khipu Khipu Knot rec
+R30336:30342 khipu Khipu mk_fig8 def
+R30345:30348 khipu Khipu slot def
+R30350:30351 khipu <> Iv:301 var
+R30378:30378 Coq.Init.Datatypes <> S constr
+R30381:30381 Coq.Init.Datatypes <> S constr
+binder 30393:30393 <> H:306
+R30398:30406 Coq.Lists.List <> cons abbrev
+R30467:30474 Coq.Lists.List <> nil abbrev
+R30476:30479 khipu Khipu Knot rec
+R30410:30416 khipu Khipu mk_long def
+R30419:30422 khipu Khipu slot def
+R30424:30425 khipu <> Iv:301 var
+R30431:30431 Coq.Init.Datatypes <> S constr
+R30434:30434 Coq.Init.Datatypes <> S constr
+R30441:30457 khipu Khipu encode_units_aux2 thm
+R30461:30461 khipu <> H:306 var
+R30488:30490 khipu <> Hlt:304 var
+def 30505:30517 Khipu encode_higher
+R30525:30532 khipu Khipu Interval rec
+binder 30520:30521 <> Iv:307
+R30540:30544 khipu Khipu digit def
+binder 30536:30536 <> d:308
+R30549:30552 Coq.Init.Datatypes <> list ind
+R30554:30557 khipu Khipu Knot rec
+R30564:30579 khipu Khipu overhand_cluster def
+R30585:30596 khipu Khipu digit_to_nat def
+R30598:30598 khipu <> d:308 var
+R30581:30582 khipu <> Iv:307 var
+def 30614:30623 Khipu encode_reg
+R30637:30640 Coq.Init.Datatypes <> bool ind
+binder 30626:30633 <> is_units:309
+R30649:30656 khipu Khipu Interval rec
+binder 30644:30645 <> Iv:310
+R30664:30668 khipu Khipu digit def
+binder 30660:30660 <> d:311
+R30673:30676 Coq.Init.Datatypes <> list ind
+R30678:30681 khipu Khipu Knot rec
+R30691:30698 khipu <> is_units:309 var
+R30728:30740 khipu Khipu encode_higher def
+R30745:30745 khipu <> d:311 var
+R30742:30743 khipu <> Iv:310 var
+R30705:30716 khipu Khipu encode_units def
+R30721:30721 khipu <> d:311 var
+R30718:30719 khipu <> Iv:310 var
+def 30758:30771 Khipu encode_regs_at
+R30778:30780 Coq.Init.Datatypes <> nat ind
+binder 30774:30774 <> n:312
+R30795:30798 Coq.Init.Datatypes <> bool ind
+binder 30784:30791 <> is_units:313
+R30811:30818 Coq.Vectors.Vector <> t ind
+R30820:30827 khipu Khipu Interval rec
+R30829:30829 khipu <> n:312 var
+binder 30804:30807 <> regs:314
+R30850:30853 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R30834:30841 Coq.Vectors.Vector <> t ind
+R30843:30847 khipu Khipu digit def
+R30849:30849 khipu <> n:312 var
+R30854:30857 Coq.Init.Datatypes <> list ind
+R30859:30862 khipu Khipu Knot rec
+R30875:30878 khipu <> regs:314 var
+R30889:30890 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_']' not
+R30905:30912 Coq.Lists.List <> nil abbrev
+R30914:30917 khipu Khipu Knot rec
+R30925:30928 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+binder 30940:30941 <> ds:317
+R30952:30959 Coq.Lists.List <> app abbrev
+R31002:31015 khipu <> encode_regs_at:315 def
+R31028:31036 Coq.Vectors.Vector <> tl def
+R31038:31039 khipu <> ds:317 var
+R31017:31021 Coq.Init.Datatypes <> false constr
+R30962:30971 khipu Khipu encode_reg def
+R30986:30994 Coq.Vectors.Vector <> hd def
+R30996:30997 khipu <> ds:317 var
+R30973:30980 khipu <> is_units:313 var
+def 31062:31072 Khipu encode_regs
+R31079:31081 Coq.Init.Datatypes <> nat ind
+binder 31075:31075 <> n:318
+R31092:31099 Coq.Vectors.Vector <> t ind
+R31101:31108 khipu Khipu Interval rec
+R31110:31110 khipu <> n:318 var
+binder 31085:31088 <> regs:319
+R31119:31126 Coq.Vectors.Vector <> t ind
+R31128:31132 khipu Khipu digit def
+R31134:31134 khipu <> n:318 var
+binder 31114:31115 <> ds:320
+R31139:31142 Coq.Init.Datatypes <> list ind
+R31144:31147 khipu Khipu Knot rec
+R31154:31167 khipu Khipu encode_regs_at def
+R31179:31180 khipu <> ds:320 var
+R31174:31177 khipu <> regs:319 var
+R31169:31172 Coq.Init.Datatypes <> true constr
+def 31195:31200 Khipu encode
+R31207:31209 Coq.Init.Datatypes <> nat ind
+binder 31203:31203 <> n:321
+R31218:31228 khipu Khipu NumeralSpec rec
+R31230:31230 khipu <> n:321 var
+binder 31213:31214 <> ns:322
+R31239:31246 Coq.Vectors.Vector <> t ind
+R31248:31252 khipu Khipu digit def
+R31254:31254 khipu <> n:321 var
+binder 31234:31235 <> ds:323
+R31259:31262 Coq.Init.Datatypes <> list ind
+R31264:31267 khipu Khipu Knot rec
+R31274:31284 khipu Khipu encode_regs def
+R31299:31300 khipu <> ds:323 var
+R31287:31293 khipu Khipu ns_regs proj
+R31295:31296 khipu <> ns:322 var
+prf 31310:31324 Khipu encode_units_ok
+binder 31335:31336 <> Iv:324
+binder 31338:31338 <> d:325
+R31341:31348 khipu Khipu units_ok def
+R31351:31362 khipu Khipu encode_units def
+R31367:31367 khipu <> d:325 var
+R31364:31365 khipu <> Iv:324 var
+R31402:31413 khipu Khipu encode_units def
+R31430:31446 khipu Khipu digit_to_nat_lt10 thm
+R31430:31446 khipu Khipu digit_to_nat_lt10 thm
+R31466:31477 khipu Khipu digit_to_nat def
+R31466:31477 khipu Khipu digit_to_nat def
+prf 31556:31571 Khipu encode_higher_ok
+binder 31582:31583 <> Iv:326
+binder 31585:31585 <> d:327
+R31588:31596 khipu Khipu higher_ok def
+R31599:31611 khipu Khipu encode_higher def
+R31616:31616 khipu <> d:327 var
+R31613:31614 khipu <> Iv:326 var
+R31649:31661 khipu Khipu encode_higher def
+R31664:31672 khipu Khipu higher_ok def
+R31708:31736 khipu Khipu overhand_cluster_all_overhand thm
+R31708:31736 khipu Khipu overhand_cluster_all_overhand thm
+R31769:31791 khipu Khipu overhand_cluster_length thm
+R31769:31791 khipu Khipu overhand_cluster_length thm
+R31769:31791 khipu Khipu overhand_cluster_length thm
+R31804:31820 khipu Khipu digit_to_nat_lt10 thm
+R31804:31820 khipu Khipu digit_to_nat_lt10 thm
+prf 31835:31847 Khipu encode_reg_ok
+binder 31858:31858 <> b:328
+binder 31860:31861 <> Iv:329
+binder 31863:31863 <> d:330
+R31866:31871 khipu Khipu reg_ok def
+R31876:31885 khipu Khipu encode_reg def
+R31892:31892 khipu <> d:330 var
+R31889:31890 khipu <> Iv:329 var
+R31887:31887 khipu <> b:328 var
+R31873:31873 khipu <> b:328 var
+R31949:31963 khipu Khipu encode_units_ok thm
+R31949:31963 khipu Khipu encode_units_ok thm
+R31976:31991 khipu Khipu encode_higher_ok thm
+R31976:31991 khipu Khipu encode_higher_ok thm
+prf 32006:32033 Khipu encode_units_positions_in_Iv
+binder 32046:32047 <> Iv:331
+binder 32049:32049 <> d:332
+binder 32051:32051 <> k:333
+R32072:32079 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32058:32068 khipu Khipu wide_enough def
+R32070:32071 khipu <> Iv:331 var
+R32109:32116 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32080:32086 Coq.Lists.List <> In def
+R32091:32102 khipu Khipu encode_units def
+R32107:32107 khipu <> d:332 var
+R32104:32105 khipu <> Iv:331 var
+R32088:32088 khipu <> k:333 var
+R32117:32127 khipu Khipu in_interval def
+R32139:32140 khipu <> Iv:331 var
+R32130:32134 khipu Khipu k_pos proj
+R32136:32136 khipu <> k:333 var
+R32182:32193 khipu Khipu encode_units def
+R32210:32226 khipu Khipu digit_to_nat_lt10 thm
+R32210:32226 khipu Khipu digit_to_nat_lt10 thm
+R32246:32257 khipu Khipu digit_to_nat def
+R32246:32257 khipu Khipu digit_to_nat def
+R32424:32439 khipu Khipu slot_in_interval thm
+R32424:32439 khipu Khipu slot_in_interval thm
+R32528:32543 khipu Khipu slot_in_interval thm
+R32528:32543 khipu Khipu slot_in_interval thm
+prf 32569:32597 Khipu encode_higher_positions_in_Iv
+binder 32610:32611 <> Iv:334
+binder 32613:32613 <> d:335
+binder 32615:32615 <> k:336
+R32636:32643 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32622:32632 khipu Khipu wide_enough def
+R32634:32635 khipu <> Iv:334 var
+R32674:32681 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32644:32650 Coq.Lists.List <> In def
+R32655:32667 khipu Khipu encode_higher def
+R32672:32672 khipu <> d:335 var
+R32669:32670 khipu <> Iv:334 var
+R32652:32652 khipu <> k:336 var
+R32682:32692 khipu Khipu in_interval def
+R32704:32705 khipu <> Iv:334 var
+R32695:32699 khipu Khipu k_pos proj
+R32701:32701 khipu <> k:336 var
+R32751:32763 khipu Khipu encode_higher def
+R32783:32814 khipu Khipu overhand_cluster_positions_in_Iv thm
+R32820:32831 khipu Khipu digit_to_nat def
+R32839:32855 khipu Khipu digit_to_nat_lt10 thm
+R32783:32814 khipu Khipu overhand_cluster_positions_in_Iv thm
+R32820:32831 khipu Khipu digit_to_nat def
+R32839:32855 khipu Khipu digit_to_nat_lt10 thm
+prf 32884:32909 Khipu encode_reg_positions_in_Iv
+binder 32922:32922 <> b:337
+binder 32924:32925 <> Iv:338
+binder 32927:32927 <> d:339
+binder 32929:32929 <> k:340
+R32950:32957 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32936:32946 khipu Khipu wide_enough def
+R32948:32949 khipu <> Iv:338 var
+R32987:32994 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32958:32964 Coq.Lists.List <> In def
+R32969:32978 khipu Khipu encode_reg def
+R32985:32985 khipu <> d:339 var
+R32982:32983 khipu <> Iv:338 var
+R32980:32980 khipu <> b:337 var
+R32966:32966 khipu <> k:340 var
+R32995:33005 khipu Khipu in_interval def
+R33017:33018 khipu <> Iv:338 var
+R33008:33012 khipu Khipu k_pos proj
+R33014:33014 khipu <> k:340 var
+R33094:33121 khipu Khipu encode_units_positions_in_Iv thm
+R33094:33121 khipu Khipu encode_units_positions_in_Iv thm
+R33142:33170 khipu Khipu encode_higher_positions_in_Iv thm
+R33142:33170 khipu Khipu encode_higher_positions_in_Iv thm
+prf 33192:33218 Khipu encode_regs_at_member_index
+binder 33231:33231 <> n:341
+R33241:33248 Coq.Vectors.Vector <> t ind
+R33250:33257 khipu Khipu Interval rec
+R33259:33259 khipu <> n:341 var
+binder 33234:33237 <> regs:342
+R33268:33275 Coq.Vectors.Vector <> t ind
+R33277:33281 khipu Khipu digit def
+R33283:33283 khipu <> n:341 var
+binder 33263:33264 <> ds:343
+binder 33286:33286 <> b:344
+binder 33288:33288 <> k:345
+R33308:33315 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33295:33302 khipu Khipu all_wide def
+R33304:33307 khipu <> regs:342 var
+R33352:33359 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33316:33322 Coq.Lists.List <> In def
+R33327:33340 khipu Khipu encode_regs_at def
+R33349:33350 khipu <> ds:343 var
+R33344:33347 khipu <> regs:342 var
+R33342:33342 khipu <> b:344 var
+R33324:33324 khipu <> k:345 var
+R33360:33366 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R33378:33379 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R33371:33375 Coq.Vectors.Fin <> t ind
+R33377:33377 khipu <> n:341 var
+binder 33367:33367 <> i:346
+R33380:33390 khipu Khipu in_interval def
+R33403:33412 Coq.Vectors.Vector <> nth def
+R33419:33419 khipu <> i:346 var
+R33414:33417 khipu <> regs:342 var
+R33393:33397 khipu Khipu k_pos proj
+R33399:33399 khipu <> k:345 var
+R33659:33667 Coq.Lists.List <> in_app_or thm
+R33659:33667 Coq.Lists.List <> in_app_or thm
+R33705:33710 Coq.Vectors.Fin <> F1 constr
+R33705:33710 Coq.Vectors.Fin <> F1 constr
+R33733:33758 khipu Khipu encode_reg_positions_in_Iv thm
+R33733:33758 khipu Khipu encode_reg_positions_in_Iv thm
+R33790:33794 Coq.Init.Datatypes <> false constr
+R33790:33794 Coq.Init.Datatypes <> false constr
+R33837:33842 Coq.Vectors.Fin <> FS constr
+R33837:33842 Coq.Vectors.Fin <> FS constr
+prf 33877:33912 Khipu encode_regs_at_outside_interval_head
+binder 33925:33925 <> n:347
+R33933:33940 khipu Khipu Interval rec
+binder 33928:33929 <> Iv:348
+R33949:33956 Coq.Vectors.Vector <> t ind
+R33958:33965 khipu Khipu Interval rec
+R33967:33967 khipu <> n:347 var
+binder 33944:33945 <> tl:349
+R33976:33983 Coq.Vectors.Vector <> t ind
+R33985:33989 khipu Khipu digit def
+R33991:33991 khipu <> n:347 var
+binder 33971:33972 <> ds:350
+binder 33994:33994 <> k:351
+R34012:34019 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34001:34008 khipu Khipu all_wide def
+R34010:34011 khipu <> tl:349 var
+R34042:34049 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34020:34030 khipu Khipu chain_order def
+R34035:34038 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R34033:34034 khipu <> Iv:348 var
+R34039:34040 khipu <> tl:349 var
+R34088:34095 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34050:34056 Coq.Lists.List <> In def
+R34061:34074 khipu Khipu encode_regs_at def
+R34085:34086 khipu <> ds:350 var
+R34082:34083 khipu <> tl:349 var
+R34076:34080 Coq.Init.Datatypes <> false constr
+R34058:34058 khipu <> k:351 var
+R34096:34097 Coq.Init.Logic <> ::type_scope:'~'_x not
+R34098:34108 khipu Khipu in_interval def
+R34120:34121 khipu <> Iv:348 var
+R34111:34115 khipu Khipu k_pos proj
+R34117:34117 khipu <> k:351 var
+R34183:34209 khipu Khipu encode_regs_at_member_index thm
+R34183:34209 khipu Khipu encode_regs_at_member_index thm
+R34249:34275 khipu Khipu chain_order_head_before_nth thm
+R34249:34275 khipu Khipu chain_order_head_before_nth thm
+R34303:34325 khipu Khipu interval_after_excludes thm
+R34303:34325 khipu Khipu interval_after_excludes thm
+prf 34347:34373 Khipu encode_reg_outside_all_tail
+binder 34386:34386 <> n:352
+R34394:34401 khipu Khipu Interval rec
+binder 34389:34390 <> Iv:353
+R34410:34417 Coq.Vectors.Vector <> t ind
+R34419:34426 khipu Khipu Interval rec
+R34428:34428 khipu <> n:352 var
+binder 34405:34406 <> tl:354
+binder 34431:34431 <> b:355
+binder 34433:34433 <> d:356
+R34462:34469 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34440:34450 khipu Khipu chain_order def
+R34455:34458 Coq.Vectors.VectorDef VectorNotations ::vector_scope:x_'::'_x not
+R34453:34454 khipu <> Iv:353 var
+R34459:34460 khipu <> tl:354 var
+R34484:34491 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34470:34480 khipu Khipu wide_enough def
+R34482:34483 khipu <> Iv:353 var
+R34492:34502 khipu Khipu outside_all def
+R34508:34517 khipu Khipu encode_reg def
+R34524:34524 khipu <> d:356 var
+R34521:34522 khipu <> Iv:353 var
+R34519:34519 khipu <> b:355 var
+R34504:34505 khipu <> tl:354 var
+R34590:34615 khipu Khipu encode_reg_positions_in_Iv thm
+R34590:34615 khipu Khipu encode_reg_positions_in_Iv thm
+R34651:34677 khipu Khipu chain_order_head_before_nth thm
+R34651:34677 khipu Khipu chain_order_head_before_nth thm
+R34705:34728 khipu Khipu interval_before_excludes thm
+R34705:34728 khipu Khipu interval_before_excludes thm
+prf 34750:34780 Khipu regs_ok_at_app_left_outside_all
+binder 34793:34793 <> n:357
+R34803:34810 Coq.Vectors.Vector <> t ind
+R34812:34819 khipu Khipu Interval rec
+R34821:34821 khipu <> n:357 var
+binder 34796:34799 <> regs:358
+binder 34824:34826 <> ks1:359
+binder 34828:34830 <> ks2:360
+binder 34832:34832 <> b:361
+R34859:34866 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34839:34849 khipu Khipu outside_all def
+R34856:34858 khipu <> ks1:359 var
+R34851:34854 khipu <> regs:358 var
+R34903:34907 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R34867:34876 khipu Khipu regs_ok_at def
+R34886:34893 Coq.Lists.List <> app abbrev
+R34899:34901 khipu <> ks2:360 var
+R34895:34897 khipu <> ks1:359 var
+R34880:34883 khipu <> regs:358 var
+R34878:34878 khipu <> b:361 var
+R34908:34917 khipu Khipu regs_ok_at def
+R34926:34928 khipu <> ks2:360 var
+R34921:34924 khipu <> regs:358 var
+R34919:34919 khipu <> b:361 var
+R35034:35049 khipu Khipu outside_interval def
+R35034:35049 khipu Khipu outside_interval def
+R35073:35098 khipu Khipu outside_interval_head_cons thm
+R35073:35098 khipu Khipu outside_interval_head_cons thm
+R35136:35146 khipu Khipu outside_all def
+R35136:35146 khipu Khipu outside_all def
+R35170:35190 khipu Khipu outside_all_tail_cons thm
+R35170:35190 khipu Khipu outside_all_tail_cons thm
+R35221:35254 khipu Khipu knots_in_app_left_outside_interval thm
+R35221:35254 khipu Khipu knots_in_app_left_outside_interval thm
+R35221:35254 khipu Khipu knots_in_app_left_outside_interval thm
+R35350:35354 Coq.Init.Logic <> proj1 thm
+R35368:35372 Coq.Init.Datatypes <> false constr
+R35350:35354 Coq.Init.Logic <> proj1 thm
+R35368:35372 Coq.Init.Datatypes <> false constr
+R35461:35465 Coq.Init.Logic <> proj2 thm
+R35479:35483 Coq.Init.Datatypes <> false constr
+R35461:35465 Coq.Init.Logic <> proj2 thm
+R35479:35483 Coq.Init.Datatypes <> false constr
+prf 35520:35536 Khipu encode_regs_ok_at
+binder 35549:35549 <> n:362
+R35559:35566 Coq.Vectors.Vector <> t ind
+R35568:35575 khipu Khipu Interval rec
+R35577:35577 khipu <> n:362 var
+binder 35552:35555 <> regs:363
+R35586:35593 Coq.Vectors.Vector <> t ind
+R35595:35599 khipu Khipu digit def
+R35601:35601 khipu <> n:362 var
+binder 35581:35582 <> ds:364
+binder 35604:35604 <> b:365
+R35624:35631 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35611:35618 khipu Khipu all_wide def
+R35620:35623 khipu <> regs:363 var
+R35648:35655 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35632:35642 khipu Khipu chain_order def
+R35644:35647 khipu <> regs:363 var
+R35656:35665 khipu Khipu regs_ok_at def
+R35675:35688 khipu Khipu encode_regs_at def
+R35697:35698 khipu <> ds:364 var
+R35692:35695 khipu <> regs:363 var
+R35690:35690 khipu <> b:365 var
+R35669:35672 khipu <> regs:363 var
+R35667:35667 khipu <> b:365 var
+R35818:35824 Coq.Init.Logic <> I constr
+R35818:35824 Coq.Init.Logic <> I constr
+R35975:35977 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R35944:35951 khipu Khipu knots_in def
+R35957:35966 khipu Khipu encode_reg def
+R35978:35987 khipu Khipu encode_reg def
+R35975:35977 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R35944:35951 khipu Khipu knots_in def
+R35957:35966 khipu Khipu encode_reg def
+R35978:35987 khipu Khipu encode_reg def
+R36012:36024 khipu Khipu knots_in_self thm
+R36012:36024 khipu Khipu knots_in_self thm
+R36064:36089 khipu Khipu encode_reg_positions_in_Iv thm
+R36064:36089 khipu Khipu encode_reg_positions_in_Iv thm
+R36167:36169 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R36127:36134 khipu Khipu knots_in def
+R36140:36153 khipu Khipu encode_regs_at def
+R36155:36159 Coq.Init.Datatypes <> false constr
+R36171:36178 Coq.Lists.List <> nil abbrev
+R36180:36183 khipu Khipu Knot rec
+R36167:36169 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R36127:36134 khipu Khipu knots_in def
+R36140:36153 khipu Khipu encode_regs_at def
+R36155:36159 Coq.Init.Datatypes <> false constr
+R36171:36178 Coq.Lists.List <> nil abbrev
+R36180:36183 khipu Khipu Knot rec
+R36201:36213 khipu Khipu knots_in_none thm
+R36201:36213 khipu Khipu knots_in_none thm
+R36253:36288 khipu Khipu encode_regs_at_outside_interval_head thm
+R36253:36288 khipu Khipu encode_regs_at_outside_interval_head thm
+R36394:36405 khipu Khipu knots_in_app thm
+R36394:36405 khipu Khipu knots_in_app thm
+R36394:36405 khipu Khipu knots_in_app thm
+R36432:36445 Coq.Lists.List <> app_nil_r thm
+R36432:36445 Coq.Lists.List <> app_nil_r thm
+R36432:36445 Coq.Lists.List <> app_nil_r thm
+R36460:36472 khipu Khipu encode_reg_ok thm
+R36460:36472 khipu Khipu encode_reg_ok thm
+R36496:36506 khipu Khipu outside_all def
+R36512:36521 khipu Khipu encode_reg def
+R36496:36506 khipu Khipu outside_all def
+R36512:36521 khipu Khipu encode_reg def
+R36547:36573 khipu Khipu encode_reg_outside_all_tail thm
+R36547:36573 khipu Khipu encode_reg_outside_all_tail thm
+R36610:36614 Coq.Init.Logic <> proj2 thm
+R36618:36648 khipu Khipu regs_ok_at_app_left_outside_all thm
+R36656:36665 khipu Khipu encode_reg def
+R36676:36689 khipu Khipu encode_regs_at def
+R36691:36695 Coq.Init.Datatypes <> false constr
+R36704:36708 Coq.Init.Datatypes <> false constr
+R36610:36614 Coq.Init.Logic <> proj2 thm
+R36618:36648 khipu Khipu regs_ok_at_app_left_outside_all thm
+R36656:36665 khipu Khipu encode_reg def
+R36676:36689 khipu Khipu encode_regs_at def
+R36691:36695 Coq.Init.Datatypes <> false constr
+R36704:36708 Coq.Init.Datatypes <> false constr
+R36778:36793 khipu Khipu chain_order_tail thm
+R36778:36793 khipu Khipu chain_order_tail thm
+prf 36814:36844 Khipu in_interval_nth_implies_covered
+binder 36857:36857 <> n:366
+R36867:36874 Coq.Vectors.Vector <> t ind
+R36876:36883 khipu Khipu Interval rec
+R36885:36885 khipu <> n:366 var
+binder 36860:36863 <> regs:367
+R36893:36897 Coq.Vectors.Fin <> t ind
+R36899:36899 khipu <> n:366 var
+binder 36889:36889 <> i:368
+binder 36902:36902 <> p:369
+R36942:36949 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36909:36919 khipu Khipu in_interval def
+R36924:36933 Coq.Vectors.Vector <> nth def
+R36940:36940 khipu <> i:368 var
+R36935:36938 khipu <> regs:367 var
+R36921:36921 khipu <> p:369 var
+R36950:36961 khipu Khipu regs_covered def
+R36965:36968 khipu <> regs:367 var
+R36963:36963 khipu <> p:369 var
+prf 37158:37177 Khipu encode_is_WellFormed
+binder 37190:37190 <> n:370
+R37198:37208 khipu Khipu NumeralSpec rec
+R37210:37210 khipu <> n:370 var
+binder 37193:37194 <> ns:371
+binder 37213:37214 <> ds:372
+R37221:37230 khipu Khipu WellFormed def
+R37236:37241 khipu Khipu encode def
+R37246:37247 khipu <> ds:372 var
+R37243:37244 khipu <> ns:371 var
+R37232:37233 khipu <> ns:371 var
+R37285:37294 khipu Khipu WellFormed def
+R37297:37302 khipu Khipu encode def
+R37320:37326 khipu Khipu ns_regs proj
+R37320:37326 khipu Khipu ns_regs proj
+R37347:37352 khipu Khipu ns_len proj
+R37347:37352 khipu Khipu ns_len proj
+R37372:37382 khipu Khipu encode_regs def
+R37372:37382 khipu Khipu encode_regs def
+R37452:37478 khipu Khipu encode_regs_at_member_index thm
+R37520:37526 khipu Khipu ns_wide proj
+R37506:37509 Coq.Init.Datatypes <> true constr
+R37452:37478 khipu Khipu encode_regs_at_member_index thm
+R37520:37526 khipu Khipu ns_wide proj
+R37506:37509 Coq.Init.Datatypes <> true constr
+R37571:37584 khipu Khipu all_within_nth thm
+R37600:37608 khipu Khipu ns_within proj
+R37571:37584 khipu Khipu all_within_nth thm
+R37600:37608 khipu Khipu ns_within proj
+R37724:37750 khipu Khipu encode_regs_at_member_index thm
+R37792:37798 khipu Khipu ns_wide proj
+R37778:37781 Coq.Init.Datatypes <> true constr
+R37724:37750 khipu Khipu encode_regs_at_member_index thm
+R37792:37798 khipu Khipu ns_wide proj
+R37778:37781 Coq.Init.Datatypes <> true constr
+R37841:37871 khipu Khipu in_interval_nth_implies_covered thm
+R37897:37901 khipu Khipu k_pos proj
+R37841:37871 khipu Khipu in_interval_nth_implies_covered thm
+R37897:37901 khipu Khipu k_pos proj
+R37974:37984 khipu Khipu encode_regs def
+R37999:38015 khipu Khipu encode_regs_ok_at thm
+R37999:38015 khipu Khipu encode_regs_ok_at thm
+R38033:38039 khipu Khipu ns_wide proj
+R38033:38039 khipu Khipu ns_wide proj
+R38061:38068 khipu Khipu ns_order proj
+R38061:38068 khipu Khipu ns_order proj
+prf 38333:38341 Khipu lt_unique
+binder 38352:38352 <> m:373
+binder 38354:38354 <> n:374
+R38366:38368 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R38365:38365 khipu <> m:373 var
+R38369:38369 khipu <> n:374 var
+binder 38357:38358 <> h1:375
+binder 38360:38361 <> h2:376
+R38375:38377 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R38373:38374 khipu <> h1:375 var
+R38378:38379 khipu <> h2:376 var
+R38417:38435 Coq.Arith.Peano_dec <> le_unique thm
+R38417:38435 Coq.Arith.Peano_dec <> le_unique thm
+prf 38450:38478 Khipu decode_units_encode_units_aux
+binder 38491:38491 <> I:377
+binder 38493:38493 <> n:378
+R38503:38505 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R38502:38502 khipu <> n:378 var
+binder 38496:38498 <> Hlt:379
+R38793:38795 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R38515:38526 khipu Khipu decode_units def
+R38541:38541 khipu <> n:378 var
+R38564:38567 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R38559:38561 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R38557:38558 khipu <> n':380 var
+R38568:38571 Coq.Init.Datatypes <> list ind
+R38573:38576 khipu Khipu Knot rec
+R38608:38615 Coq.Lists.List <> nil abbrev
+R38617:38620 khipu Khipu Knot rec
+R38645:38653 Coq.Lists.List <> cons abbrev
+R38676:38683 Coq.Lists.List <> nil abbrev
+R38656:38662 khipu Khipu mk_fig8 def
+R38665:38668 khipu Khipu slot def
+R38670:38670 khipu <> I:377 var
+R38694:38694 Coq.Init.Datatypes <> S constr
+R38697:38697 Coq.Init.Datatypes <> S constr
+binder 38709:38709 <> H:381
+R38714:38722 Coq.Lists.List <> cons abbrev
+R38769:38776 Coq.Lists.List <> nil abbrev
+R38725:38731 khipu Khipu mk_long def
+R38745:38761 khipu Khipu encode_units_aux2 thm
+R38765:38765 khipu <> H:381 var
+R38734:38737 khipu Khipu slot def
+R38739:38739 khipu <> I:377 var
+R38789:38791 khipu <> Hlt:379 var
+R38796:38799 Coq.Init.Datatypes <> Some constr
+R38802:38813 khipu Khipu digit_of_nat def
+R38817:38819 khipu <> Hlt:379 var
+R38815:38815 khipu <> n:378 var
+R38895:38903 khipu Khipu digit_ext thm
+R38917:38922 khipu Khipu digit0 def
+R38925:38930 khipu Khipu digit1 def
+R38942:38963 khipu Khipu digit_to_nat_of_nat_lt thm
+R38895:38903 khipu Khipu digit_ext thm
+R38942:38963 khipu Khipu digit_to_nat_of_nat_lt thm
+R38942:38963 khipu Khipu digit_to_nat_of_nat_lt thm
+R38942:38963 khipu Khipu digit_to_nat_of_nat_lt thm
+R38942:38963 khipu Khipu digit_to_nat_of_nat_lt thm
+prf 38991:39015 Khipu decode_units_encode_units
+binder 39028:39028 <> I:382
+binder 39030:39030 <> d:383
+R39068:39070 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R39037:39048 khipu Khipu decode_units def
+R39051:39062 khipu Khipu encode_units def
+R39066:39066 khipu <> d:383 var
+R39064:39064 khipu <> I:382 var
+R39071:39074 Coq.Init.Datatypes <> Some constr
+R39076:39076 khipu <> d:383 var
+R39109:39120 khipu Khipu encode_units def
+R39133:39161 khipu Khipu decode_units_encode_units_aux thm
+R39133:39161 khipu Khipu decode_units_encode_units_aux thm
+R39133:39161 khipu Khipu decode_units_encode_units_aux thm
+R39183:39201 khipu Khipu digit_of_nat_to_nat thm
+R39183:39201 khipu Khipu digit_of_nat_to_nat thm
+prf 39216:39242 Khipu decode_higher_encode_higher
+binder 39255:39255 <> I:384
+binder 39257:39257 <> d:385
+R39297:39299 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R39264:39276 khipu Khipu decode_higher def
+R39279:39291 khipu Khipu encode_higher def
+R39295:39295 khipu <> d:385 var
+R39293:39293 khipu <> I:384 var
+R39300:39303 Coq.Init.Datatypes <> Some constr
+R39305:39305 khipu <> d:385 var
+R39338:39350 khipu Khipu decode_higher def
+R39353:39365 khipu Khipu encode_higher def
+R39429:39431 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R39378:39390 khipu Khipu all_overhandb def
+R39393:39408 khipu Khipu overhand_cluster def
+R39413:39424 khipu Khipu digit_to_nat def
+R39432:39435 Coq.Init.Datatypes <> true constr
+R39429:39431 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R39378:39390 khipu Khipu all_overhandb def
+R39393:39408 khipu Khipu overhand_cluster def
+R39413:39424 khipu Khipu digit_to_nat def
+R39432:39435 Coq.Init.Datatypes <> true constr
+R39450:39454 Coq.Init.Logic <> proj2 thm
+R39457:39474 khipu Khipu all_overhandb_spec thm
+R39450:39454 Coq.Init.Logic <> proj2 thm
+R39457:39474 khipu Khipu all_overhandb_spec thm
+R39505:39533 khipu Khipu overhand_cluster_all_overhand thm
+R39505:39533 khipu Khipu overhand_cluster_all_overhand thm
+R39581:39586 Coq.Arith.Compare_dec <> lt_dec thm
+R39589:39594 Coq.Init.Datatypes <> length def
+R39597:39612 khipu Khipu overhand_cluster def
+R39617:39628 khipu Khipu digit_to_nat def
+R39581:39586 Coq.Arith.Compare_dec <> lt_dec thm
+R39589:39594 Coq.Init.Datatypes <> length def
+R39597:39612 khipu Khipu overhand_cluster def
+R39617:39628 khipu Khipu digit_to_nat def
+R39676:39684 khipu Khipu digit_ext thm
+R39676:39684 khipu Khipu digit_ext thm
+R39699:39720 khipu Khipu digit_to_nat_of_nat_lt thm
+R39699:39720 khipu Khipu digit_to_nat_of_nat_lt thm
+R39699:39720 khipu Khipu digit_to_nat_of_nat_lt thm
+R39733:39755 khipu Khipu overhand_cluster_length thm
+R39733:39755 khipu Khipu overhand_cluster_length thm
+R39783:39805 khipu Khipu overhand_cluster_length thm
+R39783:39805 khipu Khipu overhand_cluster_length thm
+R39783:39805 khipu Khipu overhand_cluster_length thm
+R39831:39847 khipu Khipu digit_to_nat_lt10 thm
+R39831:39847 khipu Khipu digit_to_nat_lt10 thm
+prf 39870:39890 Khipu decode_reg_encode_reg
+binder 39903:39903 <> b:386
+binder 39905:39905 <> I:387
+binder 39907:39907 <> d:388
+R39945:39947 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R39914:39923 khipu Khipu decode_reg def
+R39928:39937 khipu Khipu encode_reg def
+R39943:39943 khipu <> d:388 var
+R39941:39941 khipu <> I:387 var
+R39939:39939 khipu <> b:386 var
+R39925:39925 khipu <> b:386 var
+R39948:39951 Coq.Init.Datatypes <> Some constr
+R39953:39953 khipu <> d:388 var
+R40008:40032 khipu Khipu decode_units_encode_units thm
+R40008:40032 khipu Khipu decode_units_encode_units thm
+R40045:40071 khipu Khipu decode_higher_encode_higher thm
+R40045:40071 khipu Khipu decode_higher_encode_higher thm
+prf 40088:40113 Khipu decode_encode_roundtrip_at
+binder 40126:40126 <> n:389
+R40136:40143 Coq.Vectors.Vector <> t ind
+R40145:40152 khipu Khipu Interval rec
+R40154:40154 khipu <> n:389 var
+binder 40129:40132 <> regs:390
+binder 40157:40158 <> ds:391
+binder 40160:40160 <> b:392
+R40180:40187 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R40167:40174 khipu Khipu all_wide def
+R40176:40179 khipu <> regs:390 var
+R40204:40211 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R40188:40198 khipu Khipu chain_order def
+R40200:40203 khipu <> regs:390 var
+R40260:40262 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R40212:40225 khipu Khipu decode_regs_at def
+R40235:40248 khipu Khipu encode_regs_at def
+R40257:40258 khipu <> ds:391 var
+R40252:40255 khipu <> regs:390 var
+R40250:40250 khipu <> b:392 var
+R40229:40232 khipu <> regs:390 var
+R40227:40227 khipu <> b:392 var
+R40263:40266 Coq.Init.Datatypes <> Some constr
+R40268:40269 khipu <> ds:391 var
+R40520:40522 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R40491:40498 khipu Khipu knots_in def
+R40503:40512 khipu Khipu encode_reg def
+R40523:40532 khipu Khipu encode_reg def
+R40520:40522 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R40491:40498 khipu Khipu knots_in def
+R40503:40512 khipu Khipu encode_reg def
+R40523:40532 khipu Khipu encode_reg def
+R40554:40566 khipu Khipu knots_in_self thm
+R40554:40566 khipu Khipu knots_in_self thm
+R40602:40627 khipu Khipu encode_reg_positions_in_Iv thm
+R40602:40627 khipu Khipu encode_reg_positions_in_Iv thm
+R40700:40702 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R40661:40668 khipu Khipu knots_in def
+R40673:40686 khipu Khipu encode_regs_at def
+R40688:40692 Coq.Init.Datatypes <> false constr
+R40704:40711 Coq.Lists.List <> nil abbrev
+R40713:40716 khipu Khipu Knot rec
+R40700:40702 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R40661:40668 khipu Khipu knots_in def
+R40673:40686 khipu Khipu encode_regs_at def
+R40688:40692 Coq.Init.Datatypes <> false constr
+R40704:40711 Coq.Lists.List <> nil abbrev
+R40713:40716 khipu Khipu Knot rec
+R40732:40744 khipu Khipu knots_in_none thm
+R40732:40744 khipu Khipu knots_in_none thm
+R40780:40815 khipu Khipu encode_regs_at_outside_interval_head thm
+R40780:40815 khipu Khipu encode_regs_at_outside_interval_head thm
+R40854:40865 khipu Khipu knots_in_app thm
+R40878:40891 Coq.Lists.List <> app_nil_r thm
+R40854:40865 khipu Khipu knots_in_app thm
+R40854:40865 khipu Khipu knots_in_app thm
+R40878:40891 Coq.Lists.List <> app_nil_r thm
+R40878:40891 Coq.Lists.List <> app_nil_r thm
+R40913:40923 khipu Khipu outside_all def
+R40929:40938 khipu Khipu encode_reg def
+R40913:40923 khipu Khipu outside_all def
+R40929:40938 khipu Khipu encode_reg def
+R40961:40987 khipu Khipu encode_reg_outside_all_tail thm
+R40961:40987 khipu Khipu encode_reg_outside_all_tail thm
+R41012:41046 khipu Khipu decode_regs_at_app_left_outside_all thm
+R41054:41063 khipu Khipu encode_reg def
+R41073:41086 khipu Khipu encode_regs_at def
+R41088:41092 Coq.Init.Datatypes <> false constr
+R41101:41105 Coq.Init.Datatypes <> false constr
+R41012:41046 khipu Khipu decode_regs_at_app_left_outside_all thm
+R41054:41063 khipu Khipu encode_reg def
+R41073:41086 khipu Khipu encode_regs_at def
+R41088:41092 Coq.Init.Datatypes <> false constr
+R41101:41105 Coq.Init.Datatypes <> false constr
+R41012:41046 khipu Khipu decode_regs_at_app_left_outside_all thm
+R41054:41063 khipu Khipu encode_reg def
+R41073:41086 khipu Khipu encode_regs_at def
+R41088:41092 Coq.Init.Datatypes <> false constr
+R41101:41105 Coq.Init.Datatypes <> false constr
+R41133:41137 Coq.Init.Datatypes <> false constr
+R41148:41163 khipu Khipu chain_order_tail thm
+R41133:41137 Coq.Init.Datatypes <> false constr
+R41148:41163 khipu Khipu chain_order_tail thm
+R41133:41137 Coq.Init.Datatypes <> false constr
+R41148:41163 khipu Khipu chain_order_tail thm
+R41202:41222 khipu Khipu decode_reg_encode_reg thm
+R41202:41222 khipu Khipu decode_reg_encode_reg thm
+R41202:41222 khipu Khipu decode_reg_encode_reg thm
+prf 41256:41278 Khipu decode_encode_roundtrip
+binder 41291:41291 <> n:393
+R41299:41309 khipu Khipu NumeralSpec rec
+R41311:41311 khipu <> n:393 var
+binder 41294:41295 <> ns:394
+binder 41314:41315 <> ds:395
+R41361:41363 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R41322:41332 khipu Khipu decode_regs def
+R41348:41353 khipu Khipu encode def
+R41358:41359 khipu <> ds:395 var
+R41355:41356 khipu <> ns:394 var
+R41335:41341 khipu Khipu ns_regs proj
+R41343:41344 khipu <> ns:394 var
+R41364:41367 Coq.Init.Datatypes <> Some constr
+R41369:41370 khipu <> ds:395 var
+R41407:41417 khipu Khipu decode_regs def
+R41420:41425 khipu Khipu encode def
+R41436:41461 khipu Khipu decode_encode_roundtrip_at thm
+R41436:41461 khipu Khipu decode_encode_roundtrip_at thm
+R41475:41481 khipu Khipu ns_wide proj
+R41475:41481 khipu Khipu ns_wide proj
+R41499:41506 khipu Khipu ns_order proj
+R41499:41506 khipu Khipu ns_order proj
+prf 41529:41556 Khipu value_preserved_by_roundtrip
+binder 41569:41569 <> n:396
+R41577:41587 khipu Khipu NumeralSpec rec
+R41589:41589 khipu <> n:396 var
+binder 41572:41573 <> ns:397
+binder 41592:41593 <> ds:398
+R41600:41606 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R41610:41611 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 41607:41609 <> ds':399
+R41662:41681 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R41651:41653 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R41612:41622 khipu Khipu decode_regs def
+R41638:41643 khipu Khipu encode def
+R41648:41649 khipu <> ds:398 var
+R41645:41646 khipu <> ns:397 var
+R41625:41631 khipu Khipu ns_regs proj
+R41633:41634 khipu <> ns:397 var
+R41654:41657 Coq.Init.Datatypes <> Some constr
+R41659:41661 khipu <> ds':399 var
+R41698:41700 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R41682:41693 khipu Khipu value_digits def
+R41695:41697 khipu <> ds':399 var
+R41701:41712 khipu Khipu value_digits def
+R41714:41715 khipu <> ds:398 var
+R41773:41795 khipu Khipu decode_encode_roundtrip thm
+R41773:41795 khipu Khipu decode_encode_roundtrip thm
+def 42077:42089 Khipu place_of_knot
+R42096:42098 Coq.Init.Datatypes <> nat ind
+binder 42092:42092 <> n:400
+R42107:42117 khipu Khipu NumeralSpec rec
+R42119:42119 khipu <> n:400 var
+binder 42102:42103 <> ns:401
+R42127:42130 khipu Khipu Knot rec
+binder 42123:42123 <> k:402
+R42135:42140 Coq.Init.Datatypes <> option ind
+R42143:42147 Coq.Vectors.Fin <> t ind
+R42149:42149 khipu <> n:400 var
+R42157:42168 khipu Khipu place_of_pos def
+R42181:42187 khipu Khipu ns_regs proj
+R42189:42190 khipu <> ns:401 var
+R42171:42175 khipu Khipu k_pos proj
+R42177:42177 khipu <> k:402 var
+def 42206:42219 Khipu decode_checked
+R42226:42228 Coq.Init.Datatypes <> nat ind
+binder 42222:42222 <> n:403
+R42237:42247 khipu Khipu NumeralSpec rec
+R42249:42249 khipu <> n:403 var
+binder 42232:42233 <> ns:404
+R42258:42261 Coq.Init.Datatypes <> list ind
+R42263:42266 khipu Khipu Knot rec
+binder 42253:42254 <> ks:405
+R42273:42278 Coq.Init.Datatypes <> option ind
+R42281:42288 Coq.Vectors.Vector <> t ind
+R42290:42294 khipu Khipu digit def
+R42296:42296 khipu <> n:403 var
+R42307:42317 khipu Khipu WellFormedb def
+R42322:42323 khipu <> ks:405 var
+R42319:42320 khipu <> ns:404 var
+R42363:42366 Coq.Init.Datatypes <> None constr
+R42330:42340 khipu Khipu decode_regs def
+R42355:42356 khipu <> ks:405 var
+R42343:42349 khipu Khipu ns_regs proj
+R42351:42352 khipu <> ns:404 var
+def 42381:42393 Khipu value_checked
+R42400:42402 Coq.Init.Datatypes <> nat ind
+binder 42396:42396 <> n:406
+R42411:42421 khipu Khipu NumeralSpec rec
+R42423:42423 khipu <> n:406 var
+binder 42406:42407 <> ns:407
+R42432:42435 Coq.Init.Datatypes <> list ind
+R42437:42440 khipu Khipu Knot rec
+binder 42427:42428 <> ks:408
+R42445:42450 Coq.Init.Datatypes <> option ind
+R42452:42454 Coq.Init.Datatypes <> nat ind
+R42461:42470 Coq.Init.Datatypes <> option_map def
+R42486:42499 khipu Khipu decode_checked def
+R42504:42505 khipu <> ks:408 var
+R42501:42502 khipu <> ns:407 var
+R42472:42483 khipu Khipu value_digits def
+prf 42516:42544 Khipu decode_checked_total_under_WF
+binder 42557:42557 <> n:409
+R42565:42575 khipu Khipu NumeralSpec rec
+R42577:42577 khipu <> n:409 var
+binder 42560:42561 <> ns:410
+binder 42580:42581 <> ks:411
+R42604:42611 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R42588:42597 khipu Khipu WellFormed def
+R42602:42603 khipu <> ks:411 var
+R42599:42600 khipu <> ns:410 var
+R42612:42618 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R42621:42622 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 42619:42620 <> ds:412
+R42643:42645 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R42623:42636 khipu Khipu decode_checked def
+R42641:42642 khipu <> ks:411 var
+R42638:42639 khipu <> ns:410 var
+R42646:42649 Coq.Init.Datatypes <> Some constr
+R42651:42652 khipu <> ds:412 var
+R42693:42706 khipu Khipu decode_checked def
+R42736:42738 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R42719:42729 khipu Khipu WellFormedb def
+R42739:42742 Coq.Init.Datatypes <> true constr
+R42736:42738 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R42719:42729 khipu Khipu WellFormedb def
+R42739:42742 Coq.Init.Datatypes <> true constr
+R42757:42761 Coq.Init.Logic <> proj2 thm
+R42764:42779 khipu Khipu WellFormedb_spec thm
+R42757:42761 Coq.Init.Logic <> proj2 thm
+R42764:42779 khipu Khipu WellFormedb_spec thm
+R42828:42848 khipu Khipu decode_total_under_WF thm
+R42828:42848 khipu Khipu decode_total_under_WF thm
+def 43821:43832 Khipu MultiNumeral
+R43839:43841 Coq.Init.Datatypes <> nat ind
+binder 43835:43835 <> n:413
+R43854:43857 Coq.Init.Datatypes <> list ind
+R43860:43867 Coq.Vectors.Vector <> t ind
+R43869:43873 khipu Khipu digit def
+R43875:43875 khipu <> n:413 var
+def 43891:43901 Khipu multi_value
+R43908:43910 Coq.Init.Datatypes <> nat ind
+binder 43904:43904 <> n:414
+R43919:43930 khipu Khipu MultiNumeral def
+R43932:43932 khipu <> n:414 var
+binder 43914:43915 <> mn:415
+R43937:43940 Coq.Init.Datatypes <> list ind
+R43942:43944 Coq.Init.Datatypes <> nat ind
+R43951:43958 Coq.Lists.List <> map def
+R43973:43974 khipu <> mn:415 var
+R43960:43971 khipu Khipu value_digits def
+ind 44501:44505 Khipu Fiber
+constr 44519:44524 Khipu Cotton
+constr 44528:44534 Khipu Camelid
+scheme 44501:44505 Khipu Fiber_rect
+scheme 44501:44505 Khipu Fiber_ind
+scheme 44501:44505 Khipu Fiber_rec
+scheme 44501:44505 Khipu Fiber_sind
+ind 44941:44945 Khipu Color
+constr 44959:44963 Khipu White
+constr 44967:44976 Khipu LightBrown
+constr 44980:44990 Khipu MediumBrown
+constr 44994:45002 Khipu DarkBrown
+constr 45006:45010 Khipu Black
+constr 45014:45016 Khipu Red
+constr 45020:45025 Khipu Yellow
+constr 45029:45033 Khipu Green
+constr 45037:45040 Khipu Blue
+constr 45044:45047 Khipu Grey
+constr 45051:45057 Khipu Mottled
+R45068:45072 khipu <> Color:418 ind
+binder 45060:45061 <> c1:420
+binder 45063:45064 <> c2:421
+scheme 44941:44945 Khipu Color_rect
+scheme 44941:44945 Khipu Color_ind
+scheme 44941:44945 Khipu Color_rec
+scheme 44941:44945 Khipu Color_sind
+rec 45084:45091 Khipu CordMeta
+proj 45107:45114 Khipu cm_fiber
+proj 45127:45134 Khipu cm_color
+proj 45147:45153 Khipu cm_spin
+proj 45167:45172 Khipu cm_ply
+R45118:45122 khipu Khipu Fiber ind
+R45138:45142 khipu Khipu Color ind
+R45158:45162 khipu Khipu Twist ind
+R45178:45182 khipu Khipu Twist ind
+ind 45476:45484 Khipu AttachDir
+constr 45498:45502 Khipu Recto
+constr 45506:45510 Khipu Verso
+scheme 45476:45484 Khipu AttachDir_rect
+scheme 45476:45484 Khipu AttachDir_ind
+scheme 45476:45484 Khipu AttachDir_rec
+scheme 45476:45484 Khipu AttachDir_sind
+ind 45524:45527 Khipu Cord
+constr 45541:45548 Khipu CordNode
+ind 45613:45622 Khipu Attachment
+constr 45636:45641 Khipu Attach
+R45560:45563 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R45552:45559 khipu Khipu CordMeta rec
+R45567:45570 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R45564:45566 khipu Khipu pos def
+R45580:45583 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R45571:45574 Coq.Init.Datatypes <> list ind
+R45576:45579 khipu Khipu Knot rec
+R45599:45602 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R45584:45587 Coq.Init.Datatypes <> list ind
+R45589:45598 khipu <> Attachment:430 ind
+R45603:45606 khipu <> Cord:429 ind
+R45654:45657 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R45645:45653 khipu Khipu AttachDir ind
+R45661:45664 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R45658:45660 khipu Khipu pos def
+R45669:45672 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R45665:45668 khipu <> Cord:429 ind
+R45673:45682 khipu <> Attachment:430 ind
+scheme 45524:45527 Khipu Cord_rect
+scheme 45524:45527 Khipu Cord_ind
+scheme 45524:45527 Khipu Cord_rec
+scheme 45524:45527 Khipu Cord_sind
+scheme 45613:45622 Khipu Attachment_rect
+scheme 45613:45622 Khipu Attachment_ind
+scheme 45613:45622 Khipu Attachment_rec
+scheme 45613:45622 Khipu Attachment_sind
+def 45697:45704 Khipu cord_len
+R45711:45714 khipu Khipu Cord ind
+binder 45707:45707 <> c:433
+R45719:45721 khipu Khipu pos def
+R45734:45734 khipu <> c:433 var
+R45741:45748 khipu Khipu CordNode constr
+def 45780:45789 Khipu cord_knots
+R45796:45799 khipu Khipu Cord ind
+binder 45792:45792 <> c:435
+R45804:45807 Coq.Init.Datatypes <> list ind
+R45809:45812 khipu Khipu Knot rec
+R45825:45825 khipu <> c:435 var
+R45832:45839 khipu Khipu CordNode constr
+def 45873:45885 Khipu cord_children
+R45892:45895 khipu Khipu Cord ind
+binder 45888:45888 <> c:437
+R45900:45903 Coq.Init.Datatypes <> list ind
+R45905:45914 khipu Khipu Attachment ind
+R45927:45927 khipu <> c:437 var
+R45934:45941 khipu Khipu CordNode constr
+rec 45971:45984 Khipu NumericPendant
+proj 46010:46016 Khipu np_meta
+proj 46033:46039 Khipu np_spec
+proj 46061:46068 Khipu np_knots
+proj 46085:46089 Khipu np_wf
+R45991:45993 Coq.Init.Datatypes <> nat ind
+binder 45987:45987 <> n:439
+R46021:46028 khipu Khipu CordMeta rec
+R46044:46054 khipu Khipu NumeralSpec rec
+R46056:46056 khipu <> n:439 var
+R46072:46075 Coq.Init.Datatypes <> list ind
+R46077:46080 khipu Khipu Knot rec
+R46096:46105 khipu Khipu WellFormed def
+R46115:46122 khipu <> np_knots:443 meth
+R46107:46113 khipu <> np_spec:442 meth
+def 46139:46152 Khipu pendant_digits
+binder 46155:46155 <> n:445
+R46163:46176 khipu Khipu NumericPendant rec
+R46178:46178 khipu <> n:445 var
+binder 46159:46159 <> p:446
+R46183:46188 Coq.Init.Datatypes <> option ind
+R46191:46198 Coq.Vectors.Vector <> t ind
+R46200:46204 khipu Khipu digit def
+R46206:46206 khipu <> n:445 var
+R46214:46227 khipu Khipu decode_checked def
+R46242:46249 khipu Khipu np_knots proj
+R46251:46251 khipu <> p:446 var
+R46230:46236 khipu Khipu np_spec proj
+R46238:46238 khipu <> p:446 var
+def 46267:46279 Khipu pendant_value
+binder 46282:46282 <> n:447
+R46290:46303 khipu Khipu NumericPendant rec
+R46305:46305 khipu <> n:447 var
+binder 46286:46286 <> p:448
+R46310:46315 Coq.Init.Datatypes <> option ind
+R46317:46319 Coq.Init.Datatypes <> nat ind
+R46326:46335 Coq.Init.Datatypes <> option_map def
+R46351:46364 khipu Khipu pendant_digits def
+R46366:46366 khipu <> p:448 var
+R46337:46348 khipu Khipu value_digits def
+def 46382:46387 Khipu Ledger
+R46399:46402 Coq.Init.Datatypes <> list ind
+R46404:46405 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'&'_x_'}' not
+R46407:46409 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'&'_x_'}' not
+R46413:46415 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'&'_x_'}' not
+R46432:46433 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'&'_x_'}' not
+R46410:46412 Coq.Init.Datatypes <> nat ind
+binder 46406:46406 <> n:449
+R46416:46429 khipu Khipu NumericPendant rec
+R46431:46431 khipu <> n:449 var
+def 46446:46458 Khipu ledger_values
+R46465:46470 khipu Khipu Ledger def
+binder 46461:46461 <> L:450
+R46475:46478 Coq.Init.Datatypes <> list ind
+R46481:46486 Coq.Init.Datatypes <> option ind
+R46488:46490 Coq.Init.Datatypes <> nat ind
+R46504:46504 khipu <> L:450 var
+R46515:46522 Coq.Lists.List <> nil abbrev
+R46527:46534 Coq.Lists.List <> nil abbrev
+R46540:46548 Coq.Lists.List <> cons abbrev
+R46551:46556 Coq.Init.Specif <> existT constr
+R46571:46579 Coq.Lists.List <> cons abbrev
+R46600:46612 khipu <> ledger_values:451 def
+R46582:46594 khipu Khipu pendant_value def
+def 46637:46653 Khipu attachment_within
+R46669:46671 khipu Khipu pos def
+binder 46656:46665 <> parent_len:453
+R46679:46688 khipu Khipu Attachment ind
+binder 46675:46675 <> a:454
+R46709:46709 khipu <> a:454 var
+R46720:46725 khipu Khipu Attach constr
+R46754:46757 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R46741:46743 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R46744:46753 khipu <> parent_len:453 var
+R46772:46774 Coq.Init.Peano <> ::nat_scope:x_'>'_x not
+R46758:46765 khipu Khipu cord_len def
+ind 46795:46801 Khipu cord_wf
+constr 46823:46834 Khipu cord_wf_node
+ind 46981:46994 Khipu attachments_wf
+constr 47034:47051 Khipu attachments_wf_nil
+constr 47093:47111 Khipu attachments_wf_cons
+R46809:46812 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R46805:46808 khipu Khipu Cord ind
+R47001:47004 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R46998:47000 khipu Khipu pos def
+R47020:47023 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R47005:47008 Coq.Init.Datatypes <> list ind
+R47010:47019 khipu Khipu Attachment ind
+binder 46845:46845 <> m:460
+binder 46847:46847 <> L:461
+binder 46849:46850 <> ks:462
+binder 46852:46853 <> ch:463
+R46865:46872 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R46861:46863 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R46864:46864 khipu <> L:461 var
+R46873:46873 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R46911:46919 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 46881:46881 <> k:464
+R46896:46899 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R46884:46890 Coq.Lists.List <> In def
+R46894:46895 khipu <> ks:462 var
+R46892:46892 khipu <> k:464 var
+R46907:46909 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R46900:46904 khipu Khipu k_pos proj
+R46906:46906 khipu <> k:464 var
+R46910:46910 khipu <> L:461 var
+R46939:46946 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R46920:46933 khipu <> attachments_wf:457 ind
+R46937:46938 khipu <> ch:463 var
+R46935:46935 khipu <> L:461 var
+R46947:46953 khipu <> cord_wf:456 ind
+R46956:46963 khipu Khipu CordNode constr
+R46972:46973 khipu <> ch:463 var
+R46969:46970 khipu <> ks:462 var
+R46967:46967 khipu <> L:461 var
+R46965:46965 khipu <> m:460 var
+binder 47062:47062 <> L:465
+R47065:47078 khipu <> attachments_wf:457 ind
+R47082:47089 Coq.Lists.List <> nil abbrev
+R47080:47080 khipu <> L:465 var
+binder 47122:47122 <> L:466
+binder 47124:47126 <> dir:467
+binder 47128:47128 <> p:468
+binder 47130:47134 <> child:469
+binder 47136:47137 <> tl:470
+R47149:47156 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R47145:47147 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R47144:47144 khipu <> p:468 var
+R47148:47148 khipu <> L:466 var
+R47175:47182 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R47171:47173 Coq.Init.Peano <> ::nat_scope:x_'>'_x not
+R47157:47164 khipu Khipu cord_len def
+R47166:47170 khipu <> child:469 var
+R47196:47203 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R47183:47189 khipu <> cord_wf:456 ind
+R47191:47195 khipu <> child:469 var
+R47223:47230 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R47204:47217 khipu <> attachments_wf:457 ind
+R47221:47222 khipu <> tl:470 var
+R47219:47219 khipu <> L:466 var
+R47231:47244 khipu <> attachments_wf:457 ind
+R47249:47257 Coq.Lists.List <> cons abbrev
+R47280:47281 khipu <> tl:470 var
+R47260:47265 khipu Khipu Attach constr
+R47273:47277 khipu <> child:469 var
+R47271:47271 khipu <> p:468 var
+R47267:47269 khipu <> dir:467 var
+R47246:47246 khipu <> L:466 var
+scheme 46795:46801 Khipu cord_wf_ind
+scheme 46795:46801 Khipu cord_wf_sind
+scheme 46981:46994 Khipu attachments_wf_ind
+scheme 46981:46994 Khipu attachments_wf_sind
+rec 48121:48132 Khipu PendantGroup
+proj 48158:48163 Khipu pg_top
+proj 48192:48202 Khipu pg_pendants
+R48139:48141 Coq.Init.Datatypes <> nat ind
+binder 48135:48135 <> n:471
+R48172:48185 khipu Khipu NumericPendant rec
+R48187:48187 khipu <> n:471 var
+R48206:48209 Coq.Init.Datatypes <> list ind
+R48212:48225 khipu Khipu NumericPendant rec
+R48227:48227 khipu <> n:471 var
+def 48321:48336 Khipu group_sums_valid
+R48343:48345 Coq.Init.Datatypes <> nat ind
+binder 48339:48339 <> n:475
+R48353:48364 khipu Khipu PendantGroup rec
+R48366:48366 khipu <> n:475 var
+binder 48349:48349 <> g:476
+R48387:48399 khipu Khipu pendant_value def
+R48402:48407 khipu Khipu pg_top proj
+R48409:48409 khipu <> g:476 var
+R48421:48424 Coq.Init.Datatypes <> None constr
+R48429:48433 Coq.Init.Logic <> False ind
+R48439:48442 Coq.Init.Datatypes <> Some constr
+R48481:48488 Coq.Lists.List <> map def
+R48505:48515 khipu Khipu pg_pendants proj
+R48517:48517 khipu <> g:476 var
+R48490:48502 khipu Khipu pendant_value def
+binder 48465:48476 <> pendant_vals:477
+R48544:48558 Coq.Lists.List <> fold_right def
+R48720:48731 khipu <> pendant_vals:477 var
+R48704:48707 Coq.Init.Datatypes <> Some constr
+binder 48573:48574 <> ov:478
+binder 48576:48578 <> acc:479
+R48603:48605 khipu <> acc:479 var
+R48599:48600 khipu <> ov:478 var
+R48624:48627 Coq.Init.Datatypes <> Some constr
+R48632:48635 Coq.Init.Datatypes <> Some constr
+R48642:48645 Coq.Init.Datatypes <> Some constr
+R48649:48651 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R48675:48678 Coq.Init.Datatypes <> None constr
+binder 48533:48539 <> sum_opt:482
+R48748:48754 khipu <> sum_opt:482 var
+R48769:48772 Coq.Init.Datatypes <> Some constr
+R48786:48788 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R48799:48802 Coq.Init.Datatypes <> None constr
+R48807:48811 Coq.Init.Logic <> False ind
+def 48842:48858 Khipu group_sums_validb
+R48865:48867 Coq.Init.Datatypes <> nat ind
+binder 48861:48861 <> n:484
+R48875:48886 khipu Khipu PendantGroup rec
+R48888:48888 khipu <> n:484 var
+binder 48871:48871 <> g:485
+R48893:48896 Coq.Init.Datatypes <> bool ind
+R48909:48921 khipu Khipu pendant_value def
+R48924:48929 khipu Khipu pg_top proj
+R48931:48931 khipu <> g:485 var
+R48943:48946 Coq.Init.Datatypes <> None constr
+R48951:48955 Coq.Init.Datatypes <> false constr
+R48961:48964 Coq.Init.Datatypes <> Some constr
+R49003:49010 Coq.Lists.List <> map def
+R49027:49037 khipu Khipu pg_pendants proj
+R49039:49039 khipu <> g:485 var
+R49012:49024 khipu Khipu pendant_value def
+binder 48987:48998 <> pendant_vals:486
+R49066:49080 Coq.Lists.List <> fold_right def
+R49242:49253 khipu <> pendant_vals:486 var
+R49226:49229 Coq.Init.Datatypes <> Some constr
+binder 49095:49096 <> ov:487
+binder 49098:49100 <> acc:488
+R49125:49127 khipu <> acc:488 var
+R49121:49122 khipu <> ov:487 var
+R49146:49149 Coq.Init.Datatypes <> Some constr
+R49154:49157 Coq.Init.Datatypes <> Some constr
+R49164:49167 Coq.Init.Datatypes <> Some constr
+R49171:49173 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R49197:49200 Coq.Init.Datatypes <> None constr
+binder 49055:49061 <> sum_opt:491
+R49270:49276 khipu <> sum_opt:491 var
+R49291:49294 Coq.Init.Datatypes <> Some constr
+R49308:49311 Coq.Arith.PeanoNat <> ::nat_scope:x_'=?'_x not
+R49322:49325 Coq.Init.Datatypes <> None constr
+R49330:49334 Coq.Init.Datatypes <> false constr
+prf 49360:49381 Khipu group_sums_validb_spec
+binder 49394:49394 <> n:493
+R49401:49412 khipu Khipu PendantGroup rec
+R49414:49414 khipu <> n:493 var
+binder 49397:49397 <> g:494
+R49448:49452 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R49441:49443 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R49422:49438 khipu Khipu group_sums_validb def
+R49440:49440 khipu <> g:494 var
+R49444:49447 Coq.Init.Datatypes <> true constr
+R49453:49468 khipu Khipu group_sums_valid def
+R49470:49470 khipu <> g:494 var
+R49503:49519 khipu Khipu group_sums_validb def
+R49522:49537 khipu Khipu group_sums_valid def
+R49552:49564 khipu Khipu pendant_value def
+R49567:49572 khipu Khipu pg_top proj
+R49552:49564 khipu Khipu pendant_value def
+R49567:49572 khipu Khipu pg_top proj
+R49618:49625 Coq.Lists.List <> map def
+R49642:49652 khipu Khipu pg_pendants proj
+R49627:49639 khipu Khipu pendant_value def
+R49618:49625 Coq.Lists.List <> map def
+R49642:49652 khipu Khipu pg_pendants proj
+R49627:49639 khipu Khipu pendant_value def
+R49679:49693 Coq.Lists.List <> fold_right def
+R49679:49693 Coq.Lists.List <> fold_right def
+R49747:49756 Coq.Arith.PeanoNat Nat eqb_eq thm
+R49747:49756 Coq.Arith.PeanoNat Nat eqb_eq thm
+R49747:49756 Coq.Arith.PeanoNat Nat eqb_eq thm
+prf 49882:49907 Khipu group_sums_valid_decidable
+binder 49920:49920 <> n:495
+R49927:49938 khipu Khipu PendantGroup rec
+R49940:49940 khipu <> n:495 var
+binder 49923:49923 <> g:496
+R49948:49948 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R49967:49971 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R49992:49992 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R49949:49964 khipu Khipu group_sums_valid def
+R49966:49966 khipu <> g:496 var
+R49972:49973 Coq.Init.Logic <> ::type_scope:'~'_x not
+R49974:49989 khipu Khipu group_sums_valid def
+R49991:49991 khipu <> g:496 var
+R50028:50044 khipu Khipu group_sums_validb def
+R50028:50044 khipu Khipu group_sums_validb def
+R50074:50078 Coq.Init.Logic <> proj1 thm
+R50081:50102 khipu Khipu group_sums_validb_spec thm
+R50074:50078 Coq.Init.Logic <> proj1 thm
+R50081:50102 khipu Khipu group_sums_validb_spec thm
+R50151:50155 Coq.Init.Logic <> proj2 thm
+R50158:50179 khipu Khipu group_sums_validb_spec thm
+R50151:50155 Coq.Init.Logic <> proj2 thm
+R50158:50179 khipu Khipu group_sums_validb_spec thm
+ind 50888:50900 Khipu cord_wf_depth
+constr 50929:50946 Khipu cord_wf_depth_node
+ind 51124:51143 Khipu attachments_wf_depth
+constr 51190:51213 Khipu attachments_wf_depth_nil
+constr 51275:51299 Khipu attachments_wf_depth_cons
+R50907:50910 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R50904:50906 Coq.Init.Datatypes <> nat ind
+R50915:50918 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R50911:50914 khipu Khipu Cord ind
+R51150:51153 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R51147:51149 Coq.Init.Datatypes <> nat ind
+R51157:51160 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R51154:51156 khipu Khipu pos def
+R51176:51179 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R51161:51164 Coq.Init.Datatypes <> list ind
+R51166:51175 khipu Khipu Attachment ind
+binder 50957:50960 <> fuel:501
+binder 50962:50962 <> m:502
+binder 50964:50964 <> L:503
+binder 50966:50967 <> ks:504
+binder 50969:50970 <> ch:505
+R50982:50989 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R50978:50980 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R50981:50981 khipu <> L:503 var
+R50990:50990 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R51028:51036 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 50998:50998 <> k:506
+R51013:51016 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R51001:51007 Coq.Lists.List <> In def
+R51011:51012 khipu <> ks:504 var
+R51009:51009 khipu <> k:506 var
+R51024:51026 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R51017:51021 khipu Khipu k_pos proj
+R51023:51023 khipu <> k:506 var
+R51027:51027 khipu <> L:503 var
+R51067:51074 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R51037:51056 khipu <> attachments_wf_depth:498 ind
+R51065:51066 khipu <> ch:505 var
+R51063:51063 khipu <> L:503 var
+R51058:51061 khipu <> fuel:501 var
+R51075:51087 khipu <> cord_wf_depth:497 ind
+R51099:51106 khipu Khipu CordNode constr
+R51115:51116 khipu <> ch:505 var
+R51112:51113 khipu <> ks:504 var
+R51110:51110 khipu <> L:503 var
+R51108:51108 khipu <> m:502 var
+R51090:51090 Coq.Init.Datatypes <> S constr
+R51092:51095 khipu <> fuel:501 var
+binder 51224:51227 <> fuel:507
+binder 51229:51229 <> L:508
+R51236:51255 khipu <> attachments_wf_depth:498 ind
+R51264:51271 Coq.Lists.List <> nil abbrev
+R51262:51262 khipu <> L:508 var
+R51257:51260 khipu <> fuel:507 var
+binder 51310:51313 <> fuel:509
+binder 51315:51315 <> L:510
+binder 51317:51319 <> dir:511
+binder 51321:51321 <> p:512
+binder 51323:51327 <> child:513
+binder 51329:51330 <> tl:514
+R51342:51349 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R51338:51340 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R51337:51337 khipu <> p:512 var
+R51341:51341 khipu <> L:510 var
+R51368:51375 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R51364:51366 Coq.Init.Peano <> ::nat_scope:x_'>'_x not
+R51350:51357 khipu Khipu cord_len def
+R51359:51363 khipu <> child:513 var
+R51400:51407 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R51376:51388 khipu <> cord_wf_depth:497 ind
+R51395:51399 khipu <> child:513 var
+R51390:51393 khipu <> fuel:509 var
+R51438:51445 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R51408:51427 khipu <> attachments_wf_depth:498 ind
+R51436:51437 khipu <> tl:514 var
+R51434:51434 khipu <> L:510 var
+R51429:51432 khipu <> fuel:509 var
+R51446:51465 khipu <> attachments_wf_depth:498 ind
+R51475:51483 Coq.Lists.List <> cons abbrev
+R51506:51507 khipu <> tl:514 var
+R51486:51491 khipu Khipu Attach constr
+R51499:51503 khipu <> child:513 var
+R51497:51497 khipu <> p:512 var
+R51493:51495 khipu <> dir:511 var
+R51472:51472 khipu <> L:510 var
+R51467:51470 khipu <> fuel:509 var
+scheme 50888:50900 Khipu cord_wf_depth_ind
+scheme 50888:50900 Khipu cord_wf_depth_sind
+scheme 51124:51143 Khipu attachments_wf_depth_ind
+scheme 51124:51143 Khipu attachments_wf_depth_sind
+def 51523:51542 Khipu max_subsidiary_depth
+R51546:51548 Coq.Init.Datatypes <> nat ind
+def 51569:51583 Khipu cord_wf_bounded
+R51590:51593 khipu Khipu Cord ind
+binder 51586:51586 <> c:515
+R51608:51620 khipu Khipu cord_wf_depth ind
+R51647:51647 khipu <> c:515 var
+R51623:51623 Coq.Init.Datatypes <> S constr
+R51625:51644 khipu Khipu max_subsidiary_depth def
+prf 51657:51678 Khipu cord_wf_depth_positive
+binder 51691:51691 <> n:516
+binder 51693:51693 <> c:517
+R51713:51716 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R51696:51708 khipu Khipu cord_wf_depth ind
+R51712:51712 khipu <> c:517 var
+R51710:51710 khipu <> n:516 var
+R51718:51720 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R51721:51721 khipu <> n:516 var
+sec 52169:52176 Khipu Examples
+prf 52186:52192 Khipu lt_2_10
+R52197:52199 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+prf 52227:52233 Khipu lt_3_10
+R52238:52240 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+prf 52268:52274 Khipu lt_4_10
+R52279:52281 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+prf 52309:52315 Khipu lt_5_10
+R52320:52322 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+prf 52350:52356 Khipu lt_6_10
+R52361:52363 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+prf 52391:52397 Khipu lt_7_10
+R52402:52404 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+prf 52432:52438 Khipu lt_8_10
+R52443:52445 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+prf 52473:52479 Khipu lt_9_10
+R52484:52486 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+def 52520:52525 Khipu digit2
+R52529:52533 khipu Khipu digit def
+R52538:52549 khipu Khipu digit_of_nat def
+R52553:52559 khipu Khipu lt_2_10 thm
+def 52573:52578 Khipu digit3
+R52582:52586 khipu Khipu digit def
+R52591:52602 khipu Khipu digit_of_nat def
+R52606:52612 khipu Khipu lt_3_10 thm
+def 52626:52631 Khipu digit4
+R52635:52639 khipu Khipu digit def
+R52644:52655 khipu Khipu digit_of_nat def
+R52659:52665 khipu Khipu lt_4_10 thm
+def 52679:52684 Khipu digit5
+R52688:52692 khipu Khipu digit def
+R52697:52708 khipu Khipu digit_of_nat def
+R52712:52718 khipu Khipu lt_5_10 thm
+def 52732:52737 Khipu digit6
+R52741:52745 khipu Khipu digit def
+R52750:52761 khipu Khipu digit_of_nat def
+R52765:52771 khipu Khipu lt_6_10 thm
+def 52785:52790 Khipu digit7
+R52794:52798 khipu Khipu digit def
+R52803:52814 khipu Khipu digit_of_nat def
+R52818:52824 khipu Khipu lt_7_10 thm
+def 52838:52843 Khipu digit8
+R52847:52851 khipu Khipu digit def
+R52856:52867 khipu Khipu digit_of_nat def
+R52871:52877 khipu Khipu lt_8_10 thm
+def 52891:52896 Khipu digit9
+R52900:52904 khipu Khipu digit def
+R52909:52920 khipu Khipu digit_of_nat def
+R52924:52930 khipu Khipu lt_9_10 thm
+prf 52940:52955 Khipu interval_0_12_ok
+R52960:52962 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+prf 52990:53006 Khipu interval_12_24_ok
+R53012:53014 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+prf 53042:53058 Khipu interval_24_36_ok
+R53064:53066 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+def 53100:53113 Khipu units_interval
+R53117:53124 khipu Khipu Interval rec
+R53134:53135 khipu Khipu lo proj
+R53134:53135 khipu Khipu lo proj
+R53134:53135 khipu Khipu lo proj
+R53143:53144 khipu Khipu hi proj
+R53143:53144 khipu Khipu hi proj
+R53153:53160 khipu Khipu lo_lt_hi proj
+R53153:53160 khipu Khipu lo_lt_hi proj
+R53165:53180 khipu Khipu interval_0_12_ok thm
+def 53198:53210 Khipu tens_interval
+R53214:53221 khipu Khipu Interval rec
+R53231:53232 khipu Khipu lo proj
+R53231:53232 khipu Khipu lo proj
+R53231:53232 khipu Khipu lo proj
+R53241:53242 khipu Khipu hi proj
+R53241:53242 khipu Khipu hi proj
+R53251:53258 khipu Khipu lo_lt_hi proj
+R53251:53258 khipu Khipu lo_lt_hi proj
+R53263:53279 khipu Khipu interval_12_24_ok thm
+def 53297:53313 Khipu hundreds_interval
+R53317:53324 khipu Khipu Interval rec
+R53334:53335 khipu Khipu lo proj
+R53334:53335 khipu Khipu lo proj
+R53334:53335 khipu Khipu lo proj
+R53344:53345 khipu Khipu hi proj
+R53344:53345 khipu Khipu hi proj
+R53354:53361 khipu Khipu lo_lt_hi proj
+R53354:53361 khipu Khipu lo_lt_hi proj
+R53366:53382 khipu Khipu interval_24_36_ok thm
+def 53400:53411 Khipu example_regs
+R53415:53422 Coq.Vectors.Vector <> t ind
+R53424:53431 khipu Khipu Interval rec
+R53440:53440 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R53455:53456 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R53470:53471 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R53489:53489 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R53441:53454 khipu Khipu units_interval def
+R53457:53469 khipu Khipu tens_interval def
+R53472:53488 khipu Khipu hundreds_interval def
+prf 53499:53517 Khipu example_chain_order
+R53521:53531 khipu Khipu chain_order def
+R53533:53544 khipu Khipu example_regs def
+R53563:53574 khipu Khipu example_regs def
+R53626:53626 Coq.Init.Logic <> I constr
+R53626:53626 Coq.Init.Logic <> I constr
+prf 53641:53656 Khipu example_all_wide
+R53660:53667 khipu Khipu all_wide def
+R53669:53680 khipu Khipu example_regs def
+R53699:53710 khipu Khipu example_regs def
+R53729:53739 khipu Khipu wide_enough def
+prf 53782:53799 Khipu example_all_within
+R53803:53812 khipu Khipu all_within def
+R53817:53828 khipu Khipu example_regs def
+R53847:53858 khipu Khipu example_regs def
+R53927:53927 Coq.Init.Logic <> I constr
+R53927:53927 Coq.Init.Logic <> I constr
+prf 53942:53956 Khipu example_len_pos
+R53961:53963 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+def 53997:54008 Khipu example_spec
+R54012:54022 khipu Khipu NumeralSpec rec
+R54034:54039 khipu Khipu ns_len proj
+R54034:54039 khipu Khipu ns_len proj
+R54034:54039 khipu Khipu ns_len proj
+R54050:54059 khipu Khipu ns_len_pos proj
+R54050:54059 khipu Khipu ns_len_pos proj
+R54083:54089 khipu Khipu ns_regs proj
+R54083:54089 khipu Khipu ns_regs proj
+R54110:54117 khipu Khipu ns_order proj
+R54110:54117 khipu Khipu ns_order proj
+R54145:54151 khipu Khipu ns_wide proj
+R54145:54151 khipu Khipu ns_wide proj
+R54176:54184 khipu Khipu ns_within proj
+R54176:54184 khipu Khipu ns_within proj
+R54064:54078 khipu Khipu example_len_pos thm
+R54094:54105 khipu Khipu example_regs def
+R54122:54140 khipu Khipu example_chain_order thm
+R54156:54171 khipu Khipu example_all_wide thm
+R54189:54206 khipu Khipu example_all_within thm
+def 54224:54233 Khipu digits_731
+R54237:54244 Coq.Vectors.Vector <> t ind
+R54246:54250 khipu Khipu digit def
+R54257:54257 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R54264:54265 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R54272:54273 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R54280:54280 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R54258:54263 khipu Khipu digit1 def
+R54266:54271 khipu Khipu digit3 def
+R54274:54279 khipu Khipu digit7 def
+def 54295:54303 Khipu knots_731
+R54307:54310 Coq.Init.Datatypes <> list ind
+R54312:54315 khipu Khipu Knot rec
+R54320:54325 khipu Khipu encode def
+R54340:54349 khipu Khipu digits_731 def
+R54327:54338 khipu Khipu example_spec def
+prf 54359:54378 Khipu knots_731_wellformed
+R54382:54391 khipu Khipu WellFormed def
+R54406:54414 khipu Khipu knots_731 def
+R54393:54404 khipu Khipu example_spec def
+R54433:54441 khipu Khipu knots_731 def
+R54452:54471 khipu Khipu encode_is_WellFormed thm
+R54452:54471 khipu Khipu encode_is_WellFormed thm
+prf 54486:54503 Khipu decode_731_correct
+R54543:54545 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R54509:54519 khipu Khipu decode_regs def
+R54534:54542 khipu Khipu knots_731 def
+R54521:54532 khipu Khipu example_regs def
+R54546:54549 Coq.Init.Datatypes <> Some constr
+R54551:54560 khipu Khipu digits_731 def
+R54579:54587 khipu Khipu knots_731 def
+R54590:54601 khipu Khipu example_regs def
+R54681:54683 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R54614:54624 khipu Khipu decode_regs def
+R54650:54655 khipu Khipu encode def
+R54670:54679 khipu Khipu digits_731 def
+R54657:54668 khipu Khipu example_spec def
+R54627:54633 khipu Khipu ns_regs proj
+R54635:54646 khipu Khipu example_spec def
+R54684:54687 Coq.Init.Datatypes <> Some constr
+R54689:54698 khipu Khipu digits_731 def
+R54681:54683 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R54614:54624 khipu Khipu decode_regs def
+R54650:54655 khipu Khipu encode def
+R54670:54679 khipu Khipu digits_731 def
+R54657:54668 khipu Khipu example_spec def
+R54627:54633 khipu Khipu ns_regs proj
+R54635:54646 khipu Khipu example_spec def
+R54684:54687 Coq.Init.Datatypes <> Some constr
+R54689:54698 khipu Khipu digits_731 def
+R54710:54732 khipu Khipu decode_encode_roundtrip thm
+R54710:54732 khipu Khipu decode_encode_roundtrip thm
+prf 54747:54763 Khipu value_731_correct
+R54790:54792 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R54767:54778 khipu Khipu value_digits def
+R54780:54789 khipu Khipu digits_731 def
+R54814:54823 khipu Khipu digits_731 def
+R54826:54837 khipu Khipu value_digits def
+R54840:54851 khipu Khipu digit_to_nat def
+R54854:54859 khipu Khipu digit1 def
+R54862:54867 khipu Khipu digit3 def
+R54870:54875 khipu Khipu digit7 def
+R54887:54898 khipu Khipu digit_of_nat def
+def 54940:54949 Khipu digits_804
+R54953:54960 Coq.Vectors.Vector <> t ind
+R54962:54966 khipu Khipu digit def
+R54973:54973 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R54980:54981 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R54988:54989 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R54996:54996 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R54974:54979 khipu Khipu digit4 def
+R54982:54987 khipu Khipu digit0 def
+R54990:54995 khipu Khipu digit8 def
+def 55011:55019 Khipu knots_804
+R55023:55026 Coq.Init.Datatypes <> list ind
+R55028:55031 khipu Khipu Knot rec
+R55036:55041 khipu Khipu encode def
+R55056:55065 khipu Khipu digits_804 def
+R55043:55054 khipu Khipu example_spec def
+prf 55075:55091 Khipu value_804_correct
+R55118:55120 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R55095:55106 khipu Khipu value_digits def
+R55108:55117 khipu Khipu digits_804 def
+R55142:55151 khipu Khipu digits_804 def
+R55154:55165 khipu Khipu value_digits def
+R55168:55179 khipu Khipu digit_to_nat def
+R55182:55187 khipu Khipu digit0 def
+R55190:55195 khipu Khipu digit4 def
+R55198:55203 khipu Khipu digit8 def
+R55215:55226 khipu Khipu digit_of_nat def
+prf 55263:55280 Khipu decode_804_correct
+R55320:55322 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R55286:55296 khipu Khipu decode_regs def
+R55311:55319 khipu Khipu knots_804 def
+R55298:55309 khipu Khipu example_regs def
+R55323:55326 Coq.Init.Datatypes <> Some constr
+R55328:55337 khipu Khipu digits_804 def
+R55356:55364 khipu Khipu knots_804 def
+R55367:55378 khipu Khipu example_regs def
+R55458:55460 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R55391:55401 khipu Khipu decode_regs def
+R55427:55432 khipu Khipu encode def
+R55447:55456 khipu Khipu digits_804 def
+R55434:55445 khipu Khipu example_spec def
+R55404:55410 khipu Khipu ns_regs proj
+R55412:55423 khipu Khipu example_spec def
+R55461:55464 Coq.Init.Datatypes <> Some constr
+R55466:55475 khipu Khipu digits_804 def
+R55458:55460 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R55391:55401 khipu Khipu decode_regs def
+R55427:55432 khipu Khipu encode def
+R55447:55456 khipu Khipu digits_804 def
+R55434:55445 khipu Khipu example_spec def
+R55404:55410 khipu Khipu ns_regs proj
+R55412:55423 khipu Khipu example_spec def
+R55461:55464 Coq.Init.Datatypes <> Some constr
+R55466:55475 khipu Khipu digits_804 def
+R55487:55509 khipu Khipu decode_encode_roundtrip thm
+R55487:55509 khipu Khipu decode_encode_roundtrip thm
+def 55529:55538 Khipu digits_000
+R55542:55549 Coq.Vectors.Vector <> t ind
+R55551:55555 khipu Khipu digit def
+R55562:55562 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R55569:55570 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R55577:55578 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R55585:55585 Coq.Vectors.VectorDef VectorNotations ::vector_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R55563:55568 khipu Khipu digit0 def
+R55571:55576 khipu Khipu digit0 def
+R55579:55584 khipu Khipu digit0 def
+def 55600:55608 Khipu knots_000
+R55612:55615 Coq.Init.Datatypes <> list ind
+R55617:55620 khipu Khipu Knot rec
+R55625:55630 khipu Khipu encode def
+R55645:55654 khipu Khipu digits_000 def
+R55632:55643 khipu Khipu example_spec def
+prf 55664:55681 Khipu knots_000_is_empty
+R55694:55696 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R55685:55693 khipu Khipu knots_000 def
+R55698:55705 Coq.Lists.List <> nil abbrev
+R55707:55710 khipu Khipu Knot rec
+R55729:55737 khipu Khipu knots_000 def
+R55740:55745 khipu Khipu encode def
+R55748:55758 khipu Khipu encode_regs def
+R55761:55774 khipu Khipu encode_regs_at def
+R55786:55795 khipu Khipu encode_reg def
+R55798:55809 khipu Khipu encode_units def
+R55812:55824 khipu Khipu encode_higher def
+R55836:55847 khipu Khipu digit_to_nat def
+R55850:55855 khipu Khipu digit0 def
+R55858:55869 khipu Khipu digit_of_nat def
+prf 55906:55922 Khipu value_000_correct
+R55949:55951 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R55926:55937 khipu Khipu value_digits def
+R55939:55948 khipu Khipu digits_000 def
+R55987:55994 khipu Khipu.Examples <> sec
+R57435:57439 khipu Khipu <> mod
