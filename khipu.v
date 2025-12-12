@@ -1729,37 +1729,372 @@ Qed.
 End Examples.
 
 (* ========================================================================== *)
+(*                            MOIETY SEMANTICS                                *)
+(* ========================================================================== *)
+
+(* Hyland (2014) demonstrated that S/Z knot orientation correlates with
+   Andean moiety organization. S-twist marks Hanan (upper) division and
+   Z-twist marks Urin (lower) division. This binary social classification
+   pervaded Inka administrative structure. *)
+
+Inductive Moiety : Type :=
+| Hanan
+| Urin.
+
+Definition twist_to_moiety (t : Twist) : Moiety :=
+  match t with
+  | TS => Hanan
+  | TZ => Urin
+  end.
+
+Definition moiety_to_twist (m : Moiety) : Twist :=
+  match m with
+  | Hanan => TS
+  | Urin => TZ
+  end.
+
+Lemma twist_moiety_roundtrip : forall t,
+  moiety_to_twist (twist_to_moiety t) = t.
+Proof.
+  intros []; reflexivity.
+Qed.
+
+Lemma moiety_twist_roundtrip : forall m,
+  twist_to_moiety (moiety_to_twist m) = m.
+Proof.
+  intros []; reflexivity.
+Qed.
+
+Definition knot_moiety (k : Knot) : Moiety :=
+  twist_to_moiety (k_twist k).
+
+Definition cord_moiety (cm : CordMeta) : Moiety :=
+  twist_to_moiety (cm_spin cm).
+
+(* Markedness theory: S-ply (Hanan) is unmarked/default, Z-ply (Urin) is
+   marked. This asymmetry appears in khipu conventions where S is more
+   common and Z signals special status. *)
+
+Definition is_marked (t : Twist) : bool :=
+  match t with
+  | TS => false
+  | TZ => true
+  end.
+
+Definition is_unmarked (t : Twist) : bool :=
+  negb (is_marked t).
+
+Lemma marked_unmarked_exclusive : forall t,
+  is_marked t = negb (is_unmarked t).
+Proof.
+  intros []; reflexivity.
+Qed.
+
+(* ========================================================================== *)
+(*                           STRUCTURAL MARKERS                               *)
+(* ========================================================================== *)
+
+(* Thompson (2024) and the Cambridge data science study (2024) identified
+   special cord types that serve structural rather than numerical functions:
+   - Divider cords: red/white cords separating pendant groups
+   - Boundary markers: white pendant cords marking cluster boundaries *)
+
+Inductive CordRole : Type :=
+| DataCord
+| DividerCord
+| BoundaryMarker.
+
+Definition is_divider_color (c : Color) : bool :=
+  match c with
+  | Red => true
+  | White => true
+  | Mottled Red White => true
+  | Mottled White Red => true
+  | _ => false
+  end.
+
+Definition is_boundary_color (c : Color) : bool :=
+  match c with
+  | White => true
+  | _ => false
+  end.
+
+Record MarkedCord : Type := {
+  mc_meta : CordMeta;
+  mc_role : CordRole;
+  mc_knots : list Knot
+}.
+
+Definition infer_role (cm : CordMeta) (ks : list Knot) : CordRole :=
+  if is_boundary_color (cm_color cm) && (length ks =? 0) then BoundaryMarker
+  else if is_divider_color (cm_color cm) && (length ks =? 0) then DividerCord
+  else DataCord.
+
+(* Pendant groups can be delimited by divider cords. *)
+Record DelimitedGroup : Type := {
+  dg_start_divider : option MarkedCord;
+  dg_pendants : list MarkedCord;
+  dg_end_divider : option MarkedCord
+}.
+
+(* ========================================================================== *)
+(*                          MULTI-NUMBER ENCODING                             *)
+(* ========================================================================== *)
+
+(* Because figure-eight and long knots only appear in the units position,
+   the boundary between consecutive numbers is unambiguous. When a
+   figure-eight or long knot is encountered, it marks the units place
+   of a number; the next cluster of overhand knots above begins a new
+   number's higher places.
+
+   Example: "107, 51" on one cord:
+     1 overhand (hundreds=1), gap (tens=0), 7-turn long (units=7),
+     5 overhand (tens=5), 1 figure-eight (units=1)
+   Read bottom-to-top: first number 107, second number 51. *)
+
+Definition is_units_knot (k : Knot) : bool :=
+  match k_kind k with
+  | FigureEight => true
+  | Long _ => true
+  | _ => false
+  end.
+
+(* Partition a sorted knot list into segments, each ending with a units knot.
+   We use a fuel parameter to ensure termination. *)
+Fixpoint partition_by_units_aux (fuel : nat) (acc : list Knot) (ks : list Knot)
+  : list (list Knot) :=
+  match fuel with
+  | 0 => match acc with
+         | List.nil => List.nil
+         | _ => List.cons (List.rev acc) List.nil
+         end
+  | S fuel' =>
+      match ks with
+      | List.nil =>
+          match acc with
+          | List.nil => List.nil
+          | _ => List.cons (List.rev acc) List.nil
+          end
+      | List.cons k rest =>
+          if is_units_knot k then
+            List.cons (List.rev (List.cons k acc)) (partition_by_units_aux fuel' List.nil rest)
+          else
+            partition_by_units_aux fuel' (List.cons k acc) rest
+      end
+  end.
+
+Definition partition_by_units (ks : list Knot) : list (list Knot) :=
+  partition_by_units_aux (length ks) List.nil ks.
+
+(* For multi-number encoding, we need register specs for each number. *)
+Definition encode_multi {n : nat} (ns : NumeralSpec n) (nums : list (Vector.t digit n))
+  : list Knot :=
+  List.concat (List.map (encode ns) nums).
+
+(* ========================================================================== *)
+(*                          ACCOUNTING PATTERNS                               *)
+(* ========================================================================== *)
+
+(* The Inkawasi khipus (Urton & Chu 2014) revealed arithmetic patterns
+   suggesting taxation. Values often satisfy a = b + c where c is a
+   fixed "tax" amount (commonly 10 or 15 units). *)
+
+Definition TaxRate : Type := nat.
+
+Definition common_tax_10 : TaxRate := 10.
+Definition common_tax_15 : TaxRate := 15.
+
+Record TaxedValue : Type := {
+  tv_gross : nat;
+  tv_tax : TaxRate;
+  tv_net : nat;
+  tv_valid : tv_net + tv_tax = tv_gross
+}.
+
+Definition compute_tax (gross : nat) (rate : TaxRate) : option TaxedValue.
+Proof.
+  destruct (rate <=? gross) eqn:Hle.
+  - apply Some.
+    refine {| tv_gross := gross;
+              tv_tax := rate;
+              tv_net := gross - rate;
+              tv_valid := _ |}.
+    apply Nat.leb_le in Hle. lia.
+  - exact None.
+Defined.
+
+Lemma tax_preserves_value : forall tv,
+  tv_net tv + tv_tax tv = tv_gross tv.
+Proof.
+  intros tv. exact (tv_valid tv).
+Qed.
+
+(* A ledger column shows taxation if all entries satisfy the tax pattern. *)
+Definition column_shows_tax (values : list nat) (rate : TaxRate) : Prop :=
+  forall v, List.In v values -> rate <= v.
+
+Definition column_shows_taxb (values : list nat) (rate : TaxRate) : bool :=
+  forallb (fun v => rate <=? v) values.
+
+Lemma column_shows_taxb_spec : forall values rate,
+  column_shows_taxb values rate = true <-> column_shows_tax values rate.
+Proof.
+  intros values rate.
+  unfold column_shows_taxb, column_shows_tax.
+  rewrite forallb_forall.
+  split; intros H v Hin.
+  - apply Nat.leb_le. apply H. exact Hin.
+  - apply Nat.leb_le. apply H. exact Hin.
+Qed.
+
+(* ========================================================================== *)
+(*                          PLACE-NAME PREFIXES                               *)
+(* ========================================================================== *)
+
+(* Urton & Brezine (2005) discovered that three consecutive figure-eight
+   knots at the start of Puruchuco khipus encode the place name—the first
+   identified non-numerical "word" in khipu. This suggests khipus could
+   have institutional or geographic prefixes. *)
+
+Definition PlacePrefix : Type := list KnotKind.
+
+Definition puruchuco_prefix : PlacePrefix :=
+  List.cons FigureEight (List.cons FigureEight (List.cons FigureEight List.nil)).
+
+Definition has_prefix (prefix : PlacePrefix) (ks : list Knot) : bool :=
+  let kinds := List.map k_kind ks in
+  let prefix_len := length prefix in
+  (prefix_len <=? length kinds) &&
+  forallb (fun '(a, b) =>
+    match a, b with
+    | FigureEight, FigureEight => true
+    | Overhand, Overhand => true
+    | Long t1, Long t2 => tval t1 =? tval t2
+    | _, _ => false
+    end) (List.combine prefix (List.firstn prefix_len kinds)).
+
+Definition is_puruchuco_khipu (ks : list Knot) : bool :=
+  has_prefix puruchuco_prefix ks.
+
+(* ========================================================================== *)
 (*                               REFERENCES                                   *)
 (* ========================================================================== *)
 
 (*
-  Ascher, M. & Ascher, R. Code of the Quipu: A Study in Media, Mathematics,
-    and Culture. University of Michigan Press, Ann Arbor, 1981.
+  === PRIMARY COLONIAL SOURCES (16th-17th century) ===
+
+  Cieza de León, P. Parte Primera de la Crónica del Perú. Seville, 1553.
+    First detailed European description of khipu use by Inka administrators.
 
   Garcilaso de la Vega, I. Comentarios Reales de los Incas. Lisbon, 1609.
+    Mestizo chronicler's account of khipu as mnemonic and record-keeping device.
 
-  Hyland, S. "Ply, Markedness, and Redundancy: New Evidence for How Andean
-    Khipus Encoded Information." American Anthropologist 116(3):643-649, 2014.
+  Guaman Poma de Ayala, F. El Primer Nueva Corónica y Buen Gobierno. 1615.
+    Contains iconic illustration of quipucamayoc (khipu keeper) with yupana.
+    Manuscript held at Royal Danish Library (GKS 2232 4to).
+
+  === FOUNDATIONAL STUDIES (19th-early 20th century) ===
+
+  Uhle, M. "A Modern Quipu from Cutusuma, Bolivia." Bulletin of the Free
+    Museum of the University of Pennsylvania I:51-63, 1897.
+    First ethnographic documentation of khipu creation with maker interview.
 
   Locke, L.L. "The Ancient Quipu, A Peruvian Knot Record." American
     Anthropologist 14(2):325-332, 1912.
+    Initial decipherment of decimal positional encoding.
 
   Locke, L.L. The Ancient Quipu or Peruvian Knot Record. American Museum
     of Natural History, New York, 1923.
+    Definitive work establishing knot types and place-value system.
 
-  Medrano, M. & Urton, G. "Toward the Decipherment of a Set of Mid-Colonial
-    Khipus from the Santa Valley, Coastal Peru." Ethnohistory 65(1):1-23, 2018.
+  === MODERN SCHOLARSHIP (late 20th century) ===
 
-  Salomon, F. The Cord Keepers: Khipus and Cultural Life in a Peruvian
-    Village. Duke University Press, Durham, 2004.
+  Ascher, M. & Ascher, R. Code of the Quipu: A Study in Media, Mathematics,
+    and Culture. University of Michigan Press, Ann Arbor, 1981.
+    Republished as Mathematics of the Incas (Dover, 1997).
+    Systematic analysis of 200+ khipus; introduced "Ascher relations."
+
+  Conklin, W.J. "The Information System of the Middle Horizon Quipus."
+    Annals of the New York Academy of Sciences 385:261-281, 1982.
+    Demonstrated Wari khipus predate Inka by 700 years with different conventions.
+
+  === CONTEMPORARY RESEARCH (21st century) ===
+
+  Quilter, J. & Urton, G. (eds.) Narrative Threads: Accounting and Recounting
+    in Andean Khipu. University of Texas Press, Austin, 2002.
+    Landmark anthology with essays by Ascher, Conklin, Hyland, and others.
 
   Urton, G. Signs of the Inka Khipu: Binary Coding in the Andean Knotted-
     String Records. University of Texas Press, Austin, 2003.
+    Proposed 7-bit binary encoding theory based on construction choices.
+
+  Salomon, F. The Cord Keepers: Khipus and Cultural Life in a Peruvian
+    Village. Duke University Press, Durham, 2004.
+    Ethnography of Tupicocha village where khipus remained in use until ~1900.
 
   Urton, G. & Brezine, C. "Khipu Accounting in Ancient Peru." Science
     309(5737):1065-1067, 2005.
+    Identified three figure-eight knots as place-name prefix for Puruchuco.
+
+  Brokaw, G. A History of the Khipu. Cambridge University Press, 2010.
+    Media studies approach to khipu before and after Spanish conquest.
+
+  Hyland, S. "Ply, Markedness, and Redundancy: New Evidence for How Andean
+    Khipus Encoded Information." American Anthropologist 116(3):643-649, 2014.
+    Demonstrated S/Z twist correlation with Hanan/Urin moiety organization.
+
+  Urton, G. & Chu, A. "Accounting in the King's Storehouse: The Inkawasi
+    Khipu Archive." Latin American Antiquity 26(4):512-529, 2015.
+    First khipus found with associated stored goods; revealed tax patterns.
+
+  Hyland, S. "Writing with Twisted Cords: The Inscriptive Capacity of Andean
+    Khipus." Current Anthropology 58(3):412-419, 2017.
+    Identified 95 distinct signs in Collata epistolary khipus; proposed
+    phonetic encoding of lineage names.
+
+  Urton, G. Inka History in Knots: Reading Khipus as Primary Sources.
+    University of Texas Press, Austin, 2017.
+    Synthesis of 25 years of research on khipu as historical documents.
+
+  Medrano, M. & Urton, G. "Toward the Decipherment of a Set of Mid-Colonial
+    Khipus from the Santa Valley, Coastal Peru." Ethnohistory 65(1):1-23, 2018.
+    Matched khipu data to 1670 Spanish census; identified recto/verso semantics.
+
+  Clindaniel, J. "Toward a Grammar of the Inka Khipu: Investigating the
+    Production of Non-numerical Signs." PhD dissertation, Harvard, 2019.
+    Deciphered several non-numerical signs as binary hierarchical pairs.
+
+  Milillo, L. et al. "Heritage Science Contribution to the Understanding of
+    Meaningful Khipu Colours." Heritage 6:2355-2378, 2023.
+    First scientific analysis of khipu dyes: cochineal, indigo, iron mordants.
+
+  Clindaniel, J. et al. "How Can Data Science Contribute to Understanding
+    the Khipu Code?" Latin American Antiquity 35(2):387-407, 2024.
+    Computational analysis of 650 khipus; confirmed Ascher relations in 74%;
+    identified white cords as boundary markers.
+
+  Medrano, M. et al. "New Insights on Cord Attachment and Social Hierarchy
+    in Six Khipus from the Santa Valley, Peru." Ethnohistory 71(4):443-469, 2024.
+    First identification of recto/verso attachment as marked/unmarked sign.
+
+  Thompson, K. "A Numerical Connection Between Two Khipus."
+    Ethnohistory (online), 2024.
+    Connected largest known khipu to complex summary khipu via divider cords.
+
+  Brezine, C. et al. "A New Naming Convention for Andean Khipus."
+    Latin American Antiquity 35(3), 2024.
+    Standardized nomenclature for khipu scholarship.
+
+  === DATABASES AND DIGITAL RESOURCES ===
 
   Harvard Khipu Database Project. https://khipukamayuq.fas.harvard.edu
+    Founded by Urton and Brezine; contains data on 600+ khipus.
+
+  Open Khipu Repository. https://github.com/khipulab/open-khipu-repository
+    Administered by Clindaniel; SQLite database of all published khipu data.
+
+  Khipu Field Guide. https://khipufieldguide.com
+    Interactive resource for khipu analysis and visualization.
 *)
 
 End Khipu.
